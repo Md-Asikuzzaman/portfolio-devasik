@@ -1,8 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Poppins', sans-serif !important;
+  /* @apply bg-slate-50 */
+}
+
 .container {
   @apply mx-auto w-full px-4;
   max-width: 1140px;
+}
+
+.header__container {
+  @apply mx-auto w-full px-14;
+  max-width: 2000px;
+}
+
+.mode--active {
+  @apply text-orange-500;
 }

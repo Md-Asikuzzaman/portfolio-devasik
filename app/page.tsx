@@ -1,17 +1,15 @@
+import About from '@/components/sections/about';
 import Header from '@/components/sections/header';
+import Hero from '@/components/sections/hero';
 import { NextPage, Metadata } from 'next';
 interface Props {}
-
-export const metadata: Metadata = {
-  title:
-    'Md Asikuzzaman | MERN Stack Web Developer - such as (MongoDB, Express, React & Next, Node)',
-  description: 'something',
-};
 
 const Home: NextPage<Props> = ({}) => {
   return (
     <>
       <Header />
+      <Hero />
+      <About />
     </>
   );
 };
