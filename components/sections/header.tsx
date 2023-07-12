@@ -9,7 +9,7 @@ const Header: NextPage<Props> = ({}) => {
     <header className='bg-[#F9FBFC]'>
       <nav className='header__container h-20 flex items-center justify-between'>
         <a className='flex items-center gap-1 text-xl' href={'#'}>
-          <TbCodeDots className='text-3xl' /> dev asik
+          <TbCodeDots className='text-3xl text-orange-500' /> dev asik
         </a>
         <NavOption>
           <li>

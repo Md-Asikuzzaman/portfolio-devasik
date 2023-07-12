@@ -11,7 +11,7 @@ const Hero = () => {
       <Image
         className='absolute z-[-1] '
         src='/images/hero-bg.jpg'
-        alt='asasd'
+        alt='bg'
         fill
         priority
       />
@@ -20,19 +20,17 @@ const Hero = () => {
           I'm <span className='text-orange-500'>Dev Asik</span>
         </h1>
         <h2 className='text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-4xl tracking-tight text-center dark:text-white'>
-          Web Developer_
+          <Typewriter
+            options={{
+              strings: ['Web Developer', 'Web Designer', 'Programmer'],
+              autoStart: true,
+              loop: true,
+              cursor: '👨‍💻',
+            }}
+          />
         </h2>
         <SocialLink />
         <HeroButton />
-        <h1>
-          <Typewriter
-            options={{
-              strings: ['Hello', 'World'],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h1>
       </div>
     </section>
   );

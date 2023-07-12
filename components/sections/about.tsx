@@ -1,13 +1,23 @@
 'use client';
 
+import Image from 'next/image';
 import Tab from '../tab';
 
 const About = () => {
   return (
-    <section className='p-10'>
-      <div className='container grid grid-cols-3 gap-20'>
-        <h1 className='text-5xl'>Hello world</h1>
-        <Tab />
+    <section className='py-14'>
+      <div className='container'>
+        <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>About Me</h2>
+        <div className='grid grid-cols-3 gap-10 px-10'>
+          <Image
+            className='mx-auto rounded-full'
+            src={'/images/dev.jpg'}
+            alt='dev'
+            height='300'
+            width='300'
+          />
+          <Tab />
+        </div>
       </div>
     </section>
   );
