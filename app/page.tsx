@@ -1,7 +1,8 @@
 import About from '@/components/sections/about';
 import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
-import Services from '@/components/sections/services';
+import Project from '@/components/sections/project';
+import Testimonial from '@/components/sections/testimonial';
 import { NextPage, Metadata } from 'next';
 interface Props {}
 
@@ -11,7 +12,8 @@ const Home: NextPage<Props> = ({}) => {
       <Header />
       <Hero />
       <About />
-      <Services />
+      <Testimonial />
+      <Project />
     </>
   );
 };
