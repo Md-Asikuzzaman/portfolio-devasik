@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section className='py-14'>
+    <section id="about" className='py-14'>
       <div className='container'>
         <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>
           About Me

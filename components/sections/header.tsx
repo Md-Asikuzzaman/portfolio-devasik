@@ -23,7 +23,7 @@ const Header: NextPage<Props> = ({}) => {
           <li>
             <a
               className='text-base font-medium text-slate-800  hover:text-orange-500'
-              href='#'
+              href='#about'
             >
               About
             </a>
@@ -31,15 +31,7 @@ const Header: NextPage<Props> = ({}) => {
           <li>
             <a
               className='text-base font-medium text-slate-800  hover:text-orange-500'
-              href='#'
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <a
-              className='text-base font-medium text-slate-800  hover:text-orange-500'
-              href='#'
+              href='#works'
             >
               Works
             </a>
