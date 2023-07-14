@@ -8,8 +8,8 @@ const NavOption = ({ children }: { children: React.ReactNode }) => {
       <div className='w-[1px] h-auto bg-slate-200' />
       <div className='flex items-center gap-5'>
         <div className=''>
-          <BiSun className='w-6 h-6 mode--active' />
-          {/* <BsMoonStars className='w-6 h-6' /> */}
+          {/* <BiSun className='w-6 h-6 text-orange-500 cursor-pointer' /> */}
+          <BsMoonStars className='w-5 h-5 text-orange-500 cursor-pointer' />
         </div>
         <a href='https://www.face.com'>
           <BiLogoGithub className='w-6 h-6 text-slate-400 hover:text-slate-500' />

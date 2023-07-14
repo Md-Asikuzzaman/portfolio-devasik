@@ -2,11 +2,9 @@ import { NextPage } from 'next';
 import { TbCodeDots } from 'react-icons/tb';
 import NavOption from '../navOption';
 
-interface Props {}
-
-const Header: NextPage<Props> = ({}) => {
+const Header: NextPage = () => {
   return (
-    <header className='bg-[#F9FBFC]'>
+    <header className='sticky top-0 bg-[#f9fbfc85] z-50 backdrop-blur-md'>
       <nav className='header__container h-20 flex items-center justify-between'>
         <a className='flex items-center gap-1 text-xl' href={'#'}>
           <TbCodeDots className='text-3xl text-orange-500' /> dev asik

@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { PiLinkDuotone } from 'react-icons/pi';
+import { motion } from 'framer-motion';
 
 interface Props {
   id: number;
@@ -13,7 +14,13 @@ interface Props {
 
 const Project: NextPage<Props> = ({ photo, title, details, links }) => {
   return (
-    <div className='relative bg-[#F9F9FF] shadow-md p-5 text-center rounded-md'>
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      className='relative bg-[#F9F9FF] shadow-md p-5 text-center rounded-md'
+    >
       <div className='relative h-44 w-full'>
         <Image
           className='shadow-md rounded-md'
@@ -33,7 +40,7 @@ const Project: NextPage<Props> = ({ photo, title, details, links }) => {
         <PiLinkDuotone className='h-5 w-5' />
         Live Demo
       </a>
-    </div>
+    </motion.div>
   );
 };
 

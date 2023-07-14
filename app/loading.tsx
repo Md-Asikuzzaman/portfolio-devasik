@@ -1,7 +1,4 @@
-import React from 'react';
-
-const loading = () => {
-  return <div>loading...</div>;
-};
-
-export default loading;
+export default function Loading() {
+  // You can add any UI inside Loading, including a Skeleton.
+  return 'Loading...';
+}

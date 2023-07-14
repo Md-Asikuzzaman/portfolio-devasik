@@ -1,6 +1,10 @@
+'use client';
+
 import { NextPage } from 'next';
 import Work from '../project';
 import Filter from '../filter';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface DataType {
   id: number;
@@ -19,17 +23,7 @@ const data: DataType[] = [
     details:
       'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
     links: 'www.facebook.com',
-    category: 'template',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'template',
+    category: 'tools',
   },
 
   {
@@ -41,31 +35,123 @@ const data: DataType[] = [
     links: 'www.facebook.com',
     category: 'tools',
   },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'tools',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'tools',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'template',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'tools',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'template',
+  },
 ];
 
-interface Props {}
+const Works: NextPage = () => {
+  const [project, setProject] = useState(data);
+  const [filtered, setFiltered] = useState(data);
+  const [activeButton, setActiveButton] = useState('all');
 
-const Works: NextPage<Props> = ({}) => {
   return (
     <section id='works' className='py-14'>
       <div className='container'>
         <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>
           Recent Works
         </h2>
-        <Filter />
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-10'>
-          {data.map((project) => (
-            <Work
-              key={project.id}
-              id={project.id}
-              photo={project.photo}
-              title={project.title}
-              details={project.details}
-              links={project.links}
-              category={project.category}
-            />
-          ))}
-        </div>
+        <Filter
+          project={project}
+          setFiltered={setFiltered}
+          activeButton={activeButton}
+          setActiveButton={setActiveButton}
+        />
+        <motion.div
+          layout
+          className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-10'
+        >
+          <AnimatePresence>
+            {filtered.map((project) => (
+              <Work
+                key={project.id}
+                id={project.id}
+                photo={project.photo}
+                title={project.title}
+                details={project.details}
+                links={project.links}
+                category={project.category}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

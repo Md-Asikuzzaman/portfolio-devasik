@@ -19,6 +19,7 @@ body {
   max-width: 2000px;
 }
 
-.mode--active {
-  @apply text-orange-500;
+
+.filter--active {
+  @apply bg-orange-500 text-white border border-orange-500;
 }
