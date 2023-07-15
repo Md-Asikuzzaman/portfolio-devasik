@@ -1,5 +1,3 @@
-'use client';
-
 import { Metadata } from 'next';
 import './globals.css';
 
@@ -15,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className='scroll-smooth scroll-pt-7' lang='en'>
+    <html className='scroll-pt-7 scroll-smooth' lang='en'>
       <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );

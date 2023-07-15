@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className='relative h-[calc(100vh_-_80px)] flex items-center justify-center'>
       <Image
-        className='absolute z-[-1] '
+        className='absolute z-[-1]'
         src='/images/hero-bg.jpg'
         alt='bg'
         fill

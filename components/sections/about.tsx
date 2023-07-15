@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className='py-14'>
+    <section id='about' className='py-14 dark:bg-gray-900'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>
+        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
           About Me
         </h2>
         <div className='grid grid-cols-3 gap-10 px-10'>

@@ -42,9 +42,9 @@ export default function Testimonial() {
   );
 
   return (
-    <section className='py-14 bg-slate-100'>
+    <section className='py-14 bg-slate-100 dark:bg-gray-800'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>
+        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
           Client Feedback
         </h2>
         <div className='w-[600px] bg-white shadow-md rounded-lg mx-auto'>

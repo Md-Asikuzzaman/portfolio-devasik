@@ -123,9 +123,9 @@ const Works: NextPage = () => {
   const [activeButton, setActiveButton] = useState('all');
 
   return (
-    <section id='works' className='py-14'>
+    <section id='works' className='py-14 dark:bg-gray-900'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-slate-900 mb-10'>
+        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
           Recent Works
         </h2>
         <Filter

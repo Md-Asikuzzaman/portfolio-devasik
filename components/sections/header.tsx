@@ -1,42 +1,67 @@
+'use client';
+
+import { useState } from 'react';
 import { NextPage } from 'next';
 import { TbCodeDots } from 'react-icons/tb';
 import NavOption from '../navOption';
 
 const Header: NextPage = () => {
+  const [navOptionActive, setNavOptionActive] = useState('home');
+
   return (
-    <header className='sticky top-0 bg-[#f9fbfc85] z-50 backdrop-blur-md'>
+    <header className='sticky top-0 bg-[#ffffff85] z-50 backdrop-blur-md dark:bg-[#11182785]'>
       <nav className='header__container h-20 flex items-center justify-between'>
-        <a className='flex items-center gap-1 text-xl' href={'#'}>
+        <a
+          className='flex items-center gap-1 text-xl dark:text-white'
+          href={'#'}
+        >
           <TbCodeDots className='text-3xl text-orange-500' /> dev asik
         </a>
+
         <NavOption>
-          <li>
+          <li onClick={() => setNavOptionActive('home')}>
             <a
-              className='text-base font-medium text-slate-800  hover:text-orange-500'
+              className={`${
+                navOptionActive == 'home'
+                  ? 'text-orange-500'
+                  : 'text-slate-800 dark:text-white'
+              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
               href='#'
             >
               Home
             </a>
           </li>
-          <li>
+          <li onClick={() => setNavOptionActive('about')}>
             <a
-              className='text-base font-medium text-slate-800  hover:text-orange-500'
+              className={`${
+                navOptionActive == 'about'
+                  ? 'text-orange-500'
+                  : 'text-slate-800 dark:text-white'
+              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
               href='#about'
             >
               About
             </a>
           </li>
-          <li>
+          <li onClick={() => setNavOptionActive('works')}>
             <a
-              className='text-base font-medium text-slate-800  hover:text-orange-500'
+              className={`${
+                navOptionActive == 'works'
+                  ? 'text-orange-500'
+                  : 'text-slate-800 dark:text-white'
+              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
               href='#works'
             >
               Works
             </a>
           </li>
-          <li>
+          <li onClick={() => setNavOptionActive('contact')}>
             <a
-              className='text-base font-medium text-slate-800 hover:text-orange-500'
+              className={`${
+                navOptionActive == 'contact'
+                  ? 'text-orange-500'
+                  : 'text-slate-800 dark:text-white'
+              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
               href='#'
             >
               Contact

@@ -84,10 +84,10 @@ const Tab = () => {
       </div>
       {tab == 1 && (
         <div className='p-4 pt-10'>
-          <p className='text-slate-500 mb-5 font-semibold'>
+          <p className='text-slate-500 mb-5 font-semibold dark:text-gray-200'>
             Hi, This is Md Asikuzzaman
           </p>
-          <p className='text-slate-500 mb-5 leading-7'>
+          <p className='text-slate-500 mb-5 leading-7 dark:text-gray-400'>
             A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
             technologies. Currently I am running a well known software company
@@ -210,23 +210,23 @@ const Tab = () => {
       )}
       {tab == 3 && (
         <div className='mt-5'>
-          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md'>
+          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md dark:bg-gray-800'>
             <div className='flex h-[inherit] gap-6'>
               <div className='shrink-0 flex flex-col justify-center items-center gap-2'>
                 <BsBriefcase className='shrink-0 text-3xl text-orange-500' />
                 <div className='w-[2px] h-full bg-orange-500' />
               </div>
               <div>
-                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-white'>
+                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-gray-200'>
                   Senior Front-end Developer
                 </h3>
-                <h5 className='font-bold text-sm mb-2 text-gray-500'>
+                <h5 className='font-bold text-sm mb-2 text-gray-500 dark:text-gray-300'>
                   - Upwork (Freeluncher)
                 </h5>
                 <span className='inline-flex items-center gap-1 py-1 rounded-full text-xs font-semibold whitespace-nowrap px-2 focus:outline-none focus:ring-2 bg-orange-50 text-orange-600 ring-1 ring-orange-500'>
                   January 2019 - Running
                 </span>
-                <p className='text-slate-500 leading-7 mt-5'>
+                <p className='text-slate-500 leading-7 mt-5 dark:text-gray-300'>
                   A Passionate Software Developer, Entrepreneur and Programmer.
                   I love to play with coding, building software, and focusing on
                   learning new technologies. Currently I am running a well known
@@ -239,23 +239,23 @@ const Tab = () => {
             </div>
           </div>
 
-          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md'>
+          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md dark:bg-gray-800'>
             <div className='flex h-[inherit] gap-6'>
               <div className='shrink-0 flex flex-col justify-center items-center gap-2'>
                 <BsBriefcase className='shrink-0 text-3xl text-orange-500' />
                 <div className='w-[2px] h-full bg-orange-500' />
               </div>
               <div>
-                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-white'>
-                  Full Stack Developer
+                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-gray-200'>
+                  Senior Front-end Developer
                 </h3>
-                <h5 className='font-bold text-sm mb-2 text-gray-500'>
-                  - City It Park
+                <h5 className='font-bold text-sm mb-2 text-gray-500 dark:text-gray-300'>
+                  - Upwork (Freeluncher)
                 </h5>
                 <span className='inline-flex items-center gap-1 py-1 rounded-full text-xs font-semibold whitespace-nowrap px-2 focus:outline-none focus:ring-2 bg-orange-50 text-orange-600 ring-1 ring-orange-500'>
                   January 2019 - Running
                 </span>
-                <p className='text-slate-500 leading-7 mt-5'>
+                <p className='text-slate-500 leading-7 mt-5 dark:text-gray-300'>
                   A Passionate Software Developer, Entrepreneur and Programmer.
                   I love to play with coding, building software, and focusing on
                   learning new technologies. Currently I am running a well known
@@ -269,25 +269,26 @@ const Tab = () => {
           </div>
         </div>
       )}
+
       {tab == 4 && (
         <div className='mt-5'>
-          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md'>
+          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md dark:bg-gray-800'>
             <div className='flex h-[inherit] gap-6'>
               <div className='shrink-0 flex flex-col justify-center items-center gap-2'>
                 <PiStudentLight className='shrink-0 text-3xl text-orange-500' />
                 <div className='w-[2px] h-full bg-orange-500' />
               </div>
               <div>
-                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-white'>
-                  BSC in CSE (BUBT)
+                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-gray-200'>
+                  Senior Front-end Developer
                 </h3>
-                <h5 className='font-bold text-sm mb-2 text-gray-500'>
+                <h5 className='font-bold text-sm mb-2 text-gray-500 dark:text-gray-300'>
                   - Upwork (Freeluncher)
                 </h5>
                 <span className='inline-flex items-center gap-1 py-1 rounded-full text-xs font-semibold whitespace-nowrap px-2 focus:outline-none focus:ring-2 bg-orange-50 text-orange-600 ring-1 ring-orange-500'>
                   January 2019 - Running
                 </span>
-                <p className='text-slate-500 leading-7 mt-5'>
+                <p className='text-slate-500 leading-7 mt-5 dark:text-gray-300'>
                   A Passionate Software Developer, Entrepreneur and Programmer.
                   I love to play with coding, building software, and focusing on
                   learning new technologies. Currently I am running a well known
@@ -300,23 +301,23 @@ const Tab = () => {
             </div>
           </div>
 
-          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md'>
+          <div className='px-5 py-6 mt-5 bg-slate-50 rounded-md shadow-md dark:bg-gray-800'>
             <div className='flex h-[inherit] gap-6'>
               <div className='shrink-0 flex flex-col justify-center items-center gap-2'>
                 <PiStudentLight className='shrink-0 text-3xl text-orange-500' />
                 <div className='w-[2px] h-full bg-orange-500' />
               </div>
               <div>
-                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-white'>
-                  Diploma in CSE
+                <h3 className='text-xl font-bold tracking-tight text-slate-800 dark:text-gray-200'>
+                  Senior Front-end Developer
                 </h3>
-                <h5 className='font-bold text-sm mb-2 text-gray-500'>
-                  - City Polytechnic Institute (khulna)
+                <h5 className='font-bold text-sm mb-2 text-gray-500 dark:text-gray-300'>
+                  - Upwork (Freeluncher)
                 </h5>
                 <span className='inline-flex items-center gap-1 py-1 rounded-full text-xs font-semibold whitespace-nowrap px-2 focus:outline-none focus:ring-2 bg-orange-50 text-orange-600 ring-1 ring-orange-500'>
                   January 2019 - Running
                 </span>
-                <p className='text-slate-500 leading-7 mt-5'>
+                <p className='text-slate-500 leading-7 mt-5 dark:text-gray-300'>
                   A Passionate Software Developer, Entrepreneur and Programmer.
                   I love to play with coding, building software, and focusing on
                   learning new technologies. Currently I am running a well known

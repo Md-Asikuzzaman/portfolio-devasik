@@ -39,7 +39,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'all' && 'filter--active'
-        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-orange-400 dark:hover:text-white dark:hover:bg-orange-500`}
+        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-white dark:hover:text-white dark:hover:bg-orange-500`}
         onClick={() => setActiveButton('all')}
       >
         All
@@ -49,7 +49,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'template' && 'filter--active'
-        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-orange-400 dark:hover:text-white dark:hover:bg-orange-500`}
+        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-white dark:hover:text-white dark:hover:bg-orange-500`}
         onClick={() => setActiveButton('template')}
       >
         Template
@@ -59,7 +59,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'web_app' && 'filter--active'
-        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-orange-400 dark:hover:text-white dark:hover:bg-orange-500`}
+        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-white dark:hover:text-white dark:hover:bg-orange-500`}
         onClick={() => setActiveButton('web_app')}
       >
         Web App
@@ -68,7 +68,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'tools' && 'filter--active'
-        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-orange-400 dark:hover:text-white dark:hover:bg-orange-500`}
+        } text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-400 dark:text-white dark:hover:text-white dark:hover:bg-orange-500`}
         onClick={() => setActiveButton('tools')}
       >
         Tools

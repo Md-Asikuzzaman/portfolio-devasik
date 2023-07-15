@@ -19,7 +19,7 @@ const Project: NextPage<Props> = ({ photo, title, details, links }) => {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      className='relative bg-[#F9F9FF] shadow-md p-5 text-center rounded-md'
+      className='relative bg-[#F9F9FF] shadow-md p-5 text-center rounded-md dark:bg-gray-800'
     >
       <div className='relative h-44 w-full'>
         <Image
@@ -29,10 +29,12 @@ const Project: NextPage<Props> = ({ photo, title, details, links }) => {
           fill={true}
         />
       </div>
-      <h3 className='text-xl text-slate-600 text-center font-semibold py-4'>
+      <h3 className='text-xl text-slate-600 text-center font-semibold py-4 dark:text-gray-200'>
         {title}
       </h3>
-      <p className='text-slate-500 text-sm text-center'>{details}</p>
+      <p className='text-slate-500 text-sm text-center dark:text-gray-300'>
+        {details}
+      </p>
       <a
         className='text-orange-500 font-medium inline-flex items-center gap-1 pt-4 transform duration-200 hover:scale-110'
         href={links}
