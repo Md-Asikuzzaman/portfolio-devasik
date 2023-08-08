@@ -1,10 +1,10 @@
 'use client';
 
 import { NextPage } from 'next';
-import Work from '../project';
-import Filter from '../filter';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Filter from '../filter';
+import Project from '../project';
 
 interface DataType {
   id: number;
@@ -117,15 +117,15 @@ const data: DataType[] = [
   },
 ];
 
-const Works: NextPage = () => {
+const ProjectTab: NextPage = () => {
   const [project, setProject] = useState(data);
   const [filtered, setFiltered] = useState(data);
   const [activeButton, setActiveButton] = useState('all');
 
   return (
-    <section id='works' className='py-14 dark:bg-gray-900'>
+    <section id='works' className='py-14 bg-black'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
+        <h2 className='text-4xl text-center font-bold mb-10 text-white'>
           Recent Works
         </h2>
         <Filter
@@ -136,11 +136,11 @@ const Works: NextPage = () => {
         />
         <motion.div
           layout
-          className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-10'
+          className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10'
         >
           <AnimatePresence>
             {filtered.map((project) => (
-              <Work
+              <Project
                 key={project.id}
                 id={project.id}
                 photo={project.photo}
@@ -157,4 +157,4 @@ const Works: NextPage = () => {
   );
 };
 
-export default Works;
+export default ProjectTab;

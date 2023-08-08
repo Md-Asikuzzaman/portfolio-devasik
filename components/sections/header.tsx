@@ -9,12 +9,9 @@ const Header: NextPage = () => {
   const [navOptionActive, setNavOptionActive] = useState('home');
 
   return (
-    <header className='sticky top-0 bg-[#ffffff85] z-50 backdrop-blur-md dark:bg-[#11182785]'>
+    <header className='fixed w-full top-0 z-50'>
       <nav className='header__container h-20 flex items-center justify-between'>
-        <a
-          className='flex items-center gap-1 text-xl dark:text-white'
-          href={'#'}
-        >
+        <a className='flex items-center gap-1 text-xl text-white' href={'#'}>
           <TbCodeDots className='text-3xl text-orange-500' /> dev asik
         </a>
 
@@ -22,10 +19,8 @@ const Header: NextPage = () => {
           <li onClick={() => setNavOptionActive('home')}>
             <a
               className={`${
-                navOptionActive == 'home'
-                  ? 'text-orange-500'
-                  : 'text-slate-800 dark:text-white'
-              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
+                navOptionActive == 'home' ? 'text-orange-500' : 'text-[#888888]'
+              } text-base hover:text-orange-500`}
               href='#'
             >
               Home
@@ -36,8 +31,8 @@ const Header: NextPage = () => {
               className={`${
                 navOptionActive == 'about'
                   ? 'text-orange-500'
-                  : 'text-slate-800 dark:text-white'
-              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
+                  : 'text-[#888888]'
+              } text-base hover:text-orange-500`}
               href='#about'
             >
               About
@@ -48,8 +43,8 @@ const Header: NextPage = () => {
               className={`${
                 navOptionActive == 'works'
                   ? 'text-orange-500'
-                  : 'text-slate-800 dark:text-white'
-              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
+                  : 'text-[#888888]'
+              } text-base hover:text-orange-500`}
               href='#works'
             >
               Works
@@ -60,8 +55,8 @@ const Header: NextPage = () => {
               className={`${
                 navOptionActive == 'contact'
                   ? 'text-orange-500'
-                  : 'text-slate-800 dark:text-white'
-              } text-base font-medium hover:text-orange-500 dark:hover:text-orange-500`}
+                  : 'text-[#888888]'
+              } text-base hover:text-orange-500`}
               href='#'
             >
               Contact

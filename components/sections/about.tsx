@@ -1,19 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import Tab from '../tab';
 import { motion } from 'framer-motion';
+import Tab from '../tab';
 
 const About = () => {
   return (
-    <section id='about' className='py-14 dark:bg-gray-900'>
+    <section id='about' className='py-14 bg-black/90'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
+        <h2 className='text-4xl text-center font-bold text-white mb-10'>
           About Me
         </h2>
-        <div className='grid grid-cols-3 gap-10 px-10'>
+        <div className='flex flex-col md:flex-row items-center justify-center gap-10'>
           <Image
-            className='mx-auto rounded-full'
+            className='rounded-full'
             src={'/images/dev.jpg'}
             alt='dev'
             height='300'

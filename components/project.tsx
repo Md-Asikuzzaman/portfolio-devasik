@@ -19,20 +19,20 @@ const Project: NextPage<Props> = ({ photo, title, details, links }) => {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      className='relative bg-[#F9F9FF] shadow-md p-5 text-center rounded-md dark:bg-gray-800'
+      className='relative bg-[#171719] shadow-md p-5 text-center rounded-lg'
     >
       <div className='relative h-44 w-full'>
         <Image
-          className='shadow-md rounded-md'
+          className='shadow-md rounded-md h-full bg-cover'
           src={photo}
           alt={'project'}
           fill={true}
         />
       </div>
-      <h3 className='text-xl text-slate-600 text-center font-semibold py-4 dark:text-gray-200'>
+      <h3 className='text-xl text-gray-300 text-center font-semibold py-4'>
         {title}
       </h3>
-      <p className='text-slate-500 text-sm text-center dark:text-gray-300'>
+      <p className='text-[#888888] text-sm text-center'>
         {details}
       </p>
       <a

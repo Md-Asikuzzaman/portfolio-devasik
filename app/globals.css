@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Poppins', sans-serif !important;
-  /* @apply bg-slate-50 */
+  @apply bg-violet-100;
 }
 
 .container {
@@ -19,7 +19,10 @@ body {
   max-width: 2000px;
 }
 
-
 .filter--active {
-  @apply bg-orange-500 text-white border border-orange-500;
+  @apply bg-orange-500 text-white;
+}
+
+#heroSection {
+  height: 100vh !important;
 }

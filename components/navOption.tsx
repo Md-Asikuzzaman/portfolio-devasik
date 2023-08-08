@@ -33,7 +33,7 @@ const NavOption = ({ children }: { children: React.ReactNode }) => {
           )}
         </div>
         <a href='https://www.face.com'>
-          <BiLogoGithub className='w-6 h-6 text-slate-400 hover:text-slate-500' />
+          <BiLogoGithub className='w-6 h-6 text-[#888888] hover:text-gray-300' />
         </a>
       </div>
     </ul>

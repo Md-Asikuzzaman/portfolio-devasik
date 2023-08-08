@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html className='scroll-pt-7 scroll-smooth' lang='en'>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }

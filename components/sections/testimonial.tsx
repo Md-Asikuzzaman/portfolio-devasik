@@ -2,13 +2,18 @@
 import * as React from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import Slide from '../slide';
+import Slide from '../Slide';
 
 export default function Testimonial() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
+      slides: {
+        perView: 1,
+        spacing: 12,
+      },
     },
+
     [
       (slider) => {
         let timeout: ReturnType<typeof setTimeout>;
@@ -42,48 +47,47 @@ export default function Testimonial() {
   );
 
   return (
-    <section className='py-14 bg-slate-100 dark:bg-gray-800'>
+    <section className='py-14 bg-black/90'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-gray-900 mb-10 dark:text-white'>
-          Client Feedback
+        <h2 className='text-xl text-center font-bold text-[#888888] mb-4'>
+          What client say about me
         </h2>
-        <div className='w-[600px] bg-white shadow-md rounded-lg mx-auto'>
-          <div className='keen-slider' ref={sliderRef}>
-            <Slide
-              name='Akhtar Hussian'
-              title='Freelancer'
-              flag='/flags/bd.png'
-              feedback="He's designing skills is awesome. talented developer."
-            />
 
-            <Slide
-              name='July Alia'
-              title='Graphics Designer'
-              flag='/flags/germany.png'
-              feedback='He is a good developer and good communicator.'
-            />
+        <div ref={sliderRef} className='keen-slider max-w-xl mx-auto'>
+          <Slide
+            name='Akhtar Hussian'
+            title='Freelancer'
+            flag='/flags/bd.png'
+            feedback="He's designing skills is awesome. talented developer."
+          />
 
-            <Slide
-              name='Jack Jhon'
-              title='Content Creator'
-              flag='/flags/usa.png'
-              feedback='Great developer to work with, Really good job. Appreciate!!!'
-            />
+          <Slide
+            name='July Alia'
+            title='Graphics Designer'
+            flag='/flags/germany.png'
+            feedback='He is a good developer and good communicator.'
+          />
 
-            <Slide
-              name='Ziyaad Parker'
-              title='Businessman'
-              flag='/flags/africa.png'
-              feedback='Great Developer, I can 100% recommend him to any future client.'
-            />
+          <Slide
+            name='Jack Jhon'
+            title='Content Creator'
+            flag='/flags/usa.png'
+            feedback='Great developer to work with, Really good job. Appreciate!!!'
+          />
 
-            <Slide
-              name='Ramjan Molla'
-              title='Digital marketing export'
-              flag='/flags/bd.png'
-              feedback='Absolutely skilled developer, the works was good. recommended!'
-            />
-          </div>
+          <Slide
+            name='Ziyaad Parker'
+            title='Businessman'
+            flag='/flags/africa.png'
+            feedback='Great Developer, I can 100% recommend him to any future client.'
+          />
+
+          <Slide
+            name='Ramjan Molla'
+            title='Digital marketing export'
+            flag='/flags/bd.png'
+            feedback='Absolutely skilled developer, the works was good. recommended!'
+          />
         </div>
       </div>
     </section>

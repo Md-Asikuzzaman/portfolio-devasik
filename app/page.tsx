@@ -1,10 +1,11 @@
-import About from '@/components/sections/about';
-import Header from '@/components/sections/header';
-import Hero from '@/components/sections/hero';
-import Project from '@/components/sections/works';
-import Testimonial from '@/components/sections/testimonial';
+import About from '@/components/sections/About';
+import Header from '@/components/sections/Header';
+import Hero from '@/components/sections/Hero';
+import Project from '@/components/sections/ProjectTab';
+import Testimonial from '@/components/sections/Testimonial';
 import { NextPage, Metadata } from 'next';
 import Providers from '@/components/Providers';
+
 interface Props {}
 
 const Home: NextPage<Props> = ({}) => {
