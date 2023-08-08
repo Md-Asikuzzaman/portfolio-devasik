@@ -3,8 +3,8 @@
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Filter from '../filter';
-import Project from '../project';
+import Filter from '../Filter';
+import Project from '../Project';
 
 interface DataType {
   id: number;

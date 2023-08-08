@@ -74,7 +74,7 @@ const Tab = () => {
               onClick={() => handleTab(4)}
               className={`inline-block p-4 border-b-2 rounded-t-lg  ${
                 tab == 4
-                  ? 'text-orange-500 border-b-2 bg-orange-500 rounded-t-lg active'
+                  ? 'text-orange-500 border-b-2 border-orange-500 rounded-t-lg active'
                   : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
               } `}
             >

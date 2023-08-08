@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { NextPage } from 'next';
 import { TbCodeDots } from 'react-icons/tb';
-import NavOption from '../navOption';
+import NavOption from '../NavOption';
 
 const Header: NextPage = () => {
   const [navOptionActive, setNavOptionActive] = useState('home');

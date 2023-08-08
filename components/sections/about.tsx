@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Tab from '../tab';
+import Tab from '../Tab';
 
 const About = () => {
   return (
