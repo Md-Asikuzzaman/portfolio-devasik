@@ -1,5 +1,6 @@
-import { NextPage } from 'next';
+'use client';
 
+import { NextPage } from 'next';
 interface Props {
   title: string;
   company: string;

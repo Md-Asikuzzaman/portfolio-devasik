@@ -1,4 +1,5 @@
 'use client';
+
 import { useCallback } from 'react';
 import type { Container, Engine } from 'tsparticles-engine';
 import Particles from 'react-tsparticles';

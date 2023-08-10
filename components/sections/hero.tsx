@@ -16,10 +16,14 @@ const Hero = () => {
         <h1 className='text-white font-extrabold mb-6 text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center'>
           I'm <span className='gradient__text'>Dev Asik</span>
         </h1>
-        <h2 className='text-zinc-400 font-extrabold text-4xl sm:text-5xl lg:text-4xl tracking-tight text-center dark:text-white'>
+        <h2 className='text-zinc-400 font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight text-center dark:text-white'>
           <Typewriter
             options={{
-              strings: ['Web Developer', 'Web Designer', 'Programmer'],
+              strings: [
+                'Full Stack Developer',
+                'Senior Frontend Engineer',
+                'Programmer',
+              ],
               autoStart: true,
               loop: true,
               cursor: '👨‍💻',

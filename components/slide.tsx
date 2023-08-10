@@ -19,7 +19,9 @@ const Slide: NextPage<Props> = ({ name, title, flag, feedback }) => {
           <Image src={flag} height={50} width={50} alt={'flag'} />
           <div>
             <h4 className='text-lg font-semibold text-white'>{name}</h4>
-            <p className='text-sm text-[#888888]'>{title}</p>
+            <p className='text-sm text-[#888888]'>
+              <i>{title}</i>
+            </p>
           </div>
         </div>
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { BsGithub, BsFacebook, BsLinkedin } from 'react-icons/bs';
 
 const SocialLink = () => {

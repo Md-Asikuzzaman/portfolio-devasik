@@ -1,12 +1,52 @@
 'use client';
-
+import { useState } from 'react';
 import { BiLogoGithub } from 'react-icons/bi';
 // import { HiPhone } from 'react-icons/hi2';
 
-const NavOption = ({ children }: { children: React.ReactNode }) => {
+const NavOption = () => {
+  const [navOptionActive, setNavOptionActive] = useState('home');
   return (
-    <ul className='flex gap-8'>
-      {children}
+    <ul className='hidden md:flex gap-8'>
+      <li onClick={() => setNavOptionActive('home')}>
+        <a
+          className={`${
+            navOptionActive == 'home' ? 'text-orange-500' : 'text-[#888888]'
+          } text-base hover:text-orange-500`}
+          href='#'
+        >
+          Home
+        </a>
+      </li>
+      <li onClick={() => setNavOptionActive('about')}>
+        <a
+          className={`${
+            navOptionActive == 'about' ? 'text-orange-500' : 'text-[#888888]'
+          } text-base hover:text-orange-500`}
+          href='#about'
+        >
+          About
+        </a>
+      </li>
+      <li onClick={() => setNavOptionActive('works')}>
+        <a
+          className={`${
+            navOptionActive == 'works' ? 'text-orange-500' : 'text-[#888888]'
+          } text-base hover:text-orange-500`}
+          href='#works'
+        >
+          Works
+        </a>
+      </li>
+      <li onClick={() => setNavOptionActive('contact')}>
+        <a
+          className={`${
+            navOptionActive == 'contact' ? 'text-orange-500' : 'text-[#888888]'
+          } text-base hover:text-orange-500`}
+          href='#contact'
+        >
+          Contact
+        </a>
+      </li>
       <div className='w-[1px] h-auto bg-[#888888]' />
       <div className='flex items-center gap-5'>
         {/* <a href='https://www.face.com'>

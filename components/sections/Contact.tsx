@@ -6,7 +6,7 @@ import { SiMinutemailer } from 'react-icons/si';
 
 const Contact = () => {
   return (
-    <section id='about' className='py-14 bg-black/90'>
+    <section id='contact' className='py-14 bg-black/90'>
       <div className='container'>
         <h2 className='text-4xl text-center font-bold text-white mb-10'>
           Contact Me
