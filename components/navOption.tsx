@@ -1,10 +1,19 @@
 'use client';
+
+import { NextPage } from 'next';
 import { useState } from 'react';
 import { BiLogoGithub } from 'react-icons/bi';
 // import { HiPhone } from 'react-icons/hi2';
 
-const NavOption = () => {
-  const [navOptionActive, setNavOptionActive] = useState('home');
+interface Props {
+  navOptionActive: string;
+  setNavOptionActive: any;
+}
+
+const NavOption: NextPage<Props> = ({
+  navOptionActive,
+  setNavOptionActive,
+}) => {
   return (
     <ul className='hidden md:flex gap-8'>
       <li onClick={() => setNavOptionActive('home')}>
@@ -47,7 +56,7 @@ const NavOption = () => {
           Contact
         </a>
       </li>
-      <div className='w-[1px] h-auto bg-[#888888]' />
+      <div className='w-[1px] h-auto bg-[#3f3f3f]' />
       <div className='flex items-center gap-5'>
         {/* <a href='https://www.face.com'>
           <HiPhone size={20} className='text-[#888888] hover:text-gray-300' />
