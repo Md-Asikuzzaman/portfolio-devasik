@@ -1,23 +1,32 @@
-import { useCallback, useState } from 'react';
+'use client';
 
-const MobileMenu = () => {
-  const [menuActive, setMenuActive] = useState(false);
+import { NextPage } from 'next';
+interface Props {
+  handleMobileMenu: () => void;
+  menuActive: boolean;
+}
 
-  const handleMobileMenu = useCallback(() => {
-    console.log('click');
-  }, []);
-
+const MobileMenu: NextPage<Props> = ({ menuActive, handleMobileMenu }) => {
   return (
-    <button type='button' onClick={handleMobileMenu}>
-      <div className='text-white flex items-center justify-center md:hidden relative h-[36px] w-[36px] border border-white'>
-        <span
-          className={`h-[1.5px] w-[22px] bg-white inline-flex absolute transform translate-y-[-4px]`}
-        ></span>
-        <span
-          className={`h-[1.5px] w-[22px] bg-white inline-flex absolute transform translate-y-[4px]`}
-        ></span>
-      </div>
-    </button>
+    <div
+      onClick={handleMobileMenu}
+      className='text-white flex items-center justify-center md:hidden relative h-[40px] w-[40px]  cursor-pointer'
+    >
+      <span
+        className={`h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition ${
+          menuActive
+            ? 'translate-y-[0px] rotate-45'
+            : 'translate-y-[-6px] rotate-0'
+        }`}
+      ></span>
+      <span
+        className={`h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition ${
+          menuActive
+            ? 'translate-y-[0px] -rotate-45'
+            : 'translate-y-[6px] rotate-0'
+        }`}
+      ></span>
+    </div>
   );
 };
 
