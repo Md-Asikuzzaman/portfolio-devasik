@@ -24,7 +24,7 @@ const Project: NextPage<Props> = ({ photo, title, details, links }) => {
       exit={{ opacity: 0 }}
       className='relative bg-[#171719] shadow-md text-center rounded-lg overflow-hidden'
     >
-      <div className='relative h-44 w-full'>
+      <div className='relative h-52 md:h-44 w-full'>
         <Image
           className='shadow-md rounded-md h-full bg-contain'
           src={photo}

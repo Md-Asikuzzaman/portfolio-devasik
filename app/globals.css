@@ -15,7 +15,7 @@ body {
 }
 
 .header__container {
-  @apply mx-auto w-full px-14;
+  @apply mx-auto w-full px-8 md:px-14;
   max-width: 2000px;
 }
 

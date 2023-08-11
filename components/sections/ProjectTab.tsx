@@ -125,7 +125,7 @@ const ProjectTab: NextPage = () => {
   return (
     <section id='works' className='py-14 bg-black'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold mb-10 text-white'>
+        <h2 className='text-3xl md:text-4xl text-center font-bold mb-10 text-white'>
           Recent Works
         </h2>
         <Filter

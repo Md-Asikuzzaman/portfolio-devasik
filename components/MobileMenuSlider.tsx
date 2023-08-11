@@ -1,21 +1,22 @@
 import { NextPage } from 'next';
+import SocialLink from './SocialLink';
 
 interface Props {
-  handleMobileMenu: () => void;
-  setNavOptionActive: any;
+  setMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setNavOptionActive: React.Dispatch<React.SetStateAction<string>>;
   menuActive: boolean;
   navOptionActive: string;
 }
 
 const MobileMenuSlider: NextPage<Props> = ({
-  handleMobileMenu,
+  setMenuActive,
   menuActive,
   navOptionActive,
   setNavOptionActive,
 }) => {
   return (
     <div
-      className={`fixed top-[81px] bg-black h-screen w-full left-0 px-14 py-5 transform duration-500 ${
+      className={`fixed md:hidden top-[81px] bg-black h-screen w-full left-0 px-8 py-5 transform duration-500 ${
         menuActive ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
@@ -23,6 +24,7 @@ const MobileMenuSlider: NextPage<Props> = ({
         <li
           onClick={() => {
             setNavOptionActive('home');
+            setMenuActive((value) => !value);
           }}
         >
           <a
@@ -34,7 +36,12 @@ const MobileMenuSlider: NextPage<Props> = ({
             Home
           </a>
         </li>
-        <li onClick={() => setNavOptionActive('about')}>
+        <li
+          onClick={() => {
+            setNavOptionActive('about');
+            setMenuActive((value) => !value);
+          }}
+        >
           <a
             className={`${
               navOptionActive == 'about' ? 'text-orange-500' : 'text-[#888888]'
@@ -44,7 +51,12 @@ const MobileMenuSlider: NextPage<Props> = ({
             About
           </a>
         </li>
-        <li onClick={() => setNavOptionActive('works')}>
+        <li
+          onClick={() => {
+            setNavOptionActive('works');
+            setMenuActive((value) => !value);
+          }}
+        >
           <a
             className={`${
               navOptionActive == 'works' ? 'text-orange-500' : 'text-[#888888]'
@@ -54,7 +66,12 @@ const MobileMenuSlider: NextPage<Props> = ({
             Works
           </a>
         </li>
-        <li onClick={() => setNavOptionActive('contact')}>
+        <li
+          onClick={() => {
+            setNavOptionActive('contact');
+            setMenuActive((value) => !value);
+          }}
+        >
           <a
             className={`${
               navOptionActive == 'contact'
@@ -67,6 +84,8 @@ const MobileMenuSlider: NextPage<Props> = ({
           </a>
         </li>
       </ul>
+
+      <SocialLink variant='mobile' />
     </div>
   );
 };

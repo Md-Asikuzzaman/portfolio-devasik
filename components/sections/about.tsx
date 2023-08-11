@@ -8,7 +8,7 @@ const About = () => {
   return (
     <section id='about' className='py-14 bg-black/90'>
       <div className='container'>
-        <h2 className='text-4xl text-center font-bold text-white mb-10'>
+        <h2 className='text-3xl md:text-4xl text-center font-bold text-white mb-10'>
           About Me
         </h2>
         <div className='flex flex-col md:flex-row items-center justify-center gap-10'>

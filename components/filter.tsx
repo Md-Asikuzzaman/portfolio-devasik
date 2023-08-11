@@ -33,7 +33,7 @@ const Filter: NextPage<Props> = ({
     const filtered = project.filter((work) => work.category == activeButton);
 
     setFiltered(filtered);
-  }, [activeButton]);
+  }, [activeButton, project, setFiltered]);
 
   return (
     <div className='text-center mb-6'>
@@ -41,7 +41,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'all' && 'filter--active'
-        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2`}
+        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-3 md:px-5 py-2.5 text-center mr-2 mb-2`}
         onClick={() => setActiveButton('all')}
       >
         All
@@ -51,7 +51,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'template' && 'filter--active'
-        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2`}
+        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-3 md:px-5 py-2.5 text-center mr-2 mb-2`}
         onClick={() => setActiveButton('template')}
       >
         Template
@@ -61,7 +61,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'web_app' && 'filter--active'
-        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2`}
+        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-3 md:px-5 py-2.5 text-center mr-2 mb-2`}
         onClick={() => setActiveButton('web_app')}
       >
         Web App
@@ -70,7 +70,7 @@ const Filter: NextPage<Props> = ({
         type='button'
         className={`${
           activeButton == 'tools' && 'filter--active'
-        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2`}
+        } text-orange-500 bg-[#2d1908] hover:text-white hover:bg-orange-500 duration-200 font-medium rounded-full text-sm px-3 md:px-5 py-2.5 text-center mr-2 mb-2`}
         onClick={() => setActiveButton('tools')}
       >
         Tools

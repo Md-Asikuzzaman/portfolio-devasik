@@ -1,13 +1,13 @@
 'use client';
 
+import { socialInfo } from '@/lib/social';
 import { NextPage } from 'next';
-import { useState } from 'react';
 import { BiLogoGithub } from 'react-icons/bi';
 // import { HiPhone } from 'react-icons/hi2';
 
 interface Props {
   navOptionActive: string;
-  setNavOptionActive: any;
+  setNavOptionActive: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const NavOption: NextPage<Props> = ({
@@ -61,7 +61,7 @@ const NavOption: NextPage<Props> = ({
         {/* <a href='https://www.face.com'>
           <HiPhone size={20} className='text-[#888888] hover:text-gray-300' />
         </a> */}
-        <a href='https://www.face.com'>
+        <a target='_blank' href={socialInfo.github}>
           <BiLogoGithub
             size={25}
             className='text-[#888888] hover:text-gray-300'

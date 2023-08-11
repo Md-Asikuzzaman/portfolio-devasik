@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import './globals.css';
+import Loading from '@/components/Loading';
 
 export const metadata: Metadata = {
   title:
@@ -13,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className='scroll-pt-7 scroll-smooth' lang='en'>
+    <html className='scroll-pt-10 md:scroll-pt-8 scroll-smooth' lang='en'>
       <body suppressHydrationWarning={true}>
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>
   );

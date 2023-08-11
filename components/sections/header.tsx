@@ -8,9 +8,9 @@ import MobileMenu from '../MobileMenu';
 import MobileMenuSlider from '../MobileMenuSlider';
 
 const Header: NextPage = () => {
-  const [showBackground, setShowBackground] = useState(false);
-  const [menuActive, setMenuActive] = useState(false);
-  const [navOptionActive, setNavOptionActive] = useState('home');
+  const [showBackground, setShowBackground] = useState<boolean>(false);
+  const [menuActive, setMenuActive] = useState<boolean>(false);
+  const [navOptionActive, setNavOptionActive] = useState<string>('home');
 
   const TOP_OFFSET = 66;
 
@@ -52,7 +52,7 @@ const Header: NextPage = () => {
         />
         <MobileMenuSlider
           menuActive={menuActive}
-          handleMobileMenu={handleMobileMenu}
+          setMenuActive={setMenuActive}
           navOptionActive={navOptionActive}
           setNavOptionActive={setNavOptionActive}
         />

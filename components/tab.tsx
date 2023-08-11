@@ -22,6 +22,8 @@ import { SiExpress, SiBootstrap, SiRedux, SiPrisma } from 'react-icons/si';
 import { FaNpm, FaYarn } from 'react-icons/fa';
 import { BsBriefcase } from 'react-icons/bs';
 import SkillCard from './SkillCard';
+import { socialInfo } from '@/lib/social';
+import Image from 'next/image';
 
 const Tab = () => {
   const [tab, setTab] = useState(1);
@@ -84,7 +86,7 @@ const Tab = () => {
         </ul>
       </div>
       {tab == 1 && (
-        <>
+        <div className='px-3'>
           <p className='text-gray-300 text-xl mb-5'>
             Hi, This is Md Asikuzzaman
           </p>
@@ -103,18 +105,20 @@ const Tab = () => {
           </p>
 
           <a
-            href='https://wa.me/+8801995580669'
             target='_blank'
+            href={socialInfo.whatsApp}
             className='text-white bg-[#128c7e] duration-200 mt-5 hover:bg-[#075e54] focus:ring-4 focus:outline-none focus:ring-[#128c7e]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2'
           >
-            <img
-              className='h-6 w-6 mr-2'
+            <Image
+              className='mr-2'
+              height={24}
+              width={24}
               src='/images/whatsapp.png'
               alt='whatsapp'
             />
             WhatsApp
           </a>
-        </>
+        </div>
       )}
       {tab == 2 && (
         <div className='flex flex-wrap gap-3'>
