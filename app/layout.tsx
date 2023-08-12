@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import './globals.css';
 import Loading from '@/components/Loading';
+import ActiveSectionContextProvider from '@/context/activeSectionContext';
 
 export const metadata: Metadata = {
   title:
@@ -17,7 +18,11 @@ export default function RootLayout({
   return (
     <html className='scroll-pt-10 md:scroll-pt-8 scroll-smooth' lang='en'>
       <body suppressHydrationWarning={true}>
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>
+          <ActiveSectionContextProvider>
+            {children}
+          </ActiveSectionContextProvider>
+        </Suspense>
       </body>
     </html>
   );

@@ -6,12 +6,11 @@ import NavOption from '../NavOption';
 import Logo from '../Logo';
 import MobileMenu from '../MobileMenu';
 import MobileMenuSlider from '../MobileMenuSlider';
+import { useActiveSection } from '@/hooks/useActiveSection';
 
 const Header: NextPage = () => {
   const [showBackground, setShowBackground] = useState<boolean>(false);
   const [menuActive, setMenuActive] = useState<boolean>(false);
-  const [navOptionActive, setNavOptionActive] = useState<string>('home');
-
   const TOP_OFFSET = 66;
 
   useEffect(() => {
@@ -34,6 +33,8 @@ const Header: NextPage = () => {
     setMenuActive((value) => !value);
   }, []);
 
+  const { activeSection, setActiveSection } = useActiveSection();
+
   return (
     <header
       className={`fixed w-full top-0 z-50 bg-black border-b-[0.5px] border-[#3f3f3f] md:border-none md:bg-transparent ${
@@ -43,8 +44,8 @@ const Header: NextPage = () => {
       <nav className='header__container h-20 flex items-center justify-between'>
         <Logo />
         <NavOption
-          navOptionActive={navOptionActive}
-          setNavOptionActive={setNavOptionActive}
+          navOptionActive={activeSection}
+          setNavOptionActive={setActiveSection}
         />
         <MobileMenu
           menuActive={menuActive}
@@ -53,8 +54,8 @@ const Header: NextPage = () => {
         <MobileMenuSlider
           menuActive={menuActive}
           setMenuActive={setMenuActive}
-          navOptionActive={navOptionActive}
-          setNavOptionActive={setNavOptionActive}
+          navOptionActive={activeSection}
+          setNavOptionActive={setActiveSection}
         />
       </nav>
     </header>

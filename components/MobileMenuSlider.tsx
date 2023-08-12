@@ -16,7 +16,7 @@ const MobileMenuSlider: NextPage<Props> = ({
 }) => {
   return (
     <div
-      className={`fixed md:hidden top-[81px] bg-black h-screen w-full left-0 px-8 py-5 transform duration-500 ${
+      className={`fixed md:hidden top-[81px] bg-black/90 backdrop-blur-lg h-screen w-full left-0 px-8 py-5 transform duration-500 ${
         menuActive ? 'translate-x-0' : 'translate-x-full'
       }`}
     >

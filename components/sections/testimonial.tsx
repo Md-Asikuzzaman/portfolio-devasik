@@ -51,7 +51,7 @@ export default function Testimonial() {
     <section className='py-14 bg-black/90'>
       <div className='container'>
         <h2 className='text-xl text-center font-bold text-[#888888] mb-4'>
-          What client say about me
+          What client say about me 😊🤝
         </h2>
 
         <div ref={sliderRef} className='keen-slider max-w-xl mx-auto'>

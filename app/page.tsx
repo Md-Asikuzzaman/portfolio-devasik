@@ -8,9 +8,7 @@ import Project from '@/components/sections/ProjectTab';
 import Testimonial from '@/components/sections/Testimonial';
 import Footer from '@/components/sections/Footer';
 
-interface Props {}
-
-const Home: NextPage<Props> = ({}) => {
+const Home = () => {
   return (
     <>
       <Header />

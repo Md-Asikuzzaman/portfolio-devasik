@@ -4,10 +4,25 @@ import { HiPhoneArrowDownLeft } from 'react-icons/hi2';
 import { FaLocationDot } from 'react-icons/fa6';
 import { SiMinutemailer } from 'react-icons/si';
 import { socialInfo } from '@/lib/social';
+import { useEffect } from 'react';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
+  const { ref, inView, entry } = useInView({
+    threshold: 0.50,
+  });
+  const { setActiveSection } = useActiveSection();
+
+  useEffect(() => {
+    if (inView) {
+      setActiveSection('contact');
+    }
+    console.log(inView);
+  }, [inView, setActiveSection]);
+
   return (
-    <section id='contact' className='py-14 bg-black/90'>
+    <section ref={ref} id='contact' className='py-14 bg-black/90'>
       <div className='container'>
         <h2 className='text-3xl md:text-4xl text-center font-bold text-white mb-10'>
           Contact Me

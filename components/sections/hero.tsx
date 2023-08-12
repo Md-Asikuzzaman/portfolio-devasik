@@ -4,10 +4,28 @@ import Typewriter from 'typewriter-effect';
 import Particle from '../Particel';
 import HeroButton from '../HeroButton';
 import SocialLink from '../SocialLink';
+import { useEffect } from 'react';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
+  const { ref, inView, entry } = useInView({
+    threshold: 0.01,
+  });
+  const { setActiveSection } = useActiveSection();
+
+  useEffect(() => {
+    if (inView) {
+      setActiveSection('home');
+    }
+    console.log(inView);
+  }, [inView, setActiveSection]);
+
+  console.log(inView);
+
   return (
     <section
+      ref={ref}
       id='heroSection'
       className='relative h-[calc(100vh_-_80px)] flex items-center justify-center bg-black/95 overflow-hidden'
     >

@@ -1,10 +1,12 @@
 'use client';
 
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Filter from '../Filter';
 import Project from '../Project';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { useInView } from 'react-intersection-observer';
 
 interface DataType {
   id: number;
@@ -122,8 +124,20 @@ const ProjectTab: NextPage = () => {
   const [filtered, setFiltered] = useState(data);
   const [activeButton, setActiveButton] = useState('all');
 
+  const { ref, inView, entry } = useInView({
+    threshold: 0.30,
+  });
+  const { setActiveSection } = useActiveSection();
+
+  useEffect(() => {
+    if (inView) {
+      setActiveSection('works');
+    }
+    console.log(inView);
+  }, [inView, setActiveSection]);
+
   return (
-    <section id='works' className='py-14 bg-black'>
+    <section ref={ref} id='works' className='py-14 bg-black'>
       <div className='container'>
         <h2 className='text-3xl md:text-4xl text-center font-bold mb-10 text-white'>
           Recent Works
