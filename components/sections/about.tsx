@@ -1,14 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Tab from '../Tab';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
 const About = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.6,
   });
   const { setActiveSection } = useActiveSection();

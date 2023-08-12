@@ -9,8 +9,8 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
-  const { ref, inView, entry } = useInView({
-    threshold: 0.50,
+  const { ref, inView } = useInView({
+    threshold: 0.5,
   });
   const { setActiveSection } = useActiveSection();
 

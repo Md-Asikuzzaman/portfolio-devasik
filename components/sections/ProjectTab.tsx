@@ -124,8 +124,8 @@ const ProjectTab: NextPage = () => {
   const [filtered, setFiltered] = useState(data);
   const [activeButton, setActiveButton] = useState('all');
 
-  const { ref, inView, entry } = useInView({
-    threshold: 0.30,
+  const { ref, inView } = useInView({
+    threshold: 0.3,
   });
   const { setActiveSection } = useActiveSection();
 

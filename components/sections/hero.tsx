@@ -9,7 +9,7 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.01,
   });
   const { setActiveSection } = useActiveSection();
