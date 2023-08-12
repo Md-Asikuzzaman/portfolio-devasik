@@ -3,10 +3,10 @@
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Filter from '../Filter';
-import Project from '../Project';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
+import Filter from '../Filter';
+import Project from '../Project';
 
 interface DataType {
   id: number;
