@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import './globals.css';
-import Loading from '@/components/Loading';
 import ActiveSectionContextProvider from '@/context/activeSectionContext';
+import Loading from './components/Loading';
 
 export const metadata: Metadata = {
   title:

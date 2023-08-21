@@ -1,20 +1,18 @@
 import { NextPage } from 'next';
-
-import Header from './../components/sections/Header';
-import Hero from './../components/sections/Hero';
-import About from './../components/sections/About';
-
-import Testimonial from '@/components/sections/Testimonial';
-import Contact from '@/components/sections/Contact';
-import Footer from '@/components/sections/Footer';
-import ProjectTab from '@/components/sections/ProjectTab';
+import Header from './components/sections/Header';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Testimonial from './components/sections/Testimonial';
+import ProjectTab from './components/sections/ProjectTab';
+import Contact from './components/sections/Contact';
+import Footer from './components/sections/Footer';
 
 const Home = () => {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Hero />
-      <About /> */}
+      <About />
       <Testimonial />
       <ProjectTab />
       <Contact />
