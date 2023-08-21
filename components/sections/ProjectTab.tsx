@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
-import Filter from './../Filter';
-import Project from './../Project';
+import Filter from '../Filter';
+import Project from '../Project';
 
 interface DataType {
   id: number;

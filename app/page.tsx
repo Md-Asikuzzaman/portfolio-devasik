@@ -5,18 +5,18 @@ import Hero from './../components/sections/Hero';
 import About from './../components/sections/About';
 
 import Testimonial from '@/components/sections/Testimonial';
-import Project from '@/components/sections/ProjectTab';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
+import ProjectTab from '@/components/sections/ProjectTab';
 
 const Home = () => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Hero />
-      <About />
+      <About /> */}
       <Testimonial />
-      <Project />
+      <ProjectTab />
       <Contact />
       <Footer />
     </>
