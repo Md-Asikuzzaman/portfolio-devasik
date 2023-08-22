@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import './globals.css';
 import ActiveSectionContextProvider from '@/context/activeSectionContext';
 import Loading from './components/Loading';
+import SessionProviders from './components/SessionProviders';
 
 export const metadata: Metadata = {
   title:
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <Suspense fallback={<Loading />}>
           <ActiveSectionContextProvider>
-            {children}
+            <SessionProviders>{children}</SessionProviders>
           </ActiveSectionContextProvider>
         </Suspense>
       </body>

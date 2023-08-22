@@ -18,7 +18,6 @@ const Contact = () => {
     if (inView) {
       setActiveSection('contact');
     }
-    console.log(inView);
   }, [inView, setActiveSection]);
 
   return (

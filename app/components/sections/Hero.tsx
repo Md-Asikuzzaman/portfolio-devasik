@@ -18,10 +18,7 @@ const Hero = () => {
     if (inView) {
       setActiveSection('home');
     }
-    console.log(inView);
   }, [inView, setActiveSection]);
-
-  console.log(inView);
 
   return (
     <section

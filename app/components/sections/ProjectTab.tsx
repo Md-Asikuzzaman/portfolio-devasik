@@ -133,7 +133,6 @@ const ProjectTab: NextPage = () => {
     if (inView) {
       setActiveSection('works');
     }
-    console.log(inView);
   }, [inView, setActiveSection]);
 
   return (

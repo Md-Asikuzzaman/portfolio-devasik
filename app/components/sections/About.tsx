@@ -16,7 +16,6 @@ const About = () => {
     if (inView) {
       setActiveSection('about');
     }
-    console.log(inView);
   }, [inView, setActiveSection]);
 
   return (
