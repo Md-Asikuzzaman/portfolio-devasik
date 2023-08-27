@@ -21,7 +21,7 @@ const Page: NextPage<Props> = ({}) => {
       router.replace('/dashboard');
       return;
     }
-  }, [session, router]);
+  }, [session]);
 
   const handleSubmit = useCallback(
     (e: any) => {
