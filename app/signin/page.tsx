@@ -51,7 +51,7 @@ const Page: NextPage<Props> = ({}) => {
           Sign in
         </h3>
         <p className='text-sm md:text-md text-white mt-2 mb-5'>
-          Only for admin
+          Only for admin.
         </p>
         <form onSubmit={handleSubmit}>
           <MyInput
