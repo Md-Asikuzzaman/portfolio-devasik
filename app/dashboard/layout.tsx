@@ -14,17 +14,23 @@ import { BsDatabaseAdd } from 'react-icons/bs';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface Props {
   children: React.ReactNode;
 }
 
 const Layout: NextPage<Props> = ({ children }) => {
   const pathname = usePathname();
-  return (
-    <div className='flex bg-zinc-200 w-full h-screen rounded-md'>
-      {/* sidebar */}
+  const pathArray = pathname.split('/');
 
-      <div className='bg-white m-6 p-4 rounded-md max-w-[80px] md:max-w-xs w-full shrink-0 flex flex-col gap-10'>
+  return (
+    <div className='flex bg-zinc-200 w-full min-h-screen rounded-md'>
+      {/* toast container */}
+      <ToastContainer />
+      {/* sidebar */}
+      <div className='bg-white m-3 md:m-6 p-4 rounded-md max-w-[80px] md:max-w-xs w-full shrink-0 flex flex-col gap-10'>
         <div className='flex flex-col gap-1'>
           <Link
             className={`flex items-center justify-center md:justify-start gap-4 hover:bg-black hover:bg-opacity-90 p-3 text-black hover:text-white rounded-md transition ${
@@ -47,16 +53,15 @@ const Layout: NextPage<Props> = ({ children }) => {
             <span className='hidden md:flex'>Add Project</span>
           </Link>
 
-          <Link
-            className={`flex items-center justify-center md:justify-start gap-4 hover:bg-black hover:bg-opacity-90 p-3 text-black hover:text-white rounded-md transition ${
-              pathname === '/dashboard/update' &&
+          <div
+            className={`flex items-center justify-center md:justify-start gap-4 hover:bg-black hover:bg-opacity-90 p-3 text-black hover:text-white rounded-md transition cursor-pointer ${
+              pathname === `/dashboard/update/${pathArray[3]}` &&
               'bg-black text-white bg-opacity-90'
             }`}
-            href='/dashboard/update'
           >
             <AiOutlineEdit size={20} />
             <span className='hidden md:flex'>Update Project</span>
-          </Link>
+          </div>
         </div>
 
         {/*  */}
@@ -96,7 +101,7 @@ const Layout: NextPage<Props> = ({ children }) => {
       </div>
 
       {/* main container */}
-      <div className='my-10 mx-4'>{children}</div>
+      <div className='my-3 md:my-6 mx-2 md:mx-4 w-full'>{children}</div>
     </div>
   );
 };

@@ -1,13 +1,22 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import MyInput from '@/app/components/Input';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import useProjects from '@/hooks/useProjects';
+import useProject from '@/hooks/useProject';
 import { useRouter } from 'next/navigation';
+import { NextPage } from 'next';
 
-const Page = () => {
+interface Props {
+  params: { id: string };
+}
+
+const Page: NextPage<Props> = ({ params }) => {
+  const { id } = params;
+
+  const { data, mutate, error, isLoading } = useProject(id ? id : '');
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -17,7 +26,20 @@ const Page = () => {
 
   const router = useRouter();
 
-  const { mutate } = useProjects();
+  useEffect(() => {
+    if (error) {
+      router.replace('/dashboard');
+    } else {
+      if (data) {
+        setTitle(data.title);
+        setDescription(data.description);
+        setImage(data.image);
+        setWebsite(data.website);
+        setGithub(data.github);
+        setVariant(data.variant);
+      }
+    }
+  }, [data, error, router]);
 
   const reset = () => {
     setTitle('');
@@ -41,19 +63,19 @@ const Page = () => {
         variant,
       };
 
-      const res = await axios.post('/api/project', data);
+      const res = await axios.put(`/api/project/update/${id}`, data);
 
-      mutate();
       reset();
 
-      if (res.status === 201) {
-        toast.success('Project created!!!');
+      if (res.status === 200) {
+        toast.success('Project updated!!!');
+        mutate();
         setTimeout(() => {
           router.replace('/dashboard');
         }, 200);
       }
     },
-    [title, description, image, website, github, variant, mutate, router]
+    [title, description, image, website, github, variant, mutate, id, router]
   );
 
   return (
@@ -63,7 +85,7 @@ const Page = () => {
         className='bg-white max-w-lg w-full p-5 rounded-md'
       >
         <h2 className='text-xl md:text-2xl font-semibold mb-4'>
-          Add a new Project
+          Update Project
         </h2>
         <MyInput
           variant='bw'
@@ -111,7 +133,7 @@ const Page = () => {
           className='w-full py-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 mt-4 transition'
           type='submit'
         >
-          Add new
+          Update
         </button>
       </form>
     </div>

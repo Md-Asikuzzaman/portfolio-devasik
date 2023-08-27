@@ -6,9 +6,17 @@ interface Props {
   type?: string;
   data?: any;
   value: string;
+  variant?: string;
 }
 
-const MyInput: NextPage<Props> = ({ id, label, type, data, value }) => {
+const MyInput: NextPage<Props> = ({
+  id,
+  label,
+  type,
+  data,
+  value,
+  variant,
+}) => {
   return (
     <div className='relative'>
       <input
@@ -17,7 +25,7 @@ const MyInput: NextPage<Props> = ({ id, label, type, data, value }) => {
         onChange={(e) => data(e.target.value)}
         value={value}
         placeholder=' '
-        className='
+        className={`
         mb-4
         block
         rounded-md
@@ -26,14 +34,16 @@ const MyInput: NextPage<Props> = ({ id, label, type, data, value }) => {
         pb-1
         w-full
         text-md
-        text-orange-500
-        bg-neutral-700
         appearance-none
         focus:outline-none
         focus:ring-0
-        peer
-        '
+        peer ${
+          variant
+            ? 'text-white bg-neutral-700'
+            : 'text-orange-500 bg-neutral-700'
+        }`}
       />
+
       <label
         htmlFor={id}
         className='
