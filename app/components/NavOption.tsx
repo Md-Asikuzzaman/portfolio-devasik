@@ -19,8 +19,8 @@ const NavOption: NextPage<Props> = ({
       <li onClick={() => setNavOptionActive('home')}>
         <a
           className={`${
-            navOptionActive == 'home' ? 'text-orange-500' : 'text-[#888888]'
-          } text-base hover:text-orange-500`}
+            navOptionActive == 'home' ? 'text-white' : 'text-gray-400'
+          } text-base hover:text-white transition-colors duration-200`}
           href='#'
         >
           Home
@@ -29,8 +29,8 @@ const NavOption: NextPage<Props> = ({
       <li onClick={() => setNavOptionActive('about')}>
         <a
           className={`${
-            navOptionActive == 'about' ? 'text-orange-500' : 'text-[#888888]'
-          } text-base hover:text-orange-500`}
+            navOptionActive == 'about' ? 'text-white' : 'text-gray-400'
+          } text-base hover:text-white transition-colors duration-200`}
           href='#about'
         >
           About
@@ -39,8 +39,8 @@ const NavOption: NextPage<Props> = ({
       <li onClick={() => setNavOptionActive('works')}>
         <a
           className={`${
-            navOptionActive == 'works' ? 'text-orange-500' : 'text-[#888888]'
-          } text-base hover:text-orange-500`}
+            navOptionActive == 'works' ? 'text-white' : 'text-gray-400'
+          } text-base hover:text-white transition-colors duration-200`}
           href='#works'
         >
           Works
@@ -49,22 +49,19 @@ const NavOption: NextPage<Props> = ({
       <li onClick={() => setNavOptionActive('contact')}>
         <a
           className={`${
-            navOptionActive == 'contact' ? 'text-orange-500' : 'text-[#888888]'
-          } text-base hover:text-orange-500`}
+            navOptionActive == 'contact' ? 'text-white' : 'text-gray-400'
+          } text-base hover:text-white transition-colors duration-200`}
           href='#contact'
         >
           Contact
         </a>
       </li>
-      <div className='w-[1px] h-auto bg-[#3f3f3f]' />
+      <div className='w-[1px] h-auto bg-gray-600' />
       <div className='flex items-center gap-5'>
-        {/* <a href='https://www.face.com'>
-          <HiPhone size={20} className='text-[#888888] hover:text-gray-300' />
-        </a> */}
         <a target='_blank' href={socialInfo.github}>
           <BiLogoGithub
             size={25}
-            className='text-[#888888] hover:text-gray-300'
+            className='text-gray-400 hover:text-white transition-colors duration-200'
           />
         </a>
       </div>

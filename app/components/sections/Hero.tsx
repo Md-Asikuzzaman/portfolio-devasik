@@ -24,8 +24,9 @@ const Hero = () => {
     <section
       ref={ref}
       id='heroSection'
-      className='relative h-[calc(100vh_-_80px)] flex items-center justify-center bg-black/95 overflow-hidden'
+      className='relative h-[calc(100vh_-_80px)] flex items-center justify-center overflow-hidden'
     >
+      <div className="bg-[url('/images/bg-grid.svg')] h-screen w-full absolute top-0 left-0 right-0 -z-[1] bg-contain bg-no-repeat"></div>
       <div className='flex items-center justify-center flex-col z-10'>
         <h1 className='text-white font-extrabold mb-6 text-5xl lg:text-6xl tracking-tight text-center'>
           I'm <span className='gradient__text'>Dev Asik</span>
