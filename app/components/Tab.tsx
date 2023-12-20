@@ -33,14 +33,14 @@ const Tab = () => {
   };
   return (
     <div className='col-start-2 col-end-4'>
-      <div className='text-sm font-medium text-center text-[#888888]   '>
-        <ul className='flex flex-wrap mb-8'>
+      <div className='text-sm font-medium text-center text-[#888888]'>
+        <ul className='flex flex-wrap mb-8 lg:mb-12'>
           <li className='mr-2'>
             <button
               onClick={() => handleTab(1)}
-              className={`inline-block p-4 border-b-2 rounded-t-lg  ${
+              className={`inline-block p-4 border-b-2 rounded-t-lg text-md md:text-lg ${
                 tab == 1
-                  ? 'text-orange-500 border-b-2 border-orange-500 rounded-t-lg active'
+                  ? 'text-pink-500 border-b-2 border-pink-500 rounded-t-lg active'
                   : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
               } `}
             >
@@ -50,9 +50,9 @@ const Tab = () => {
           <li className='mr-2'>
             <button
               onClick={() => handleTab(2)}
-              className={`inline-block p-4 border-b-2 rounded-t-lg  ${
+              className={`inline-block p-4 border-b-2 rounded-t-lg text-md md:text-lg  ${
                 tab == 2
-                  ? 'text-orange-500 border-b-2 border-orange-500 rounded-t-lg active'
+                  ? 'text-pink-500 border-b-2 border-pink-500 rounded-t-lg active'
                   : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
               } `}
             >
@@ -62,9 +62,9 @@ const Tab = () => {
           <li className='mr-2'>
             <button
               onClick={() => handleTab(3)}
-              className={`inline-block p-4 border-b-2 rounded-t-lg  ${
+              className={`inline-block p-4 border-b-2 rounded-t-lg text-md md:text-lg ${
                 tab == 3
-                  ? 'text-orange-500 border-b-2 border-orange-500 rounded-t-lg active'
+                  ? 'text-pink-500 border-b-2 border-pink-500 rounded-t-lg active'
                   : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
               } `}
             >
@@ -74,9 +74,9 @@ const Tab = () => {
           <li className='mr-2'>
             <button
               onClick={() => handleTab(4)}
-              className={`inline-block p-4 border-b-2 rounded-t-lg  ${
+              className={`inline-block p-4 border-b-2 rounded-t-lg text-md md:text-lg  ${
                 tab == 4
-                  ? 'text-orange-500 border-b-2 border-orange-500 rounded-t-lg active'
+                  ? 'text-pink-500 border-b-2 border-pink-500 rounded-t-lg active'
                   : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
               } `}
             >
@@ -87,17 +87,17 @@ const Tab = () => {
       </div>
       {tab == 1 && (
         <div className='px-3'>
-          <p className='text-gray-300 text-xl mb-5'>
+          <p className='text-white text-2xl font-semibold mb-5'>
             Hi, This is Md Asikuzzaman
           </p>
-          <p className='text-[#888888] mb-2 leading-7'>
+          <p className='mb-4 text-md lg:text-md lg:leading-8 text-[#d3d8e8]'>
             My name is Md Asikuzzaman. I'm a React developer and I absolutely
             love my passion. I am enjoying learn new things. You'll find me
             hardworking, fast learning, and fiercely ambitious. My expertise on
             MERN stack development such as (Mongodb, Express, React & Node). 😊
           </p>
 
-          <p className='text-[#888888] mb-5 leading-7'>
+          <p className='text-md lg:text-md lg:leading-8 text-[#d3d8e8]'>
             I love challenges and i know -there is always a solution. At my age,
             my unwavering focus is to be recognised as on of the best coders in
             tech. I love my clients, i enjoy my project and respect my
@@ -218,7 +218,7 @@ const Tab = () => {
         </div>
       )}
       {tab == 3 && (
-        <>
+        <div className='flex flex-col gap-5'>
           <SkillCard
             title='Senior Front-end Developer'
             company='Upwork (Freeluncher)'
@@ -232,21 +232,23 @@ const Tab = () => {
           <SkillCard
             title='Senior Front-end Developer'
             company='Upwork (Freeluncher)'
-            duration='January 2019 - Running'
-            details='   A Passionate Software Developer, Entrepreneur and Programmer. I love
+            duration='Jan 2019 - Running'
+            details='A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
             technologies.'
             Icon={BsBriefcase}
+            border='via-pink-500'
+            color='text-pink-500'
           />
-        </>
+        </div>
       )}
 
       {tab == 4 && (
-        <>
+        <div className='flex flex-col gap-5'>
           <SkillCard
             title='Senior Front-end Developer'
             company='Upwork (Freeluncher)'
-            duration='January 2019 - Running'
+            duration='Jan 2019 - Running'
             details='   A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
             technologies.'
@@ -262,7 +264,7 @@ const Tab = () => {
             technologies.'
             Icon={PiStudentLight}
           />
-        </>
+        </div>
       )}
     </div>
   );

@@ -1,7 +1,6 @@
 'use client';
 
 import { NextPage } from 'next';
-
 import { SessionProvider } from 'next-auth/react';
 
 interface Props {

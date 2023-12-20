@@ -3,6 +3,7 @@ import ActiveSectionContextProvider from '@/context/activeSectionContext';
 import SessionProviders from '../components/SessionProviders';
 
 import './globals.css';
+import Header from '../components/sections/Header';
 
 export const metadata: Metadata = {
   title:
@@ -19,7 +20,10 @@ export default function RootLayout({
     <html className='scroll-pt-10 md:scroll-pt-8 scroll-smooth' lang='en'>
       <body suppressHydrationWarning={true}>
         <ActiveSectionContextProvider>
-          <SessionProviders>{children}</SessionProviders>
+          <SessionProviders>
+            <Header />
+            {children}
+          </SessionProviders>
         </ActiveSectionContextProvider>
       </body>
     </html>

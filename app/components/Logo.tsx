@@ -1,13 +1,14 @@
 'use client';
 
-import { TbCodeDots } from 'react-icons/tb';
+import { FaCode } from 'react-icons/fa6';
 
 const Logo = () => {
   return (
-    <a className='flex items-center gap-1 text-xl text-white' href={'#'}>
-      <TbCodeDots className='text-3xl text-orange-500 font-bold' /> dev asik
+    <a className='flex items-center gap-2 text-xl text-white' href={'#'}>
+      <FaCode className='text-2xl text-violet-500 font-bold' /> dev asik
     </a>
   );
 };
+
 
 export default Logo;

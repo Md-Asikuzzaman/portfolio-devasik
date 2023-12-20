@@ -4,30 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .header__container {
+    @apply 2xl:max-w-7xl mx-auto px-3 lg:px-6 py-3;
+  }
+
+  .container {
+    @apply 2xl:max-w-6xl mx-auto px-3 lg:px-6 py-3;
+  }
+
+  .gradient__text {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  .overlay {
+    @apply bg-[url('/images/bg-grid.svg')] h-screen w-full absolute -top-10 left-0 right-0 -z-[1] bg-contain bg-no-repeat;
+  }
+
+  .gradient-btn {
+    @apply inline-block px-6 py-3 text-sm no-underline uppercase text-center text-white tracking-wider font-medium md:font-semibold rounded-full bg-gradient-to-r from-pink-500 to-violet-600 transition-all duration-200 ease-out hover:text-white hover:no-underline;
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif !important;
   background-color: #0d1224 !important;
 }
 
-.container {
-  @apply mx-auto w-full px-4;
-  max-width: 1140px;
-}
-
-.header__container {
-  @apply mx-auto w-full px-8 md:px-14;
-  max-width: 2000px;
-}
-
 .filter--active {
   @apply bg-orange-500 text-white;
-}
-
-#heroSection {
-  height: 100vh !important;
-}
-
-.gradient__text {
-  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text;
-  -webkit-text-fill-color: transparent !important;
 }

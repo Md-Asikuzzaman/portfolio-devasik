@@ -19,9 +19,15 @@ const About = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id='about' className='py-14 bg-black/90'>
+    <section ref={ref} id='about' className='relative overflow-hidden pb-12'>
+      <div className='relative -z-50 pt-12'>
+        <div className='flex flex-row justify-center'>
+          <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent'></div>
+          <div className='w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20'></div>
+        </div>
+      </div>
       <div className='container'>
-        <h2 className='text-3xl md:text-4xl text-center font-bold text-white mb-10'>
+        <h2 className='text-2xl md:text-3xl text-center font-bold text-white mb-10'>
           About Me
         </h2>
         <div className='flex flex-col md:flex-row items-center justify-center gap-10'>
@@ -29,8 +35,8 @@ const About = () => {
             className='rounded-full'
             src={'/images/dev.jpg'}
             alt='dev'
-            height='300'
-            width='300'
+            height='250'
+            width='250'
           />
           <Tab />
         </div>

@@ -23,21 +23,21 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      id='heroSection'
-      className='relative h-[calc(100vh_-_80px)] flex items-center justify-center overflow-hidden'
+      className='relative h-screen flex items-center justify-center overflow-hidden'
     >
-      <div className="bg-[url('/images/bg-grid.svg')] h-screen w-full absolute -top-10 left-0 right-0 -z-[1] bg-contain bg-no-repeat"></div>
+      <div className='overlay'></div>
       <div className='flex items-center justify-center flex-col z-10'>
-        <h1 className='text-white font-extrabold mb-6 text-5xl lg:text-6xl tracking-tight text-center'>
+        <h1 className='text-white font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center'>
           I'm <span className='gradient__text'>Dev Asik</span>
         </h1>
-        <h2 className='text-zinc-400 font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight text-center dark:text-white'>
+        <h2 className='text-zinc-400 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white'>
           <Typewriter
             options={{
               strings: [
                 'Full Stack Developer',
                 'Senior Frontend Engineer',
                 'Programmer',
+                'Self taught Software Developer',
               ],
               autoStart: true,
               loop: true,
