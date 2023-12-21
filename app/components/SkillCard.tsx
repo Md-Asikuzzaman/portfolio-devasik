@@ -9,6 +9,7 @@ interface Props {
   Icon: any;
   border?: string;
   color?: string;
+  bg?: string;
 }
 
 const SkillCard: NextPage<Props> = ({
@@ -19,6 +20,7 @@ const SkillCard: NextPage<Props> = ({
   Icon,
   border,
   color,
+  bg,
 }) => {
   return (
     <div className='relative rounded-md shadow-md border border-[#262B42] bg-[#12172A] p-5'>
@@ -33,8 +35,10 @@ const SkillCard: NextPage<Props> = ({
       </div>
       <div className='flex h-[inherit] gap-6'>
         <div className='shrink-0 flex flex-col justify-center items-center gap-2'>
-          <Icon className='shrink-0 text-3xl text-orange-500' />
-          <div className='w-[2px] h-full bg-zinc-400' />
+          <Icon
+            className={`shrink-0 text-3xl ${color ? color : 'text-violet-500'}`}
+          />
+          <div className={`w-[2px] h-full ${bg ? bg : 'bg-violet-500/30'}`} />
         </div>
         <div>
           <h3 className='text-xl font-bold tracking-tight text-white'>

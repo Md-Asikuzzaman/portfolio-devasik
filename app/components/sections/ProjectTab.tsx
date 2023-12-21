@@ -2,10 +2,8 @@
 
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
-import Filter from '../Filter';
 import Project from '../Project';
 
 interface DataType {
@@ -18,76 +16,6 @@ interface DataType {
 }
 
 const data: DataType[] = [
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'tools',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'tools',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'tools',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'tools',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'template',
-  },
-
   {
     id: Math.random() * 10000,
     photo: '/project/dubai.jpg',
@@ -120,13 +48,13 @@ const data: DataType[] = [
 ];
 
 const ProjectTab: NextPage = () => {
-  const [project, setProject] = useState(data);
-  const [filtered, setFiltered] = useState(data);
-  const [activeButton, setActiveButton] = useState('all');
+  const [projects, setProject] = useState(data);
 
   const { ref, inView } = useInView({
     threshold: 0.3,
   });
+
+
   const { setActiveSection } = useActiveSection();
 
   useEffect(() => {
@@ -136,35 +64,30 @@ const ProjectTab: NextPage = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id='works' className='py-14 bg-black'>
+    <section ref={ref} id='works' className='relative overflow-hidden pb-16'>
+      <div className='relative -z-50 pt-14'>
+        <div className='flex flex-row justify-center'>
+          <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent'></div>
+          <div className='w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20'></div>
+        </div>
+      </div>
       <div className='container'>
-        <h2 className='text-3xl md:text-4xl text-center font-bold mb-10 text-white'>
+        <h2 className='text-2xl md:text-3xl text-center font-bold text-white mb-10'>
           Recent Works
         </h2>
-        <Filter
-          project={project}
-          setFiltered={setFiltered}
-          activeButton={activeButton}
-          setActiveButton={setActiveButton}
-        />
-        <motion.div
-          layout
-          className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10'
-        >
-          <AnimatePresence>
-            {filtered.map((project) => (
-              <Project
-                key={project.id}
-                id={project.id}
-                photo={project.photo}
-                title={project.title}
-                details={project.details}
-                links={project.links}
-                category={project.category}
-              />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10'>
+          {projects.map((project) => (
+            <Project
+              key={project.id}
+              id={project.id}
+              photo={project.photo}
+              title={project.title}
+              details={project.details}
+              links={project.links}
+              category={project.category}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -21,7 +21,14 @@ const Contact = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id='contact' className='py-14 bg-black/90'>
+    <section ref={ref} id='contact' className='pb-14 overflow-hidden'>
+      <div className='relative -z-50 pt-14'>
+        <div className='flex flex-row justify-center'>
+          <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent'></div>
+          <div className='w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20'></div>
+        </div>
+      </div>
+
       <div className='container'>
         <h2 className='text-3xl md:text-4xl text-center font-bold text-white mb-10'>
           Contact Me

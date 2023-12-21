@@ -33,7 +33,7 @@ const Tab = () => {
   };
   return (
     <div className='col-start-2 col-end-4'>
-      <div className='text-sm font-medium text-center text-[#888888]'>
+      <div className='text-sm font-medium text-center text-zinc-400'>
         <ul className='flex flex-wrap mb-8 lg:mb-12'>
           <li className='mr-2'>
             <button
@@ -220,8 +220,8 @@ const Tab = () => {
       {tab == 3 && (
         <div className='flex flex-col gap-5'>
           <SkillCard
-            title='Senior Front-end Developer'
-            company='Upwork (Freeluncher)'
+            title='Senior Front-End Developer'
+            company='Wafasoft (Contract)'
             duration='January 2019 - Running'
             details='   A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
@@ -230,8 +230,8 @@ const Tab = () => {
           />
 
           <SkillCard
-            title='Senior Front-end Developer'
-            company='Upwork (Freeluncher)'
+            title='Web Designer'
+            company='City It Park (Intern)'
             duration='Jan 2019 - Running'
             details='A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
@@ -239,6 +239,7 @@ const Tab = () => {
             Icon={BsBriefcase}
             border='via-pink-500'
             color='text-pink-500'
+            bg='bg-pink-500/30'
           />
         </div>
       )}
@@ -246,19 +247,22 @@ const Tab = () => {
       {tab == 4 && (
         <div className='flex flex-col gap-5'>
           <SkillCard
-            title='Senior Front-end Developer'
-            company='Upwork (Freeluncher)'
-            duration='Jan 2019 - Running'
+            title='B.S.c in CSE'
+            company='Bangladesh University of Business & Technology'
+            duration='Jan 2022 - Running'
             details='   A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
             technologies.'
             Icon={PiStudentLight}
+            border='via-pink-500'
+            color='text-pink-500'
+            bg='bg-pink-500/30'
           />
 
           <SkillCard
-            title='Senior Front-end Developer'
-            company='Upwork (Freeluncher)'
-            duration='January 2019 - Running'
+            title='Diploma in Computer Engineering'
+            company='City Polytechnic Institute'
+            duration='Jan 2018 - Dec 2022'
             details='   A Passionate Software Developer, Entrepreneur and Programmer. I love
             to play with coding, building software, and focusing on learning new
             technologies.'
