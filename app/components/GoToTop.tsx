@@ -29,7 +29,7 @@ const GoToTop = () => {
   return (
     <div
       onClick={handleTop}
-      className={`fixed bottom-4 right-5 flex items-center justify-center h-12 w-12 cursor-pointer bg-[#3C2410] rounded-full transition hover:bg-[#523318] transform ${
+      className={`fixed bottom-4 right-5 flex items-center justify-center h-12 w-12 cursor-pointer bg-violet-600 rounded-full transition ease-in-out hover:bg-violet-500 transform ${
         showTopBtn ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
       }`}
     >

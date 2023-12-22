@@ -4,6 +4,8 @@ import ProjectTab from '../components/sections/ProjectTab';
 import Contact from '../components/sections/Contact';
 import Footer from '../components/sections/Footer';
 
+
+
 const Home = () => {
   return (
     <>

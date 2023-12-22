@@ -34,52 +34,52 @@ const Contact = () => {
           Contact Me
         </h2>
         <div className='grid md:grid-cols-3 gap-3 md:gap-5'>
-          <div className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-[2px]'>
-            <div className='bg-black rounded-md py-6 text-center h-full overflow-hidden'>
-              <div className='h-14 w-14 rounded-full bg-[#3c2410] inline-flex items-center justify-center text-orange-500'>
-                <HiPhoneArrowDownLeft size={20} />
-              </div>
-              <h3 className='text-white text-lg pt-3 py-2'>Call me Today</h3>
-              <h4 className='text-white truncate'>
-                WhatsApp:
-                <a
-                  target='_blank'
-                  className='text-[#888888] hover:text-gray-300 hover:underline ml-1'
-                  href={socialInfo.whatsApp}
-                >
-                  +8801995-580559
-                </a>
-              </h4>
+          <div className='relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden'>
+            <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent'></div>
+
+            <div className='h-14 w-14 rounded-full bg-violet-500/10 inline-flex items-center justify-center text-violet-500'>
+              <HiPhoneArrowDownLeft size={20} />
             </div>
+            <h3 className='text-white text-lg pt-3 py-2'>Call me Today</h3>
+            <h4 className='text-[#d3d8e8] truncate text-base'>
+              WhatsApp:
+              <a
+                target='_blank'
+                className='text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none'
+                href={socialInfo.whatsApp}
+              >
+                +8801995-580559
+              </a>
+            </h4>
           </div>
 
-          <div className='bg-gradient-to-r from-pink-500 via-pink-500 to-pink-500 rounded-md p-[2px]'>
-            <div className='bg-black rounded-md py-6 px-2 text-center h-full overflow-hidden'>
-              <div className='h-14 w-14 rounded-full bg-[#3c2410] inline-flex items-center justify-center text-orange-500'>
-                <SiMinutemailer size={25} />
-              </div>
-              <h3 className='text-white text-lg pt-3 py-2'>Send me Email</h3>
-              <h4 className='text-white truncate'>
-                Email:
-                <a
-                  target='_blank'
-                  className='text-[#888888] hover:text-gray-300 hover:underline ml-1'
-                  href={socialInfo.email}
-                >
-                  mdasikuzzaman.en@gmail.com
-                </a>
-              </h4>
+          <div className='relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden'>
+            <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-transparent'></div>
+
+            <div className='h-14 w-14 rounded-full bg-pink-500/10 inline-flex items-center justify-center text-pink-500'>
+              <SiMinutemailer size={25} />
             </div>
+            <h3 className='text-white text-lg pt-3 py-2'>Send me Email</h3>
+
+            <h4 className='text-[#d3d8e8] truncate text-base'>
+              Email:
+              <a
+                target='_blank'
+                className='text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none'
+                href={socialInfo.email}
+              >
+                mdasikuzzaman.en@gmail.com
+              </a>
+            </h4>
           </div>
 
-          <div className='bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-md p-[2px]'>
-            <div className='bg-black rounded-md py-6 text-center h-full overflow-hidden'>
-              <div className='h-14 w-14 rounded-full bg-[#3c2410] inline-flex items-center justify-center text-orange-500'>
-                <FaLocationDot size={20} />
-              </div>
-              <h3 className='text-white text-lg pt-3 py-2'>My Location</h3>
-              <h4 className='text-white'>Khulna, Bangladesh</h4>
+          <div className='relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden'>
+            <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent'></div>
+            <div className='h-14 w-14 rounded-full bg-green-500/10 inline-flex items-center justify-center text-green-500'>
+              <FaLocationDot size={20} />
             </div>
+            <h3 className='text-white text-lg pt-3 py-2'>My Location</h3>
+            <h4 className='text-[#d3d8e8] text-base'>Khulna, Bangladesh</h4>
           </div>
         </div>
       </div>

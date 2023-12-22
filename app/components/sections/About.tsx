@@ -5,6 +5,7 @@ import Tab from '../Tab';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import SimpleSlider from '../Slider';
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -41,6 +42,8 @@ const About = () => {
           <Tab />
         </div>
       </div>
+
+      <SimpleSlider />
     </section>
   );
 };

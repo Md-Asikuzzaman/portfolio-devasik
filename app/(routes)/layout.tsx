@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
 import ActiveSectionContextProvider from '@/context/activeSectionContext';
 import SessionProviders from '../components/SessionProviders';
+import Header from '../components/sections/Header';
 
 import './globals.css';
-import Header from '../components/sections/Header';
+
+import 'slick-carousel/slick/slick.css';
 
 export const metadata: Metadata = {
   title:

@@ -75,7 +75,7 @@ const ProjectTab: NextPage = () => {
         <h2 className='text-2xl md:text-3xl text-center font-bold text-white mb-10'>
           Recent Works
         </h2>
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6'>
           {projects.map((project) => (
             <Project
               key={project.id}
