@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import ActiveSectionContextProvider from '@/context/activeSectionContext';
 import SessionProviders from '../components/SessionProviders';
-import Header from '../components/sections/Header';
-
 import './globals.css';
 
 import 'slick-carousel/slick/slick.css';
@@ -21,12 +19,11 @@ export default function RootLayout({
   return (
     <html className='scroll-pt-10 md:scroll-pt-8 scroll-smooth' lang='en'>
       <body suppressHydrationWarning={true}>
-        <ActiveSectionContextProvider>
-          <SessionProviders>
-            <Header />
+        <SessionProviders>
+          <ActiveSectionContextProvider>
             {children}
-          </SessionProviders>
-        </ActiveSectionContextProvider>
+          </ActiveSectionContextProvider>
+        </SessionProviders>
       </body>
     </html>
   );

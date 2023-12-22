@@ -2,9 +2,16 @@ import { prisma } from '@/lib/db';
 import { NextResponse, NextRequest } from 'next/server';
 
 export async function GET() {
-  const project = await prisma.project.findMany();
+  try {
+    const project = await prisma.project.findMany();
 
-  return NextResponse.json(project, { status: 200 });
+    return NextResponse.json(project, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: 'Something went wrong!' },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(req: Request) {

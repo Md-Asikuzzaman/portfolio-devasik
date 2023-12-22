@@ -1,11 +1,11 @@
 'use client';
 
 import { NextPage } from 'next';
-import MyInput from '../components/Input';
 import { useCallback, useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import MyInput from '@/app/components/Input';
 
 interface Props {}
 

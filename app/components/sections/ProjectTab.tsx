@@ -1,99 +1,31 @@
-'use client';
-
 import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 import Project from '../Project';
+import { prisma } from '@/lib/db';
 
-interface DataType {
-  id: number;
-  photo: string;
-  title: string;
-  details: string;
-  links: string;
-  category?: string;
-}
-
-const data: DataType[] = [
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'web_app',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'tools',
-  },
-
-  {
-    id: Math.random() * 10000,
-    photo: '/project/dubai.jpg',
-    title: 'Project title',
-    details:
-      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
-    links: 'www.facebook.com',
-    category: 'template',
-  },
-];
-
-const ProjectTab: NextPage = () => {
-  const [projects, setProject] = useState(data);
-
-  const { ref, inView } = useInView({
-    threshold: 0.3,
+const ProjectTab: NextPage = async () => {
+  const res = await fetch('http://localhost:3000/api/project', {
+    cache: 'no-cache',
   });
 
-  const { setActiveSection } = useActiveSection();
+  const projects = await res.json();
 
-  useEffect(() => {
-    if (inView) {
-      setActiveSection('works');
-    }
-  }, [inView, setActiveSection]);
+  // const { ref, inView } = useInView({
+  //   threshold: 0.3,
+  // });
+
+  // const { setActiveSection } = useActiveSection();
+
+  // useEffect(() => {
+  //   if (inView) {
+  //     setActiveSection('works');
+  //   }
+  // }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id='works' className='relative overflow-hidden pb-16'>
+    <section id='works' className='relative overflow-hidden pb-16'>
       <div className='relative -z-50 pt-14'>
         <div className='flex flex-row justify-center'>
           <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent'></div>
@@ -104,19 +36,22 @@ const ProjectTab: NextPage = () => {
         <h2 className='text-2xl md:text-3xl text-center font-bold text-white mb-10'>
           Recent Works
         </h2>
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8'>
-          {projects.map((project) => (
-            <Project
-              key={project.id}
-              id={project.id}
-              photo={project.photo}
-              title={project.title}
-              details={project.details}
-              links={project.links}
-              category={project.category}
-            />
-          ))}
-        </div>
+
+        <Suspense fallback={<div className='bg-red-500 p-12'>Loading...</div>}>
+          <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8'>
+            {projects.map((project: any) => (
+              <Project
+                key={project.id}
+                id={project.id}
+                image={project.image}
+                title={project.title}
+                description={project.description}
+                website={project.website}
+                github={project.github}
+              />
+            ))}
+          </div>
+        </Suspense>
 
         <div className='flex justify-center pt-10'>
           <button className='gradient-btn'>Load More</button>
