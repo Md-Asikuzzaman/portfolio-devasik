@@ -33,6 +33,36 @@ const data: DataType[] = [
     details:
       'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
     links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
+    category: 'web_app',
+  },
+
+  {
+    id: Math.random() * 10000,
+    photo: '/project/dubai.jpg',
+    title: 'Project title',
+    details:
+      'ducimus ullam iure fugiat nam animi harum minima culpa libero. ducimus ullam iure fugiat nam animi harum minima culpa libero.ducimus ullam iure fugiat nam animi harum minima culpa libero.',
+    links: 'www.facebook.com',
     category: 'tools',
   },
 
@@ -54,7 +84,6 @@ const ProjectTab: NextPage = () => {
     threshold: 0.3,
   });
 
-
   const { setActiveSection } = useActiveSection();
 
   useEffect(() => {
@@ -75,7 +104,7 @@ const ProjectTab: NextPage = () => {
         <h2 className='text-2xl md:text-3xl text-center font-bold text-white mb-10'>
           Recent Works
         </h2>
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8'>
           {projects.map((project) => (
             <Project
               key={project.id}
@@ -87,6 +116,10 @@ const ProjectTab: NextPage = () => {
               category={project.category}
             />
           ))}
+        </div>
+
+        <div className='flex justify-center pt-10'>
+          <button className='gradient-btn'>Load More</button>
         </div>
       </div>
     </section>

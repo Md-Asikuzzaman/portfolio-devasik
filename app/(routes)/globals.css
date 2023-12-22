@@ -35,3 +35,11 @@ body {
 .filter--active {
   @apply bg-orange-500 text-white;
 }
+
+.slick-slide {
+  @apply opacity-30 transition;
+}
+
+.slick-center {
+  @apply opacity-100;
+}

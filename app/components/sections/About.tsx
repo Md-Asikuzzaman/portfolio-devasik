@@ -20,7 +20,7 @@ const About = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id='about' className='relative overflow-hidden pb-12'>
+    <section ref={ref} id='about' className='relative overflow-hidden lg:pb-10'>
       <div className='relative -z-50 pt-12'>
         <div className='flex flex-row justify-center'>
           <div className='absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent'></div>
