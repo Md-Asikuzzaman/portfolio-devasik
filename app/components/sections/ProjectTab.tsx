@@ -3,10 +3,9 @@ import { useEffect, useState, Suspense } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 import Project from '../Project';
-import { prisma } from '@/lib/db';
 
 const ProjectTab: NextPage = async () => {
-  const res = await fetch('http://localhost:3000/api/project', {
+  const res = await fetch('https://devasik.vercel.app/api/project', {
     cache: 'no-cache',
   });
 

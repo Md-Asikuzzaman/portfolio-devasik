@@ -4,7 +4,6 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import { PiLinkDuotone } from 'react-icons/pi';
 import { FiGithub } from 'react-icons/fi';
-import { motion } from 'framer-motion';
 
 interface Props {
   id: string;
