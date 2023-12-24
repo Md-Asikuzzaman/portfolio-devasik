@@ -37,9 +37,9 @@ body {
 }
 
 .slick-slide {
-  @apply opacity-30 transition;
+  @apply opacity-30;
 }
 
-.slick-center {
+.slick-active {
   @apply opacity-100;
 }

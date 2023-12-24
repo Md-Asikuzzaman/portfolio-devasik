@@ -45,6 +45,18 @@ export default function SimpleSlider() {
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          className: 'px-4',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          infinite: true,
+        },
+      },
+    ],
   };
 
   return (
