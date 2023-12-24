@@ -37,7 +37,7 @@ const Header: NextPage = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 bg-gradient-to-r from-violet-500 to-pink-600 md:bg-transparent ${
+      className={`fixed w-full top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-violet-500/90 to-pink-600/90 md:bg-transparent ${
         showBackground
           ? 'md:backdrop-blur-xl md:bg-black/70 md:bg-none'
           : 'md:bg-transparent md:bg-none'
