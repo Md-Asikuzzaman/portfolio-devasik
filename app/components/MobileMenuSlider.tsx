@@ -20,7 +20,7 @@ const MobileMenuSlider: NextPage<Props> = ({
         menuActive ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
-      <ul className='flex flex-col gap-8'>
+      <ul className='flex flex-col gap-5'>
         <li
           onClick={() => {
             setNavOptionActive('home');
