@@ -36,7 +36,7 @@ const ProjectTab: NextPage = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:3000/api/project?page=${page}`
+          `https://devasik.vercel.app/api/project?page=${page}`
         );
         const project = await res.data;
         setData(project);
