@@ -16,7 +16,7 @@ const MobileMenuSlider: NextPage<Props> = ({
 }) => {
   return (
     <div
-      className={`fixed md:hidden top-[81px] bg-black/90 backdrop-blur-lg h-screen w-full left-0 px-8 py-5 transform duration-500 ${
+      className={`fixed md:hidden top-[64px] bg-[#0D1224]/90 backdrop-blur-lg h-screen w-full left-0 px-8 py-5 transform duration-500 ${
         menuActive ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
@@ -29,8 +29,8 @@ const MobileMenuSlider: NextPage<Props> = ({
         >
           <a
             className={`${
-              navOptionActive == 'home' ? 'text-orange-500' : 'text-[#888888]'
-            } text-base hover:text-orange-500`}
+              navOptionActive == 'home' ? 'text-pink-500' : 'text-gray-400'
+            } text-base font-semibold hover:text-pink-500`}
             href='#'
           >
             Home
@@ -44,8 +44,8 @@ const MobileMenuSlider: NextPage<Props> = ({
         >
           <a
             className={`${
-              navOptionActive == 'about' ? 'text-orange-500' : 'text-[#888888]'
-            } text-base hover:text-orange-500`}
+              navOptionActive == 'about' ? 'text-pink-500' : 'text-gray-400'
+            } text-base font-semibold hover:text-pink-500`}
             href='#about'
           >
             About
@@ -59,8 +59,8 @@ const MobileMenuSlider: NextPage<Props> = ({
         >
           <a
             className={`${
-              navOptionActive == 'works' ? 'text-orange-500' : 'text-[#888888]'
-            } text-base hover:text-orange-500`}
+              navOptionActive == 'works' ? 'text-pink-500' : 'text-gray-400'
+            } text-base font-semibold hover:text-pink-500`}
             href='#works'
           >
             Works
@@ -75,9 +75,9 @@ const MobileMenuSlider: NextPage<Props> = ({
           <a
             className={`${
               navOptionActive == 'contact'
-                ? 'text-orange-500'
-                : 'text-[#888888]'
-            } text-base hover:text-orange-500`}
+                ? 'text-pink-500'
+                : 'text-gray-400'
+            } text-base font-semibold hover:text-pink-500`}
             href='#contact'
           >
             Contact
