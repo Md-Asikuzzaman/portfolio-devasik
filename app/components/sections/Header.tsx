@@ -38,7 +38,7 @@ const Header: NextPage = () => {
   return (
     <header
       className={`fixed w-full top-0 z-50 bg-black border-b-[0.5px] border-[#3f3f3f] md:border-none md:bg-transparent ${
-        showBackground ? 'md:bg-black/70 md:backdrop-blur-lg' : ''
+        showBackground ? 'md:bg-black/70 md:backdrop-blur-xl' : ''
       } `}
     >
       <nav className='header__container h-16 flex items-center justify-between'>
