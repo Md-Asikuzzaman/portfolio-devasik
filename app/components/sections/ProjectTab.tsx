@@ -96,7 +96,7 @@ const ProjectTab: NextPage = () => {
             ))
           ) : (
             <>
-              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-sm w-full mx-auto'>
+              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-lg w-full mx-auto'>
                 <div className='animate-pulse flex flex-col'>
                   <div className='rounded-lg bg-slate-700 mb-4 h-28 w-full'></div>
                   <div className='flex-1 space-y-6 py-1'>
@@ -112,7 +112,7 @@ const ProjectTab: NextPage = () => {
                 </div>
               </div>
 
-              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-sm w-full mx-auto'>
+              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-lg w-full mx-auto'>
                 <div className='animate-pulse flex flex-col'>
                   <div className='rounded-lg bg-slate-700 mb-4 h-28 w-full'></div>
                   <div className='flex-1 space-y-6 py-1'>
@@ -128,7 +128,7 @@ const ProjectTab: NextPage = () => {
                 </div>
               </div>
 
-              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-sm w-full mx-auto'>
+              <div className='border border-[#262B42] shadow rounded-md p-4 max-w-lg w-full mx-auto'>
                 <div className='animate-pulse flex flex-col'>
                   <div className='rounded-lg bg-slate-700 mb-4 h-28 w-full'></div>
                   <div className='flex-1 space-y-6 py-1'>
