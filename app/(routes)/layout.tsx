@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title:
     'Md Asikuzzaman | MERN Stack Web Developer - such as (MongoDB, Express, React & Next, Node)',
   description: 'something',
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      url: '/images/dev.jpg',
+    },
+  ],
 };
 
 export default function RootLayout({
