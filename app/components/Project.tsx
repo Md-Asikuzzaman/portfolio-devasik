@@ -15,7 +15,13 @@ interface Props {
   category?: string;
 }
 
-const Project: NextPage<Props> = ({ image, title, description, github, website }) => {
+const Project: NextPage<Props> = ({
+  image,
+  title,
+  description,
+  github,
+  website,
+}) => {
   return (
     <div className='relative bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-[#262B42] hover:border-[#434865] transition-colors duration-200 ease-in-out'>
       <div className='relative h-52 md:h-44 w-full'>
@@ -37,6 +43,7 @@ const Project: NextPage<Props> = ({ image, title, description, github, website }
           <a
             className='h-10 w-10 rounded-full bg-[#202044] inline-flex items-center justify-center text-violet-500'
             href={website}
+            target='_blank'
           >
             <PiLinkDuotone className='h-5 w-5' />
           </a>
@@ -44,6 +51,7 @@ const Project: NextPage<Props> = ({ image, title, description, github, website }
           <a
             className='h-10 w-10 rounded-full bg-[#202044] inline-flex items-center justify-center text-pink-500'
             href={github}
+            target='_blank'
           >
             <FiGithub className='h-5 w-5' />
           </a>

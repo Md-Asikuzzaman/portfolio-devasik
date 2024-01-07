@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db';
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
 export async function GET() {
   try {
@@ -12,4 +12,15 @@ export async function GET() {
       { status: 500 }
     );
   }
+}
+
+export async function POST(req: Request) {
+  const { title, description, image, website, github, variant } =
+    await req.json();
+
+  const newData = await prisma.project.create({
+    data: { title, description, image, website, github, variant },
+  });
+
+  return NextResponse.json(newData, { status: 201 });
 }

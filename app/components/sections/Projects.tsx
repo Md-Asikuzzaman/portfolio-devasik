@@ -24,7 +24,7 @@ interface serverDataType {
   hasMorePages: boolean;
 }
 
-const ProjectTab: NextPage = () => {
+const Projects: NextPage = () => {
   const [data, setData] = useState<serverDataType>();
   const [project, setProject] = useState<ProjectDataType[]>([]);
   const [isLoading, setLoading] = useState(true);
@@ -163,4 +163,4 @@ const ProjectTab: NextPage = () => {
   );
 };
 
-export default ProjectTab;
+export default Projects;

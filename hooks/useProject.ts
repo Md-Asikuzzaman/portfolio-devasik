@@ -19,7 +19,7 @@ interface HookType {
 }
 
 const useProject = (id: string): HookType => {
-  const { data, isLoading, error, mutate } = useSWR(id && `/api/project/${id}`, fetcher, {
+  const { data, isLoading, error, mutate } = useSWR(id && `/api/projects/${id}`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,

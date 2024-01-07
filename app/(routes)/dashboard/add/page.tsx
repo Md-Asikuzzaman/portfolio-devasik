@@ -41,7 +41,7 @@ const Page = () => {
         variant,
       };
 
-      const res = await axios.post('/api/project', data);
+      const res = await axios.post('/api/projects', data);
 
       mutate();
       reset();
@@ -57,10 +57,10 @@ const Page = () => {
   );
 
   return (
-    <div className='flex items-start justify-center min-h-screen w-full '>
+    <div className='flex items-start justify-center min-h-screen w-full md:mt-12'>
       <form
         onSubmit={handleSubmit}
-        className='bg-white max-w-lg w-full p-5 rounded-md'
+        className='bg-white max-w-2xl w-full p-12 rounded-2xl shadow-lg'
       >
         <h2 className='text-xl md:text-2xl font-semibold mb-4'>
           Add a new Project
@@ -111,7 +111,7 @@ const Page = () => {
           className='w-full py-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 mt-4 transition'
           type='submit'
         >
-          Add new
+          Let's Add
         </button>
       </form>
     </div>

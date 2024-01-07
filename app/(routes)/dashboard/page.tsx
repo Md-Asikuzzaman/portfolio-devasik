@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { useCallback, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
@@ -20,7 +22,7 @@ const Page: NextPage<Props> = ({}) => {
   const handleClick = useCallback(
     async (id: string) => {
       if (window.confirm('Do you really want to delete?')) {
-        const res = await axios.delete(`/api/project/delete/${id}`);
+        const res = await axios.delete(`/api/projects/delete/${id}`);
 
         if (res.status === 200) {
           toast.error('Project deleted!!!');
@@ -36,9 +38,9 @@ const Page: NextPage<Props> = ({}) => {
     <div>
       <h2 className='text-xl md:text-2xl font-semibold mb-4'>All Projects</h2>
       <div className='flex flex-col gap-3'>
-        <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
-          <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
-            <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+        <div className='relative overflow-x-scroll shadow-md sm:rounded-lg'>
+          <table className='w-full text-sm text-left text-gray-500'>
+            <thead className='text-xs text-gray-700 uppercase bg-gray-50 '>
               <tr>
                 <th scope='col' className='px-6 py-3'>
                   Title
@@ -59,7 +61,7 @@ const Page: NextPage<Props> = ({}) => {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                <tr className='bg-white border-b  hover:bg-gray-50'>
                   <td className='px-6 py-4 text-center' colSpan={5}>
                     Loading...
                   </td>
@@ -68,11 +70,11 @@ const Page: NextPage<Props> = ({}) => {
                 data.map((project) => (
                   <tr
                     key={project.id}
-                    className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'
+                    className='bg-white border-b  hover:bg-gray-50'
                   >
                     <th
                       scope='row'
-                      className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'
+                      className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'
                     >
                       {project.title}
                     </th>
@@ -90,19 +92,21 @@ const Page: NextPage<Props> = ({}) => {
                         alt='cover'
                       />
                     </td>
-                    <td className='px-6 py-4 flex items-center gap-3'>
+                    <td className='px-6 py-4 flex items-center gap-4'>
                       <Link
                         href={`/dashboard/update/${project.id}`}
-                        className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
+                        className='flex items-center gap-1 font-medium text-blue-600 hover:underline'
                       >
                         Edit
+                        <AiFillEdit size={18} />
                       </Link>
 
                       <button
                         onClick={() => handleClick(project.id)}
-                        className='font-medium text-rose-600 dark:text-rose-500 hover:underline'
+                        className='flex items-center gap-1 font-medium text-rose-600 hover:underline'
                       >
                         Delete
+                        <AiFillDelete size={18} />
                       </button>
                     </td>
                   </tr>
