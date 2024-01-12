@@ -2,6 +2,7 @@
 
 import { NextPage } from 'next';
 import Image from 'next/image';
+
 import { PiLinkDuotone } from 'react-icons/pi';
 import { FiGithub } from 'react-icons/fi';
 

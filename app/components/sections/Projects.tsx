@@ -2,12 +2,14 @@
 
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { useActiveSection } from '@/hooks/useActiveSection';
-import { useInView } from 'react-intersection-observer';
-import Project from '../shared/Project';
-import axios from 'axios';
 
+import { useInView } from 'react-intersection-observer';
+import { useActiveSection } from '@/hooks/useActiveSection';
+
+import Project from '@/app/components/shared/Project';
 import { LuLoader2 } from 'react-icons/lu';
+
+import axios from 'axios';
 
 interface ProjectDataType {
   id: string;
@@ -38,7 +40,7 @@ const Projects: NextPage = () => {
         const res = await axios.get(
           `https://devasik.vercel.app/api/projects-by-sort?page=${page}`
         );
-        
+
         const project = await res.data;
         setData(project);
 

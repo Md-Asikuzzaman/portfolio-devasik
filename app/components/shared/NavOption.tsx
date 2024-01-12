@@ -1,9 +1,9 @@
 'use client';
 
-import { socialInfo } from '@/lib/social';
 import { NextPage } from 'next';
+
+import { socialInfo } from '@/lib/social';
 import { BiLogoGithub } from 'react-icons/bi';
-// import { HiPhone } from 'react-icons/hi2';
 
 interface Props {
   navOptionActive: string;

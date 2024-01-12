@@ -1,12 +1,14 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
 import { NextPage } from 'next';
-import NavOption from '../shared/NavOption';
-import Logo from '../shared/Logo';
-import MobileMenu from '../shared/MobileMenu';
-import MobileMenuSlider from './MobileMenuSlider';
+import { useCallback, useEffect, useState } from 'react';
+
 import { useActiveSection } from '@/hooks/useActiveSection';
+
+import Logo from '@/app/components/shared/Logo';
+import NavOption from '@/app/components/shared/NavOption';
+import MobileMenuSlider from '@/app/components/sections/MobileMenuSlider';
+import MobileMenu from '@/app/components/shared/MobileMenu';
 
 const Header: NextPage = () => {
   const [showBackground, setShowBackground] = useState<boolean>(false);
