@@ -32,6 +32,10 @@ body {
   background-color: #0d1224 !important;
 }
 
+html {
+  scroll-padding-top: 60px !important;
+}
+
 .filter--active {
   @apply bg-orange-500 text-white;
 }
