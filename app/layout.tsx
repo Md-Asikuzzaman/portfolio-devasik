@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ActiveSectionContextProvider from '@/context/activeSectionContext';
-import SessionProviders from './components/SessionProviders';
+import SessionProviders from '@/app/components/providers/SessionProviders';
 import './globals.css';
 
 import 'slick-carousel/slick/slick.css';
