@@ -37,7 +37,7 @@ const Hero = () => {
                 'Full Stack Developer',
                 'Senior Frontend Engineer',
                 'Programmer',
-                'Self taught Software Developer',
+                'Self taught Software Dev',
               ],
               autoStart: true,
               loop: true,
