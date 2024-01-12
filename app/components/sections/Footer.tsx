@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import GoToTop from '../GoToTop';
+import GoToTop from '@/app/components/shared/GoToTop';
 
 const Footer = () => {
   return (
