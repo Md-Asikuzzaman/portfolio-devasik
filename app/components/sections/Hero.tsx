@@ -1,12 +1,14 @@
 'use client';
 
-import Typewriter from 'typewriter-effect';
-import Particle from '../Particel';
-import HeroButton from '../HeroButton';
-import SocialLink from '../SocialLink';
 import { useEffect } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
+
+import Typewriter from 'typewriter-effect';
+
+import Particle from '@/app/components/shared/Particle';
+import HeroButton from '@/app/components/shared/HeroButton';
+import SocialLink from '@/app/components/shared/SocialLink';
 
 const Hero = () => {
   const { ref, inView } = useInView({

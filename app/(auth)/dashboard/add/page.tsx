@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import MyInput from '@/app/components/Input';
+import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useProjects from '@/hooks/useProjects';

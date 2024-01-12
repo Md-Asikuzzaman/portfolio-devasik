@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { NextPage } from 'next';
-import NavOption from '../NavOption';
-import Logo from '../Logo';
-import MobileMenu from '../MobileMenu';
-import MobileMenuSlider from '../MobileMenuSlider';
+import NavOption from '../shared/NavOption';
+import Logo from '../shared/Logo';
+import MobileMenu from '../shared/MobileMenu';
+import MobileMenuSlider from './MobileMenuSlider';
 import { useActiveSection } from '@/hooks/useActiveSection';
 
 const Header: NextPage = () => {

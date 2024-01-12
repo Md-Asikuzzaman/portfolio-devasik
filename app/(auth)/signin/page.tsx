@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import MyInput from '@/app/components/Input';
+import MyInput from '@/app/components/shared/Input';
 
 interface Props {}
 

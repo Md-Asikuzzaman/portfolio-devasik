@@ -1,14 +1,13 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import MyInput from '@/app/components/Input';
+import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useProject from '@/hooks/useProject';
 import { useRouter } from 'next/navigation';
 import { NextPage } from 'next';
 
-  
 interface Props {
   params: { id: string };
 }

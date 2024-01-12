@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import Tab from '../Tab';
+import Tab from '../shared/Tab';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-import SimpleSlider from '../Slider';
+import SimpleSlider from '../shared/Slider';
 
 const About = () => {
   const { ref, inView } = useInView({

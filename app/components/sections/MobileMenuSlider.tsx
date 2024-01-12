@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import SocialLink from './SocialLink';
+import SocialLink from '@/app/components/shared/SocialLink';
 
 interface Props {
   setMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -74,9 +74,7 @@ const MobileMenuSlider: NextPage<Props> = ({
         >
           <a
             className={`${
-              navOptionActive == 'contact'
-                ? 'text-pink-500'
-                : 'text-gray-400'
+              navOptionActive == 'contact' ? 'text-pink-500' : 'text-gray-400'
             } text-base font-semibold hover:text-pink-500`}
             href='#contact'
           >

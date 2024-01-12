@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useInView } from 'react-intersection-observer';
-import Project from '../Project';
+import Project from '../shared/Project';
 import axios from 'axios';
 
 import { LuLoader2 } from 'react-icons/lu';
