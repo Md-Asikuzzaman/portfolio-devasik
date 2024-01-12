@@ -38,6 +38,7 @@ const Projects: NextPage = () => {
         const res = await axios.get(
           `https://devasik.vercel.app/api/projects-by-sort?page=${page}`
         );
+        
         const project = await res.data;
         setData(project);
 
