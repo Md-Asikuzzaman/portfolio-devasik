@@ -48,7 +48,7 @@ const Contact = () => {
               <a
                 target='_blank'
                 className='text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none'
-                href={socialInfo.whatsApp}
+                href={socialInfo.phone}
               >
                 +8801995-580559
               </a>
