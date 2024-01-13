@@ -7,7 +7,7 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 import Image from 'next/image';
 
 import Tab from '@/app/components/shared/Tab';
-import SimpleSlider from '@/app/components/shared/Slider';
+import TestimonialSlider from '@/app/components/sections/TestimonialSlider';
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -45,7 +45,7 @@ const About = () => {
         </div>
       </div>
 
-      <SimpleSlider />
+      <TestimonialSlider />
     </section>
   );
 };
