@@ -45,9 +45,9 @@ const AboutMe = () => {
 
         <a
           target='_blank'
-          href='/CV.pdf'
-          download='/CV.pdf'
-          className='text-white bg-[#96691b] duration-200 hover:bg-[#96691b]/70 focus:ring-4 focus:outline-none focus:ring-[#96691b]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center'
+          href='#'
+          // download=''
+          className='text-white bg-[#815b19] duration-200 hover:bg-[#815b19]/70 focus:ring-4 focus:outline-none focus:ring-[#815b19]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center'
         >
           <Image
             className='mr-2'
