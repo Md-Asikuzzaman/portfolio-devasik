@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import SocialLink from '@/app/components/shared/SocialLink';
 
-import { navOptions } from '@/lib';
+import { appVersion, navOptions } from '@/lib';
 
 interface Props {
   setMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,7 +16,6 @@ const MobileMenuSlider: NextPage<Props> = ({
   navOptionActive,
   setNavOptionActive,
 }) => {
-
   const handleClick = (option: string) => {
     setNavOptionActive(option);
     setMenuActive((value) => !value);
@@ -44,6 +43,7 @@ const MobileMenuSlider: NextPage<Props> = ({
       </ul>
 
       <SocialLink variant='mobile' />
+      <span className='text-sm text-slate-500 absolute left-0 right-0 text-center bottom-[15%]'>{appVersion}</span>
     </div>
   );
 };

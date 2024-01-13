@@ -8,3 +8,5 @@ export const socialInfo = {
   phone: 'tel:+8801995-580669',
   email: 'mailto:mdasikuzzaman.en@gmail.com',
 };
+
+export const appVersion = 'v2.2.0';
