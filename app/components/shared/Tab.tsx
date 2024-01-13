@@ -12,7 +12,7 @@ const Tab = () => {
   const [currentTab, setCurrentTab] = useState(1);
 
   return (
-    <div className='col-start-2 col-end-4'>
+    <div className='flex-1'>
       <div className='text-sm font-medium text-center text-zinc-400'>
         <div className='flex flex-wrap gap-2 mb-8 lg:mb-12'>
           <TabButton
@@ -23,7 +23,7 @@ const Tab = () => {
           />
 
           <TabButton
-            title='Skill'
+            title='Skill Set'
             tabValue={2}
             currentTab={currentTab}
             setCurrentTab={setCurrentTab}
@@ -43,6 +43,7 @@ const Tab = () => {
           />
         </div>
       </div>
+
       {currentTab == 1 && <AboutMe />}
       {currentTab == 2 && <Skill />}
       {currentTab == 3 && <Experience />}

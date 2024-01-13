@@ -6,9 +6,14 @@ const Experience = () => {
     <div className='flex flex-col gap-5'>
       <SkillCard
         title='Senior Front-End Developer'
-        company='Wafasoft (Contract)'
+        company='TFM tools (Contract)'
         duration='January 2019 - Running'
-        details='A Passionate Software Developer, Entrepreneur and Programmer. I love to play with coding, building software, and focusing on learning new technologies.'
+        details={[
+          'Responsive Web Design & Development',
+          'State Management & Data Fetching',
+          'UI Bug Fixing',
+          'SEO and more.',
+        ]}
         Icon={BsBriefcase}
       />
 
@@ -16,7 +21,12 @@ const Experience = () => {
         title='Web Designer'
         company='City It Park (Intern)'
         duration='Jan 2019 - Running'
-        details='A Passionate Software Developer, Entrepreneur and Programmer. I love to play with coding, building software, and focusing on learning new technologies.'
+        details={[
+          'Responsive Website Design',
+          'UI Bug Fixing',
+          'Website Deployment',
+          'Basic SEO and more.',
+        ]}
         Icon={BsBriefcase}
         border='via-pink-500'
         color='text-pink-500'

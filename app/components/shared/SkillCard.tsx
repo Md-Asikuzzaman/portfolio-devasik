@@ -5,7 +5,7 @@ interface Props {
   title: string;
   company: string;
   duration: string;
-  details: string;
+  details: string[];
   Icon: any;
   border?: string;
   color?: string;
@@ -54,7 +54,13 @@ const SkillCard: NextPage<Props> = ({
           <ul className='list-disc list-inside text-zinc-400 text-sm'>
             <li>{duration}</li>
           </ul>
-          <p className='text-[#d3d8e8] leading-6 mt-5'>{details}</p>
+          <div className='mt-5 flex flex-col gap-1'>
+            {details.map((option, i) => (
+              <p key={i} className='text-[#d3d8e8] leading-6'>
+                - {option}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>

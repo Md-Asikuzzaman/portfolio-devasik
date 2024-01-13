@@ -10,7 +10,12 @@ const Education = () => {
         title='B.S.c in CSE'
         company='Bangladesh University of Business & Technology'
         duration='Jan 2022 - Running'
-        details='A Passionate Software Developer, Entrepreneur and Programmer. I love to play with coding, building software, and focusing on learning new technologies.'
+        details={[
+          'Advanced Software Development',
+          'Algorithmic Thinking',
+          'Database Management',
+          'System Architecture and more.',
+        ]}
         Icon={PiStudentLight}
         border='via-pink-500'
         color='text-pink-500'
@@ -21,7 +26,12 @@ const Education = () => {
         title='Diploma in Computer Engineering'
         company='City Polytechnic Institute'
         duration='Jan 2018 - Dec 2022'
-        details='A Passionate Software Developer, Entrepreneur and Programmer. I love to play with coding, building software, and focusing on learning new technologies.'
+        details={[
+          'Programming Proficiency',
+          'Problem Solving',
+          'Hardware Expertise',
+          'Team Collaboration and more.',
+        ]}
         Icon={PiStudentLight}
       />
     </div>

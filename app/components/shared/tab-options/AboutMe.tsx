@@ -5,18 +5,25 @@ const AboutMe = () => {
   return (
     <div className='px-3'>
       <p className='text-white text-2xl font-semibold mb-5'>
-        Hi, This is Md Asikuzzaman
+        Hi, I'm Md Asikuzzaman
       </p>
       <p className='mb-4 text-md lg:text-md lg:leading-8 text-[#d3d8e8]'>
-        My name is Md Asikuzzaman. I'm a React developer and I absolutely love
-        my passion. I am enjoying learn new things. You'll find me hardworking,
-        fast learning, and fiercely ambitious. My expertise on MERN stack
-        development such as (Mongodb, Express, React & Node). 😊
+        I'm a passionate Software Developer with 4+ years of expertise in{' '}
+        <span className='border-b-[1px] border-b-violet-500'>
+          Next.js, React.js, Prisma, MongoDB, Zod, and TypeScript.{' '}
+        </span>
+        I thrive on exploring new technologies, embracing challenges, and
+        continually expanding my knowledge. Committed to delivering innovative
+        solutions and enhancing user experiences through a blend of creativity
+        and technical acumen. My journey in the world of software development is
+        not just about writing code; it's a relentless pursuit of excellence.
+        Explore my portfolio to witness my dedication to continuous learning,
+        overcoming challenges, and crafting solutions that make an impact.
       </p>
 
       <p className='text-md lg:text-md lg:leading-8 text-[#d3d8e8]'>
-        I love challenges and i know -there is always a solution. At my age, my
-        unwavering focus is to be recognised as on of the best coders in tech. I
+        I love challenges and i know there is always a solution. At my age, my
+        unwavering focus is to be recognized as on of the best coders in tech. I
         love my clients, i enjoy my project and respect my teammates.
       </p>
 
