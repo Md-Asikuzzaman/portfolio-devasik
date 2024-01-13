@@ -1,7 +1,7 @@
 'use client';
 
+import { socialInfo } from '@/lib';
 import { NextPage } from 'next';
-import { socialInfo } from '@/lib/social';
 import { BsGithub, BsFacebook, BsLinkedin } from 'react-icons/bs';
 
 interface Props {

@@ -1,5 +1,5 @@
+import { socialInfo } from '@/lib';
 import Image from 'next/image';
-import { socialInfo } from '@/lib/social';
 
 const AboutMe = () => {
   return (

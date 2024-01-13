@@ -1,8 +1,9 @@
 'use client';
 
+import { socialInfo } from '@/lib';
 import { NextPage } from 'next';
 
-import { socialInfo } from '@/lib/social';
+
 import { BiLogoGithub } from 'react-icons/bi';
 
 interface Props {
@@ -14,48 +15,23 @@ const NavOption: NextPage<Props> = ({
   navOptionActive,
   setNavOptionActive,
 }) => {
+  const navOptions = ['home', 'about', 'works', 'contact'];
+
   return (
     <ul className='hidden md:flex gap-8'>
-      <li onClick={() => setNavOptionActive('home')}>
-        <a
-          className={`${
-            navOptionActive == 'home' ? 'text-white' : 'text-gray-400'
-          } text-base hover:text-white transition-colors duration-200`}
-          href='#'
-        >
-          Home
-        </a>
-      </li>
-      <li onClick={() => setNavOptionActive('about')}>
-        <a
-          className={`${
-            navOptionActive == 'about' ? 'text-white' : 'text-gray-400'
-          } text-base hover:text-white transition-colors duration-200`}
-          href='#about'
-        >
-          About
-        </a>
-      </li>
-      <li onClick={() => setNavOptionActive('works')}>
-        <a
-          className={`${
-            navOptionActive == 'works' ? 'text-white' : 'text-gray-400'
-          } text-base hover:text-white transition-colors duration-200`}
-          href='#works'
-        >
-          Works
-        </a>
-      </li>
-      <li onClick={() => setNavOptionActive('contact')}>
-        <a
-          className={`${
-            navOptionActive == 'contact' ? 'text-white' : 'text-gray-400'
-          } text-base hover:text-white transition-colors duration-200`}
-          href='#contact'
-        >
-          Contact
-        </a>
-      </li>
+      {navOptions.map((option, i) => (
+        <li key={i} onClick={() => setNavOptionActive(option)}>
+          <a
+            className={`capitalize ${
+              option == navOptionActive ? 'text-white' : 'text-gray-400'
+            } text-base hover:text-white transition-colors duration-200`}
+            href={option == navOptionActive ? `#${option}` : '#'}
+          >
+            {option}
+          </a>
+        </li>
+      ))}
+
       <div className='w-[1px] h-auto bg-gray-600' />
       <div className='flex items-center gap-5'>
         <a target='_blank' href={socialInfo.github}>
