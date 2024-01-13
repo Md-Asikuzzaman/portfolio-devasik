@@ -27,20 +27,38 @@ const AboutMe = () => {
         love my clients, i enjoy my project and respect my teammates.
       </p>
 
-      <a
-        target='_blank'
-        href={socialInfo.whatsApp}
-        className='text-white bg-[#128c7e] duration-200 mt-5 hover:bg-[#075e54] focus:ring-4 focus:outline-none focus:ring-[#128c7e]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2'
-      >
-        <Image
-          className='mr-2'
-          height={24}
-          width={24}
-          src='/images/whatsapp.png'
-          alt='whatsapp'
-        />
-        WhatsApp
-      </a>
+      <div className='flex gap-3 mt-6'>
+        <a
+          target='_blank'
+          href={socialInfo.whatsApp}
+          className='text-white bg-[#17766a] duration-200 hover:bg-[#17766a]/70 focus:ring-4 focus:outline-none focus:ring-[#17766a]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center'
+        >
+          <Image
+            className='mr-2'
+            height={24}
+            width={24}
+            src='/images/whatsapps.png'
+            alt='whatsapp'
+          />
+          WhatsApp
+        </a>
+
+        <a
+          target='_blank'
+          href='/CV.pdf'
+          download='/CV.pdf'
+          className='text-white bg-[#96691b] duration-200 hover:bg-[#96691b]/70 focus:ring-4 focus:outline-none focus:ring-[#96691b]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center'
+        >
+          <Image
+            className='mr-2'
+            height={24}
+            width={24}
+            src='/images/download.png'
+            alt='whatsapp'
+          />
+          Download CV
+        </a>
+      </div>
     </div>
   );
 };
