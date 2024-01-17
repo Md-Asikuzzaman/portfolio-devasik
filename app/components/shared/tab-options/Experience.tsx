@@ -7,7 +7,7 @@ const Experience = () => {
       <SkillCard
         title='Senior Front-End Developer'
         company='TFM tools (Contract)'
-        duration='Feb 2020 - Running'
+        duration='Feb 2021 - Running'
         details={[
           'Responsive Web Design & Development',
           'State Management & Data Fetching',
@@ -20,7 +20,7 @@ const Experience = () => {
       <SkillCard
         title='Web Designer'
         company='City It Park (Intern)'
-        duration='Jun 2023 - Dec 2023'
+        duration='Oct 2022 - Jan 2023'
         details={[
           'Responsive Website Design',
           'UI Bug Fixing',
