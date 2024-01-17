@@ -45,8 +45,8 @@ const AboutMe = () => {
 
         <a
           target='_blank'
-          href='#'
-          // download=''
+          href='/files/Md_Asikuzzaman_CV.pdf'
+          download='Md_Asikuzzaman_CV.pdf'
           className='text-white bg-[#815b19] duration-200 hover:bg-[#815b19]/70 focus:ring-4 focus:outline-none focus:ring-[#815b19]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center'
         >
           <Image
