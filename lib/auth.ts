@@ -21,8 +21,8 @@ export const authOptions: NextAuthOptions = {
 
       async authorize(credentials, req) {
         if (
-          credentials?.email == 'devasik@gmail.com' &&
-          credentials?.password == 'devasik'
+          credentials?.email == process.env.EMAIL &&
+          credentials?.password == process.env.USER
         ) {
           const user = {
             id: '1sjk84sj023.as',
