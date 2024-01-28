@@ -21,12 +21,12 @@ export const authOptions: NextAuthOptions = {
 
       async authorize(credentials, req) {
         if (
-          credentials?.email == 'devasik@gmail.com' &&
-          credentials?.password == 'devasik'
+          credentials?.email == process.env.EMAIL &&
+          credentials?.password == process.env.PASSWORD
         ) {
           const user = {
             id: '1sjk84sj023.as',
-            email: 'devasik@gmail.com',
+            email: process.env.EMAIL,
           };
 
           return user;
