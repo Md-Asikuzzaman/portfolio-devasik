@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import ReCAPTCHA from "react-google-recaptcha";
+import toast from "react-hot-toast";
 
 import { schema } from "@/lib/form_schema";
 import { useRef, useState } from "react";
@@ -13,7 +14,6 @@ interface Props {}
 
 const ContactForm: NextPage<Props> = ({}) => {
   const [captha, setCaptha] = useState<string>("");
-
   const recaptcharef = useRef<ReCAPTCHA>(null);
 
   //extract the inferred type from schema
@@ -40,11 +40,13 @@ const ContactForm: NextPage<Props> = ({}) => {
     if (isCapthaVerified) {
       console.log(data);
 
+      toast.success("Mesage sent! Thanks you.😂");
+
       recaptcharef.current?.reset();
       setCaptha("");
       reset();
     } else {
-      console.log("Unverified!!!");
+      toast.error("Please fill out the reCAPTCHA.😢");
     }
   };
 
