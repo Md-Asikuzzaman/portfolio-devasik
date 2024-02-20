@@ -9,4 +9,4 @@ export const socialInfo = {
   email: 'mailto:mdasikuzzaman.en@gmail.com',
 };
 
-export const appVersion = 'v2.3.2';
+export const appVersion = 'v2.4.2';
