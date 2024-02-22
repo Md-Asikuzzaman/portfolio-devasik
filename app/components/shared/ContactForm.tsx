@@ -101,7 +101,7 @@ const ContactForm: NextPage<Props> = ({}) => {
               Your message:
             </label>
             <textarea
-              className="bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70  block w-full p-2.5"
+              className="bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 block w-full p-2.5"
               id="message"
               autoComplete="off"
               rows={5}
