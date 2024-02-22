@@ -1,20 +1,28 @@
-import { NextPage } from "next";
+"use client";
 
-import { z } from "zod";
+import { NextPage } from "next";
+import { useRef, useState } from "react";
+
 import { SubmitHandler, useForm } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { schema } from "@/lib/form_schema";
 
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
 
-import { schema } from "@/lib/form_schema";
-import { useRef, useState } from "react";
+import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
+import { LuLoader2 } from "react-icons/lu";
 
 interface Props {}
 
 const ContactForm: NextPage<Props> = ({}) => {
   const [captha, setCaptha] = useState<string>("");
+  const [isSending, setIsSending] = useState<boolean>(false);
   const recaptcharef = useRef<ReCAPTCHA>(null);
+
+  console.log(isSending);
 
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof schema>;
@@ -36,15 +44,28 @@ const ContactForm: NextPage<Props> = ({}) => {
   const isCapthaVerified = captha.length > 1000 && captha !== "";
 
   // Form submit handler
-  const onSubmit: SubmitHandler<ValidationSchemaType> = (data) => {
+  const onSubmit: SubmitHandler<ValidationSchemaType> = (mailData) => {
     if (isCapthaVerified) {
-      console.log(data);
+      const sentMail = async () => {
+        setIsSending(true);
+        const isSent = await axios.post(
+          "http://localhost:3000/api/mail",
+          mailData
+        );
 
-      toast.success("Mesage sent! Thanks you.😂");
+        if (isSent.status === 200) {
+          toast.success("Mesage sent! Thanks you.😂");
+          setIsSending(false);
+        } else {
+          toast.error(isSent.data.message);
+        }
+        // clear form data
+        recaptcharef.current?.reset();
+        setCaptha("");
+        reset();
+      };
 
-      recaptcharef.current?.reset();
-      setCaptha("");
-      reset();
+      sentMail();
     } else {
       toast.error("Please fill out the reCAPTCHA.😢");
     }
@@ -94,13 +115,17 @@ const ContactForm: NextPage<Props> = ({}) => {
           </p>
 
           <ReCAPTCHA
-            sitekey="6LdqVHkpAAAAANo9HHph57mZjQG62hxD4n83dWQI"
+            sitekey={process.env.RECAPTCHA_KEY as string}
             onChange={onChange}
             ref={recaptcharef}
           />
 
-          <button type="submit" className="gradient-btn mt-3">
-            Send
+          <button
+            type="submit"
+            className="gradient-btn flex items-center gap-1 mt-3"
+          >
+            {isSending && <LuLoader2 className="animate-spin" size={20} />}
+            {isSending ? "Sending..." : "Send"}
           </button>
         </form>
       </div>
