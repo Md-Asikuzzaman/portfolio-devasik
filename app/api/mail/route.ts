@@ -42,7 +42,7 @@ export async function POST(req: Request, res: Response) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Template</title>
   </head>
-  <body style="background: purple; padding: 10px; border-radius: 5px;">
+  <body style="background: blueviolet; padding: 10px; border-radius: 5px;">
     <h1 style="text-align: center; color: white; font-size: 18px;">${subject}</h1>
     <p style="color: white; margin-top: 15px;">From: ${from}</p>
     <p style="color: white; margin-top: 5px;">Message: ${message}</p>
