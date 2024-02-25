@@ -19,7 +19,6 @@ interface Props {}
 
 const ContactForm: NextPage<Props> = ({}) => {
   const [captha, setCaptha] = useState<string>("");
-  const [isSending, setIsSending] = useState<boolean>(false);
   const recaptcharef = useRef<ReCAPTCHA>(null);
 
   //extract the inferred type from schema
@@ -41,29 +40,33 @@ const ContactForm: NextPage<Props> = ({}) => {
 
   const isCapthaVerified = captha.length > 1000 && captha !== "";
 
+  // react-query mutation events
+  const { mutate, isPending } = useMutation({
+    mutationKey: ["mail"],
+    mutationFn: async (mailData: any) => {
+      return await axios.post(
+        `${process.env.NEXT_PUBLIC_SITE_URL}/api/mail`,
+        mailData
+      );
+    },
+
+    onSuccess() {
+      toast.success("Mesage sent! Thanks you.😂");
+    },
+
+    onError() {
+      toast.error("Mail not sent!!!😢");
+    },
+  });
+
   // Form submit handler
   const onSubmit: SubmitHandler<ValidationSchemaType> = (mailData) => {
     if (isCapthaVerified) {
-      const sentMail = async () => {
-        setIsSending(true);
-        const isSent = await axios.post(
-          `${process.env.NEXT_PUBLIC_SITE_URL}/api/mail`,
-          mailData
-        );
-
-        if (isSent.status === 200) {
-          toast.success("Mesage sent! Thanks you.😂");
-          setIsSending(false);
-        } else {
-          toast.error(isSent.data.message);
-        }
-        // clear form data
-        recaptcharef.current?.reset();
-        setCaptha("");
-        reset();
-      };
-
-      sentMail();
+      mutate(mailData);
+      // clear all data
+      recaptcharef.current?.reset();
+      setCaptha("");
+      reset();
     } else {
       toast.error("Please fill out the reCAPTCHA.😢");
     }
@@ -122,8 +125,8 @@ const ContactForm: NextPage<Props> = ({}) => {
             type="submit"
             className="gradient-btn flex items-center gap-1 mt-3"
           >
-            {isSending && <LuLoader2 className="animate-spin" size={20} />}
-            {isSending ? "Sending..." : "Send"}
+            {isPending && <LuLoader2 className="animate-spin" size={20} />}
+            {isPending ? "Sending..." : "Send"}
           </button>
         </form>
       </div>
