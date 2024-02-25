@@ -115,7 +115,7 @@ const ContactForm: NextPage<Props> = ({}) => {
           </p>
 
           <ReCAPTCHA
-            sitekey={process.env.RECAPTCHA_KEY as string}
+            sitekey="6LdqVHkpAAAAANo9HHph57mZjQG62hxD4n83dWQI"
             onChange={onChange}
             ref={recaptcharef}
           />
