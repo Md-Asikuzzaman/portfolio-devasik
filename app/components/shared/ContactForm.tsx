@@ -44,10 +44,9 @@ const ContactForm: NextPage<Props> = ({}) => {
   const { mutate, isPending } = useMutation({
     mutationKey: ["mail"],
     mutationFn: async (mailData: any) => {
-      return await axios.post(
-        `${process.env.NEXT_PUBLIC_SITE_URL}/api/mail`,
-        mailData
-      );
+      return await axios.post(`/api/mail`, mailData, {
+        baseURL: process.env.NEXT_PUBLIC_SITE_URL,
+      });
     },
 
     onSuccess() {
