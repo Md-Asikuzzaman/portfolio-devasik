@@ -9,5 +9,5 @@ export const schema = z.object({
   message: z
     .string()
     .min(1, { message: "Message is required" })
-    .max(100, { message: "Message at most 100 char." }),
+    .max(300, { message: "Message at most 300 char." }),
 });
