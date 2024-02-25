@@ -8,6 +8,6 @@ export const schema = z.object({
 
   message: z
     .string()
-    .min(1, { message: "Messsage is required" })
-    .max(100, { message: "Messsage at most 100 char." }),
+    .min(1, { message: "Message is required" })
+    .max(100, { message: "Message at most 100 char." }),
 });
