@@ -22,8 +22,6 @@ const ContactForm: NextPage<Props> = ({}) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const recaptcharef = useRef<ReCAPTCHA>(null);
 
-  console.log(isSending);
-
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof schema>;
 
@@ -49,7 +47,7 @@ const ContactForm: NextPage<Props> = ({}) => {
       const sentMail = async () => {
         setIsSending(true);
         const isSent = await axios.post(
-          "http://localhost:3000/api/mail",
+          `${process.env.NEXT_PUBLIC_SITE_URL}/api/mail`,
           mailData
         );
 
