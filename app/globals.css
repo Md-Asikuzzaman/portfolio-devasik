@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,10 +25,13 @@
   .gradient-btn {
     @apply inline-block px-6 py-3 text-sm no-underline uppercase text-center text-white tracking-wider font-medium md:font-semibold rounded-full bg-gradient-to-r from-pink-500 to-violet-600 transition-all duration-200 ease-out hover:text-white hover:no-underline;
   }
+  .form__control {
+    @apply bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 block w-full p-2.5;
+  }
 }
 
 body {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   background-color: #0d1224 !important;
 }
 

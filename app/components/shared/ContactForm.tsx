@@ -87,7 +87,7 @@ const ContactForm: NextPage<Props> = ({}) => {
               id="email"
               autoComplete="off"
               {...register("email")}
-              className="bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 block w-full p-2.5"
+              className="form__control"
             />
             {errors.email && (
               <span className="text-pink-500 text-sm">
@@ -101,7 +101,7 @@ const ContactForm: NextPage<Props> = ({}) => {
               Your message:
             </label>
             <textarea
-              className="bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 block w-full p-2.5"
+              className="form__control"
               id="message"
               autoComplete="off"
               rows={5}
