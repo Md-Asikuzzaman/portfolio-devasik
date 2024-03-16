@@ -1,4 +1,4 @@
-interface DataType {
+interface ProjectType {
   id: string;
   title: string;
   description: string;
@@ -6,4 +6,9 @@ interface DataType {
   website: string;
   github: string;
   variant: string;
+}
+
+interface ServerResponseType {
+  projects: ProjectType[];
+  hasMorePages: boolean;
 }
