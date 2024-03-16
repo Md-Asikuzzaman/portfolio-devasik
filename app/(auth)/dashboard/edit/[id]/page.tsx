@@ -4,20 +4,18 @@ import { useState, useCallback, useEffect } from 'react';
 import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useProject from '@/hooks/useProject';
 import { useRouter } from 'next/navigation';
 import { NextPage } from 'next';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 interface Props {
   params: { id: string };
 }
 
 const Page: NextPage<Props> = ({ params }) => {
-  axios.defaults.baseURL = process.env.NEXTAUTH_URL;
-
   const { id } = params;
-  const router = useRouter();
-  const queryClient = useQueryClient();
+
+  const { data, mutate, error, isLoading } = useProject(id ? id : '');
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -26,7 +24,24 @@ const Page: NextPage<Props> = ({ params }) => {
   const [github, setGithub] = useState('');
   const [variant, setVariant] = useState('');
 
-  const resetForm = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (error) {
+      router.replace('/dashboard');
+    } else {
+      if (data) {
+        setTitle(data.title);
+        setDescription(data.description);
+        setImage(data.image);
+        setWebsite(data.website);
+        setGithub(data.github);
+        setVariant(data.variant);
+      }
+    }
+  }, [data, error, router]);
+
+  const reset = () => {
     setTitle('');
     setDescription('');
     setImage('');
@@ -35,46 +50,33 @@ const Page: NextPage<Props> = ({ params }) => {
     setVariant('');
   };
 
-  const { data: project, isLoading } = useQuery<ProjectType>({
-    queryKey: ['fetch_project_byId', id],
-    queryFn: async () => {
-      const res = await axios.get(`/api/projects/${id}`);
-      return res.data;
+  const handleSubmit = useCallback(
+    async (e: any) => {
+      e.preventDefault();
+
+      const data = {
+        title,
+        description,
+        image,
+        website,
+        github,
+        variant,
+      };
+
+      const res = await axios.put(`/api/projects/update/${id}`, data);
+
+      reset();
+
+      if (res.status === 200) {
+        toast.success('Project updated!!!');
+        mutate();
+        setTimeout(() => {
+          router.replace('/dashboard');
+        }, 200);
+      }
     },
-  });
-
-  useEffect(() => {
-    if (project) {
-      setTitle(project.title);
-      setDescription(project.description);
-      setImage(project.image);
-      setWebsite(project.website);
-      setGithub(project.github);
-      setVariant(project.variant);
-    }
-  }, [id, project]);
-
-  const { mutate, isPending } = useMutation({
-    mutationKey: ['update_project'],
-    mutationFn: async (data: ProjectType) => {
-      await axios.put(`/api/projects/update/${id}`, data);
-    },
-
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ['fetch_projects'],
-      });
-      toast.success('Project updated!!!');
-      router.replace('/dashboard');
-      resetForm();
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    mutate({ title, description, image, website, github, variant });
-  };
+    [title, description, image, website, github, variant, mutate, id, router]
+  );
 
   return (
     <div className='flex items-start justify-center min-h-screen w-full md:mt-12'>
@@ -83,7 +85,7 @@ const Page: NextPage<Props> = ({ params }) => {
         className='bg-white max-w-2xl w-full p-12 rounded-2xl shadow-lg'
       >
         <h2 className='text-xl md:text-2xl font-semibold mb-4'>
-          {isLoading ? 'Loading...' : 'Update Project'}
+          Update Project
         </h2>
         <MyInput
           variant='bw'
@@ -131,7 +133,7 @@ const Page: NextPage<Props> = ({ params }) => {
           className='w-full py-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 mt-4 transition'
           type='submit'
         >
-          {isPending ? 'Modify...' : "Let's Modify"}
+          Let's Modify
         </button>
       </form>
     </div>

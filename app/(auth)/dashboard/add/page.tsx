@@ -4,10 +4,15 @@ import { useState, useCallback } from 'react';
 import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import useProjects from '@/hooks/useProjects';
 import { useRouter } from 'next/navigation';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const Page = () => {
+  axios.defaults.baseURL = process.env.NEXTAUTH_URL;
+
+  const router = useRouter();
+  const queryClient = useQueryClient();
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -15,11 +20,7 @@ const Page = () => {
   const [github, setGithub] = useState('');
   const [variant, setVariant] = useState('');
 
-  const router = useRouter();
-
-  const { mutate } = useProjects();
-
-  const reset = () => {
+  const resetForm = () => {
     setTitle('');
     setDescription('');
     setImage('');
@@ -28,33 +29,28 @@ const Page = () => {
     setVariant('');
   };
 
-  const handleSubmit = useCallback(
-    async (e: any) => {
-      e.preventDefault();
-
-      const data = {
-        title,
-        description,
-        image,
-        website,
-        github,
-        variant,
-      };
-
-      const res = await axios.post('/api/projects', data);
-
-      mutate();
-      reset();
-
-      if (res.status === 201) {
-        toast.success('Project created!!!');
-        setTimeout(() => {
-          router.replace('/dashboard');
-        }, 200);
-      }
+  const { mutate, isPending } = useMutation({
+    mutationKey: ['add_project'],
+    mutationFn: async (data: ProjectType) => {
+      await axios.post('/api/projects', data);
     },
-    [title, description, image, website, github, variant, mutate, router]
-  );
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['fetch_projects'],
+      });
+
+      toast.success('Project created!!!');
+      router.replace('/dashboard');
+      resetForm();
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    mutate({ title, description, image, website, github, variant });
+  };
 
   return (
     <div className='flex items-start justify-center min-h-screen w-full md:mt-12'>
@@ -111,7 +107,7 @@ const Page = () => {
           className='w-full py-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 mt-4 transition'
           type='submit'
         >
-          Let's Add
+          {isPending ? 'Adding...' : "Let's Add"}
         </button>
       </form>
     </div>
