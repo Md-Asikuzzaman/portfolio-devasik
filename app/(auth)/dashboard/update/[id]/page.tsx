@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { NextPage } from 'next';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 interface Props {
   params: { id: string };
@@ -131,7 +131,7 @@ const Page: NextPage<Props> = ({ params }) => {
           className='w-full py-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 mt-4 transition'
           type='submit'
         >
-          {isPending ? 'Modify...' : "Let's Modify"}
+          {isPending ? 'Modifying...' : "Let's Modify"}
         </button>
       </form>
     </div>

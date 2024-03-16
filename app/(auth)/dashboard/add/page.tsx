@@ -3,9 +3,9 @@
 import { useState, useCallback } from 'react';
 import MyInput from '@/app/components/shared/Input';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;

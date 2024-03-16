@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import toast from 'react-hot-toast';
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;

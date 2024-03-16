@@ -14,9 +14,6 @@ import { BsDatabaseAdd } from 'react-icons/bs';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 interface Props {
   children: React.ReactNode;
 }
@@ -27,9 +24,6 @@ const Layout: NextPage<Props> = ({ children }) => {
 
   return (
     <>
-      {/* toast container */}
-      <ToastContainer />
-
       <div className='flex bg-zinc-200 w-full min-h-screen rounded-md p-5 gap-5'>
         {/* sidebar */}
         <div className='bg-white p-4 rounded-md max-w-[90px] md:max-w-xs w-full shrink-0 flex flex-col gap-10'>
