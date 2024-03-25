@@ -6,7 +6,6 @@ import { useRef, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { schema } from '@/lib/form_schema';
 
 import ReCAPTCHA from 'react-google-recaptcha';
 import toast from 'react-hot-toast';
@@ -14,6 +13,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { LuLoader2 } from 'react-icons/lu';
+import { mailSchema } from '@/schema/zodSchema';
 
 interface Props {}
 
@@ -22,7 +22,7 @@ const ContactForm: NextPage<Props> = ({}) => {
   const reCaptchaRef = useRef<ReCAPTCHA>(null);
 
   //extract the inferred type from schema
-  type ValidationSchemaType = z.infer<typeof schema>;
+  type ValidationSchemaType = z.infer<typeof mailSchema>;
 
   const {
     register,
@@ -30,7 +30,7 @@ const ContactForm: NextPage<Props> = ({}) => {
     reset,
     formState: { errors },
   } = useForm<ValidationSchemaType>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(mailSchema),
   });
 
   // Google captcha values
