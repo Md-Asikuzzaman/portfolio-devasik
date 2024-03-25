@@ -42,7 +42,7 @@ const Contact = () => {
             <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
 
-              <div className="h-14 w-14 rounded-full bg-violet-500/10 inline-flex items-center justify-center text-violet-500">
+              <div className="h-14 w-14 rounded-full bg-violet-500/20 inline-flex items-center justify-center text-violet-500">
                 <HiPhoneArrowDownLeft size={20} />
               </div>
               <h3 className="text-white text-lg pt-3 py-2">Call me Today</h3>
@@ -61,7 +61,7 @@ const Contact = () => {
             <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-transparent"></div>
 
-              <div className="h-14 w-14 rounded-full bg-pink-500/10 inline-flex items-center justify-center text-pink-500">
+              <div className="h-14 w-14 rounded-full bg-pink-500/20 inline-flex items-center justify-center text-pink-500">
                 <SiMinutemailer size={25} />
               </div>
               <h3 className="text-white text-lg pt-3 py-2">Send me Email</h3>
@@ -80,7 +80,7 @@ const Contact = () => {
 
             <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
-              <div className="h-14 w-14 rounded-full bg-green-500/10 inline-flex items-center justify-center text-green-500">
+              <div className="h-14 w-14 rounded-full bg-green-500/20 inline-flex items-center justify-center text-green-500">
                 <FaLocationDot size={20} />
               </div>
               <h3 className="text-white text-lg pt-3 py-2">My Location</h3>

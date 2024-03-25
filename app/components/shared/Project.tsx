@@ -42,7 +42,7 @@ const Project: NextPage<Props> = ({
         </p>
         <div className="flex items-center justify-center gap-3 mt-4 mb-2">
           <a
-            className="h-10 w-10 rounded-full bg-[#202044] inline-flex items-center justify-center text-violet-500"
+            className="h-10 w-10 rounded-full bg-violet-500/20 inline-flex items-center justify-center text-violet-500"
             href={website}
             target="_blank"
           >
@@ -50,7 +50,7 @@ const Project: NextPage<Props> = ({
           </a>
 
           <a
-            className="h-10 w-10 rounded-full bg-[#202044] inline-flex items-center justify-center text-pink-500"
+            className="h-10 w-10 rounded-full bg-pink-500/20 inline-flex items-center justify-center text-pink-500"
             href={github}
             target="_blank"
           >
