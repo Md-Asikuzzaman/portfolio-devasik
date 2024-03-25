@@ -7,7 +7,7 @@ import { PiLinkDuotone } from "react-icons/pi";
 import { FiGithub } from "react-icons/fi";
 
 interface Props {
-  id: string;
+  id?: string;
   image: string;
   title: string;
   description: string;
