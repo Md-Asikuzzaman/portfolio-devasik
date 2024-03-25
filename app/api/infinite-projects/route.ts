@@ -1,12 +1,13 @@
-import { prisma } from '@/lib/db';
-import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from "@/lib/db";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
-  const page = url.searchParams.get('page');
+  const _page = url.searchParams.get("_page");
+  const _limit = url.searchParams.get("_limit");
 
   const PER_PAGE = 3;
-  const currentPage = Math.max(Number(page) || 1, 1);
+  const currentPage = Math.max(Number(_page) || 1, 1);
 
   try {
     const projects = await prisma.project.findMany({
@@ -14,13 +15,10 @@ export async function GET(req: NextRequest) {
       skip: (currentPage - 1) * PER_PAGE,
     });
 
-    // Check if there are more pages
-    const hasMorePages = projects.length === Number(PER_PAGE);
-
-    return NextResponse.json({ projects, hasMorePages }, { status: 200 });
+    return NextResponse.json(projects, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { message: 'Something went wrong!' },
+      { message: "Something went wrong!" },
       { status: 500 }
     );
   }
