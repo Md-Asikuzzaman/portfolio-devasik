@@ -1,7 +1,7 @@
 "use client";
 
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useInView } from "react-intersection-observer";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -11,7 +11,7 @@ import { LuLoader2 } from "react-icons/lu";
 
 import axios from "axios";
 import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 const Projects: NextPage = () => {
   const {
