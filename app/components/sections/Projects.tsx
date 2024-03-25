@@ -21,7 +21,7 @@ const Projects: NextPage = () => {
     isPending,
     isFetchingNextPage,
   } = useInfiniteQuery<ProjectType[]>({
-    queryKey: ["todos"],
+    queryKey: ["projects"],
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await axios.get("/api/infinite-projects", {
         params: {
