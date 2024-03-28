@@ -39,7 +39,7 @@ const TestimonialSlider = () => {
     centerPadding: "60px",
     slidesToShow: 1,
     speed: 500,
-    dots: false,
+    dots: true,
     slidesToScroll: 1,
     autoplay: true,
     arrows: true,

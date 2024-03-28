@@ -50,3 +50,36 @@ html {
 .slick-active {
   @apply opacity-100;
 }
+
+.slick-dots {
+  color: gray;
+  font-size: 1px;
+  display: flex !important;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.slick-dots button {
+  position: relative;
+}
+
+.slick-dots button::after {
+  content: "";
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  background-color: #554792;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.slick-dots .slick-active button::after {
+  background-color: #9e7cff;
+}
