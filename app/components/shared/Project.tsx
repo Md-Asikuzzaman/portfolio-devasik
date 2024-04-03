@@ -25,7 +25,7 @@ const Project: NextPage<Props> = ({
 }) => {
   return (
     <div className="relative bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-[#262B42] hover:border-[#434865] transition-colors duration-200 ease-in-out">
-      <div className="relative h-44 md:h-48 w-full">
+      <div className="relative h-48 w-full">
         <Image
           className="shadow-md rounded-t-lg h-full bg-contain"
           src={image}
