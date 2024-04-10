@@ -7,7 +7,7 @@ const Education = () => {
   return (
     <div className='flex flex-col gap-5'>
       <SkillCard
-        title='B.S.c in CSE'
+        title='B.S.c in Computer Science & Engineering'
         company='Bangladesh University of Business & Technology'
         duration='Jan 2022 - Running'
         details={[
