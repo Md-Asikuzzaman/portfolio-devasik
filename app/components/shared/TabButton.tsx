@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { NextPage } from "next";
 
 interface Props {
   title: string;
@@ -20,8 +20,8 @@ const TabButton: NextPage<Props> = ({
       }}
       className={`inline-block p-2 lg:p-3 border-b-2 rounded-t-lg text-md md:text-lg ${
         currentTab == tabValue
-          ? 'text-pink-500 bg-pink-500/10 border border-pink-500 rounded-lg active'
-          : 'hover:text-gray-300 hover:border-gray-300 border-transparent'
+          ? "text-pink-500 bg-pink-500/10 border-b-2 border-pink-500 rounded-t-lg active"
+          : "hover:text-gray-300 hover:border-gray-300 border-transparent"
       } `}
     >
       {title}
