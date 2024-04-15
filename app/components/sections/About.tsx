@@ -34,7 +34,7 @@ const About = () => {
           About Me
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-          <div className="relative w-[280px] h-[280px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] grayscale hover:grayscale-0">
+          <div className="relative w-[280px] h-[280px] md:w-[250px] md:h-[250px] lg:w-[330px] lg:h-[330px] grayscale hover:grayscale-0">
             <Image
               title="Don't touch me! 😂"
               className="rounded-[40px] cursor-grab"
