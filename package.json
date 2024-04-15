@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "2.5.3",
+  "version": "2.6.3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",

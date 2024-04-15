@@ -34,6 +34,7 @@ const Hero = () => {
           <span className="hero-text-stroke">I'm</span>{" "}
           <span className="gradient__text">Dev Asik</span>
         </h1>
+
         <h2 className="text-zinc-400 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white">
           <Typewriter
             options={{
