@@ -52,8 +52,12 @@ const Projects: NextPage = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section ref={ref} id="works" className="relative overflow-hidden pb-16">
-      <div className="relative -z-50 pt-14">
+    <section
+      ref={ref}
+      id="works"
+      className="relative overflow-hidden pb-16 dark:bg-[#0d1224]"
+    >
+      <div className="relative z-0 pt-14">
         <div className="flex flex-row justify-center">
           <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent"></div>
           <div className="w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20"></div>

@@ -26,9 +26,9 @@ const Hero = () => {
     <section
       id="home"
       ref={ref}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden dark:bg-[#0d1224] bg-[#faf2ff]"
     >
-      <div className="overlay"></div>
+      <div className="overlay z-10"></div>
       <div className="flex items-center justify-center flex-col z-10">
         <h1 className="font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center">
           <span className="hero-text-stroke">I'm</span>{" "}

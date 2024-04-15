@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="scroll-pt-10 md:scroll-pt-8 scroll-smooth" lang="en">
+    <html className="scroll-pt-10 md:scroll-pt-8 scroll-smooth dark" lang="en">
       <body suppressHydrationWarning={true}>
         <ReactQueryProvider>
           <SessionProviders>

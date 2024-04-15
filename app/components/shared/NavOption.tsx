@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import { socialInfo } from '@/lib';
-import { NextPage } from 'next';
+import { NextPage } from "next";
 
-
-import { BiLogoGithub } from 'react-icons/bi';
+import ModeToggleButton from "./ModeToggleButton";
+import GithubButton from "./GithubButton";
 
 interface Props {
   navOptionActive: string;
@@ -15,32 +14,31 @@ const NavOption: NextPage<Props> = ({
   navOptionActive,
   setNavOptionActive,
 }) => {
-  const navOptions = ['home', 'about', 'works', 'contact'];
+  const navOptions = ["home", "about", "works", "contact"];
 
   return (
-    <ul className='hidden md:flex gap-8'>
+    <ul className="hidden md:flex items-center gap-8">
       {navOptions.map((option, i) => (
         <li key={i} onClick={() => setNavOptionActive(option)}>
           <a
             className={`capitalize ${
-              option == navOptionActive ? 'text-white' : 'text-gray-400'
-            } text-base hover:text-white transition-colors duration-200`}
-            href={option == navOptionActive ? `#${option}` : '#'}
+              option == navOptionActive
+                ? "text-violet-600 dark:text-white"
+                : "text-[#666666] dark:text-gray-400"
+            } text-base transition-colors duration-200 hover:text-violet-600 dark:hover:text-white`}
+            href={option == navOptionActive ? `#${option}` : "#"}
           >
             {option}
           </a>
         </li>
       ))}
 
-      <div className='w-[1px] h-auto bg-gray-600' />
-      <div className='flex items-center gap-5'>
-        <a target='_blank' href={socialInfo.github}>
-          <BiLogoGithub
-            size={25}
-            className='text-gray-400 hover:text-white transition-colors duration-200'
-          />
-        </a>
-      </div>
+      <div className="shrink-0 flex-grow w-[1px] h-5 bg-gray-400 dark:bg-gray-600" />
+
+      <li className="flex gap-2">
+        <GithubButton />
+        <ModeToggleButton />
+      </li>
     </ul>
   );
 };

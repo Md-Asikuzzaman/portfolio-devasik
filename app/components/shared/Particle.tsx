@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-import Particles from 'react-tsparticles';
-import type { Container, Engine } from 'tsparticles-engine';
-import { loadSlim } from 'tsparticles-slim';
+import Particles from "react-tsparticles";
+import type { Container, Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 
 const Particle = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -16,18 +16,18 @@ const Particle = () => {
     []
   );
   return (
-    <div className='absolute top-0 left-0 right-0 bottom-0'>
+    <div className="absolute top-0 left-0 right-0 bottom-0">
       <Particles
-        className='h-screen'
+        className="h-screen"
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
           autoPlay: true,
           backgroundMask: {
-            composite: 'destination-out',
+            composite: "destination-out",
             cover: {
               color: {
-                value: '#fff',
+                value: "#9e7cff",
               },
               opacity: 1,
             },
@@ -43,21 +43,21 @@ const Particle = () => {
           duration: 0,
           fpsLimit: 120,
           interactivity: {
-            detectsOn: 'window',
+            detectsOn: "window",
             events: {
               onClick: {
                 enable: true,
-                mode: 'repulse',
+                mode: "repulse",
               },
               onDiv: {
                 selectors: [],
                 enable: false,
                 mode: [],
-                type: 'circle',
+                type: "circle",
               },
               onHover: {
                 enable: true,
-                mode: 'bubble',
+                mode: "bubble",
                 parallax: {
                   enable: false,
                   force: 2,
@@ -78,7 +78,7 @@ const Particle = () => {
               attract: {
                 distance: 200,
                 duration: 0.4,
-                easing: 'ease-out-quad',
+                easing: "ease-out-quad",
                 factor: 1,
                 maxSpeed: 50,
                 speed: 1,
@@ -128,14 +128,14 @@ const Particle = () => {
                 factor: 100,
                 speed: 1,
                 maxSpeed: 50,
-                easing: 'ease-out-quad',
+                easing: "ease-out-quad",
                 divs: {
                   distance: 200,
                   duration: 0.4,
                   factor: 100,
                   speed: 1,
                   maxSpeed: 50,
-                  easing: 'ease-out-quad',
+                  easing: "ease-out-quad",
                   selectors: [],
                 },
               },
@@ -147,17 +147,17 @@ const Particle = () => {
                 area: {
                   gradient: {
                     start: {
-                      value: '#ffffff',
+                      value: "#9e7cff",
                     },
                     stop: {
-                      value: '#000000',
+                      value: "#9e7cff",
                     },
                   },
                   radius: 1000,
                 },
                 shadow: {
                   color: {
-                    value: '#000000',
+                    value: "#9e7cff",
                   },
                   length: 2000,
                 },
@@ -204,14 +204,14 @@ const Particle = () => {
               },
               enable: false,
               maxSpeed: 50,
-              mode: 'bounce',
+              mode: "bounce",
               overlap: {
                 enable: true,
                 retries: 0,
               },
             },
             color: {
-              value: '#ffffff',
+              value: "#9e7cff",
               animation: {
                 h: {
                   count: 0,
@@ -259,12 +259,12 @@ const Particle = () => {
               center: {
                 x: 50,
                 y: 50,
-                mode: 'percent',
+                mode: "percent",
                 radius: 0,
               },
               decay: 0,
               distance: {},
-              direction: 'none',
+              direction: "none",
               drift: 0,
               enable: true,
               gravity: {
@@ -286,11 +286,11 @@ const Particle = () => {
                 options: {},
               },
               outModes: {
-                default: 'out',
-                bottom: 'out',
-                left: 'out',
-                right: 'out',
-                top: 'out',
+                default: "out",
+                bottom: "out",
+                left: "out",
+                right: "out",
+                top: "out",
               },
               random: true,
               size: false,
@@ -333,9 +333,9 @@ const Particle = () => {
                 decay: 0,
                 delay: 0,
                 sync: false,
-                mode: 'auto',
-                startValue: 'random',
-                destroy: 'none',
+                mode: "auto",
+                startValue: "random",
+                destroy: "none",
                 minimumValue: 0,
               },
             },
@@ -343,7 +343,7 @@ const Particle = () => {
             shadow: {
               blur: 0,
               color: {
-                value: '#000',
+                value: "#9e7cff000",
               },
               enable: false,
               offset: {
@@ -355,7 +355,7 @@ const Particle = () => {
               close: true,
               fill: true,
               options: {},
-              type: 'circle',
+              type: "circle",
             },
             size: {
               random: {
@@ -373,9 +373,9 @@ const Particle = () => {
                 decay: 0,
                 delay: 0,
                 sync: false,
-                mode: 'auto',
-                startValue: 'random',
-                destroy: 'none',
+                mode: "auto",
+                startValue: "random",
+                destroy: "none",
                 minimumValue: 0.3,
               },
             },
@@ -394,7 +394,7 @@ const Particle = () => {
             },
             destroy: {
               bounds: {},
-              mode: 'none',
+              mode: "none",
               split: {
                 count: 1,
                 factor: {
@@ -428,7 +428,7 @@ const Particle = () => {
                 enable: false,
                 value: 0,
               },
-              mode: 'vertical',
+              mode: "vertical",
               speed: 25,
             },
             tilt: {
@@ -443,7 +443,7 @@ const Particle = () => {
                 decay: 0,
                 sync: false,
               },
-              direction: 'clockwise',
+              direction: "clockwise",
               enable: false,
             },
             twinkle: {
@@ -497,7 +497,7 @@ const Particle = () => {
                 decay: 0,
                 sync: false,
               },
-              direction: 'clockwise',
+              direction: "clockwise",
               path: false,
             },
             orbit: {
@@ -523,7 +523,7 @@ const Particle = () => {
             links: {
               blink: false,
               color: {
-                value: '#ffffff',
+                value: "#9e7cff",
               },
               consent: false,
               distance: 150,
@@ -533,7 +533,7 @@ const Particle = () => {
               shadow: {
                 blur: 5,
                 color: {
-                  value: '#000',
+                  value: "#9e7cff000",
                 },
                 enable: false,
               },

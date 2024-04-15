@@ -60,7 +60,7 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="container relative py-14 ">
+    <div className="container relative py-14 dark:bg-[#0d1224]">
       <div className="my-12 text-center">
         <p className="font-medium my-4 text-violet-500 text-sm tracking-widest uppercase">
           Testimonials
