@@ -57,11 +57,12 @@ const SkillCard: NextPage<Props> = ({
           </ul>
           <div className="mt-5 flex flex-col gap-2">
             {details.map((option, i) => (
-              <p
-                key={i}
-                className="text-[#d3d8e8] leading-6 flex items-center gap-2"
-              >
-                <BsPatchCheckFill className="text-green-500" /> {option}
+              <p key={i} className="text-[#d3d8e8] leading-6 flex gap-2">
+                <BsPatchCheckFill
+                  className="text-green-500 mt-[4px] shrink-0"
+                  size={16}
+                />{" "}
+                {option}
               </p>
             ))}
           </div>
