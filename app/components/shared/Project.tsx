@@ -29,7 +29,7 @@ const Project: NextPage<Props> = ({
         <Image
           className="shadow-md rounded-t-lg h-full bg-contain"
           src={image}
-          alt={"project"}
+          alt={"project-cover"}
           fill={true}
         />
       </div>
