@@ -39,6 +39,10 @@ html {
   scroll-padding-top: 60px !important;
 }
 
+.hero-text-stroke {
+  -webkit-text-stroke: 2px #faf2ff;
+}
+
 .filter--active {
   @apply bg-orange-500 text-white;
 }

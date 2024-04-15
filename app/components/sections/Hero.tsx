@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useActiveSection } from '@/hooks/useActiveSection';
-import { useInView } from 'react-intersection-observer';
+import { useEffect } from "react";
+import { useActiveSection } from "@/hooks/useActiveSection";
+import { useInView } from "react-intersection-observer";
 
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
-import Particle from '@/app/components/shared/Particle';
-import HeroButton from '@/app/components/shared/HeroButton';
-import SocialLink from '@/app/components/shared/SocialLink';
+import Particle from "@/app/components/shared/Particle";
+import HeroButton from "@/app/components/shared/HeroButton";
+import SocialLink from "@/app/components/shared/SocialLink";
 
 const Hero = () => {
   const { ref, inView } = useInView({
@@ -18,37 +18,38 @@ const Hero = () => {
 
   useEffect(() => {
     if (inView) {
-      setActiveSection('home');
+      setActiveSection("home");
     }
   }, [inView, setActiveSection]);
 
   return (
     <section
-      id='home'
+      id="home"
       ref={ref}
-      className='relative h-screen flex items-center justify-center overflow-hidden'
+      className="relative h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className='overlay'></div>
-      <div className='flex items-center justify-center flex-col z-10'>
-        <h1 className='text-white font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center'>
-          I'm <span className='gradient__text'>Dev Asik</span>
+      <div className="overlay"></div>
+      <div className="flex items-center justify-center flex-col z-10">
+        <h1 className="font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center">
+          <span className="hero-text-stroke">I'm</span>{" "}
+          <span className="gradient__text">Dev Asik</span>
         </h1>
-        <h2 className='text-zinc-400 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white'>
+        <h2 className="text-zinc-400 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white">
           <Typewriter
             options={{
               strings: [
-                'Full Stack Developer',
-                'Senior Frontend Engineer',
-                'Programmer',
-                'Self taught Software Dev',
+                "Full Stack Developer",
+                "Senior Frontend Engineer",
+                "Programmer",
+                "Self taught Software Dev",
               ],
               autoStart: true,
               loop: true,
-              cursor: '👨‍💻',
+              cursor: "👨‍💻",
             }}
           />
         </h2>
-        <SocialLink variant='hero' />
+        <SocialLink variant="hero" />
         <HeroButton />
       </div>
       <Particle />
