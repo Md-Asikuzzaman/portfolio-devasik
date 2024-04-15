@@ -55,7 +55,7 @@ const SkillCard: NextPage<Props> = ({
           <ul className="list-disc list-inside text-zinc-400 text-sm">
             <li>{duration}</li>
           </ul>
-          <div className="mt-5 flex flex-col gap-1 lg:gap-2">
+          <div className="mt-5 flex flex-col gap-2">
             {details.map((option, i) => (
               <p
                 key={i}
