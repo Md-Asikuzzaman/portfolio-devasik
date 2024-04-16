@@ -2,14 +2,14 @@ import { create } from "zustand";
 
 type MenuStore = {
   menuActive: boolean;
-  setMenuActive: () => void;
+  setMenuActive: (value?: boolean) => void;
 };
 
 export const useMenuActive = create<MenuStore>()((set) => ({
   menuActive: false,
-  setMenuActive: () =>
+  setMenuActive: (value?: boolean) =>
     set((state) => ({
-      menuActive: !state.menuActive,
+      menuActive: value ? value : !state.menuActive,
     })),
 }));
 

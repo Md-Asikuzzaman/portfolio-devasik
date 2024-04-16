@@ -1,5 +1,6 @@
 "use client";
 
+import { useMenuActive } from "@/lib/store";
 import { useEffect, useState } from "react";
 import { FiSun } from "react-icons/fi";
 
@@ -7,6 +8,8 @@ import { GoMoon } from "react-icons/go";
 
 const ModeToggleButton = () => {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
+
+  const { setMenuActive } = useMenuActive();
 
   useEffect(() => {
     // Retrieve theme from local storage if available
@@ -31,6 +34,8 @@ const ModeToggleButton = () => {
     setTheme(newTheme);
     // Update local storage
     localStorage.setItem("devasik-theme", newTheme);
+    // Close mobile menu
+    setMenuActive(false);
   };
 
   return (
