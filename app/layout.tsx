@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 
-import ActiveSectionContextProvider from "@/context/activeSectionContext";
-import SessionProviders from "@/app/components/providers/SessionProviders";
-
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
+
 import ReactQueryProvider from "./components/providers/ReactQueryProvider";
+import SessionProviders from "@/app/components/providers/SessionProviders";
 
 export const metadata: Metadata = {
   title:
@@ -30,11 +29,7 @@ export default function RootLayout({
     <html className="scroll-pt-10 md:scroll-pt-8 scroll-smooth dark" lang="en">
       <body suppressHydrationWarning={true}>
         <ReactQueryProvider>
-          <SessionProviders>
-            <ActiveSectionContextProvider>
-              {children}
-            </ActiveSectionContextProvider>
-          </SessionProviders>
+          <SessionProviders>{children}</SessionProviders>
         </ReactQueryProvider>
       </body>
     </html>
