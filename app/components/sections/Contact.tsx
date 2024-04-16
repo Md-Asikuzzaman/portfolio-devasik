@@ -43,18 +43,20 @@ const Contact = () => {
         <div className="flex flex-col md:gap-24 gap-14">
           <ContactForm />
           <div className="grid md:grid-cols-3 gap-3 md:gap-5">
-            <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
+            <div className="relative bg-white dark:bg-[#11152C] border border-slate-300 dark:border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
 
               <div className="h-14 w-14 rounded-full bg-violet-500/20 inline-flex items-center justify-center text-violet-500">
                 <HiPhoneArrowDownLeft size={20} />
               </div>
-              <h3 className="text-white text-lg pt-3 py-2">Call me Today</h3>
-              <h4 className="text-[#d3d8e8] truncate text-base">
+              <h3 className="text-slate-900 dark:text-white text-lg pt-3 py-2">
+                Call me Today
+              </h3>
+              <h4 className="text-slate-600 dark:text-[#d3d8e8] truncate text-base">
                 WhatsApp:
                 <a
                   target="_blank"
-                  className="text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none"
+                  className="text-slate-900 dark:text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none"
                   href={socialInfo.phone}
                 >
                   +8801995-580559
@@ -62,19 +64,21 @@ const Contact = () => {
               </h4>
             </div>
 
-            <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
+            <div className="relative bg-white dark:bg-[#11152C] border border-slate-300 dark:border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-transparent"></div>
 
               <div className="h-14 w-14 rounded-full bg-pink-500/20 inline-flex items-center justify-center text-pink-500">
                 <SiMinutemailer size={25} />
               </div>
-              <h3 className="text-white text-lg pt-3 py-2">Send me Email</h3>
+              <h3 className="text-slate-900 dark:text-white text-lg pt-3 py-2">
+                Send me Email
+              </h3>
 
-              <h4 className="text-[#d3d8e8] truncate text-base">
+              <h4 className="text-slate-600 dark:text-[#d3d8e8] truncate text-base">
                 Email:
                 <a
                   target="_blank"
-                  className="text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none"
+                  className="text-slate-900 dark:text-white font-semibold ml-1 border-b-[0.5px] border-pink-500 hover:border-none"
                   href={socialInfo.email}
                 >
                   mdasikuzzaman.en@gmail.com
@@ -82,13 +86,17 @@ const Contact = () => {
               </h4>
             </div>
 
-            <div className="relative bg-[#11152C] border border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
+            <div className="relative bg-white dark:bg-[#11152C] border border-slate-300 dark:border-[#262B42] rounded-md py-6 px-2 text-center h-full overflow-hidden">
               <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
               <div className="h-14 w-14 rounded-full bg-green-500/20 inline-flex items-center justify-center text-green-500">
                 <FaLocationDot size={20} />
               </div>
-              <h3 className="text-white text-lg pt-3 py-2">My Location</h3>
-              <h4 className="text-[#d3d8e8] text-base">Khulna, Bangladesh</h4>
+              <h3 className="text-slate-900 dark:text-white text-lg pt-3 py-2">
+                My Location
+              </h3>
+              <h4 className="text-slate-600 dark:text-[#d3d8e8] text-base">
+                Khulna, Bangladesh
+              </h4>
             </div>
           </div>
         </div>
