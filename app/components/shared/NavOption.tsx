@@ -24,7 +24,7 @@ const NavOption: NextPage<Props> = ({
             className={`capitalize ${
               option == navOptionActive
                 ? "text-violet-600 dark:text-white"
-                : "text-[#666666] dark:text-gray-400"
+                : "text-pink-600/80 dark:text-gray-400"
             } text-base transition-colors duration-200 hover:text-violet-600 dark:hover:text-white`}
             href={option == navOptionActive ? `#${option}` : "#"}
           >
