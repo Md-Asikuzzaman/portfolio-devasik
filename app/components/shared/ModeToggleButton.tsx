@@ -10,7 +10,7 @@ const ModeToggleButton = () => {
 
   useEffect(() => {
     // Retrieve theme from local storage if available
-    const storedTheme = localStorage.getItem("theme");
+    const storedTheme = localStorage.getItem("devasik-theme");
     if (storedTheme && (storedTheme === "light" || storedTheme === "dark")) {
       setTheme(storedTheme);
     }
@@ -30,7 +30,7 @@ const ModeToggleButton = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     // Update local storage
-    localStorage.setItem("theme", newTheme);
+    localStorage.setItem("devasik-theme", newTheme);
   };
 
   return (
