@@ -73,13 +73,13 @@ const ContactForm: NextPage<Props> = ({}) => {
 
   return (
     <div className='flex justify-center'>
-      <div className='max-w-3xl w-full border-[#434865] border rounded-lg p-5 lg:p-10'>
-        <h3 className='text-lg lg:text-2xl text-center text-[#d3d8e8] mb-8 md:mb-12'>
+      <div className='max-w-3xl w-full border-slate-300 dark:border-[#434865] border rounded-lg p-5 lg:p-10'>
+        <h3 className='text-lg lg:text-2xl text-center text-slate-700 dark:text-[#d3d8e8] mb-8 md:mb-12'>
           I'm here for you, Send a quote for any questions or help.
         </h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <p className='mb-4'>
-            <label className='text-[#d3d8e8]' htmlFor='email'>
+            <label className='text-slate-700 dark:text-[#d3d8e8]' htmlFor='email'>
               Your email:
             </label>
             <input
@@ -97,7 +97,7 @@ const ContactForm: NextPage<Props> = ({}) => {
           </p>
 
           <p className='mb-4'>
-            <label className='text-[#d3d8e8]' htmlFor='message'>
+            <label className='text-slate-700 dark:text-[#d3d8e8]' htmlFor='message'>
               Your message:
             </label>
             <textarea

@@ -26,7 +26,7 @@
     @apply inline-block px-6 py-3 text-sm no-underline uppercase text-center text-white tracking-wider font-medium md:font-semibold rounded-full bg-gradient-to-r from-pink-500 to-violet-600 transition-all duration-200 ease-out hover:text-white hover:no-underline;
   }
   .form__control {
-    @apply bg-[#121629] border border-[#262B42] text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 block w-full p-2.5;
+    @apply dark:bg-[#121629] border border-zinc-300 dark:border-[#262B42] text-slate-900 dark:text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 dark:focus:border-violet-500/70 block w-full p-2.5;
   }
 }
 
@@ -74,7 +74,7 @@ html {
   display: inline-block;
   height: 12px;
   width: 12px;
-  background-color: #846dec5e;
+  background-color: #846dec56;
   position: absolute;
   top: 0;
   left: 0;
