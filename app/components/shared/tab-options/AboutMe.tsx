@@ -7,7 +7,7 @@ const AboutMe = () => {
       <p className="text-white text-2xl font-semibold mb-5">
         Hi, I'm Md Asikuzzaman.
       </p>
-      <p className="mb-4 text-md lg:text-md lg:leading-8 text-[#d3d8e8]">
+      <p className="mb-4 text-md lg:text-md lg:leading-8 text-slate-900 dark:text-[#d3d8e8]">
         I'm a passionate Software Developer with 4+ years of expertise in{" "}
         <span className="border-b-[1px] border-b-violet-500">
           Next.js, React.js, Prisma, MongoDB, Zod, and TypeScript 💪.{" "}
@@ -22,7 +22,7 @@ const AboutMe = () => {
         that make an impact 🔥.
       </p>
 
-      <p className="text-md lg:text-md lg:leading-8 text-[#d3d8e8]">
+      <p className="text-md lg:text-md lg:leading-8 text-slate-900 dark:text-[#d3d8e8]">
         I love challenges and I know there is always a solution ✅. At my age,
         my unwavering focus is to be recognized as one of the best coders in
         tech 🌟. I love my clients ❤️, I enjoy my projects 🎨, and respect my

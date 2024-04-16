@@ -24,7 +24,7 @@ const SkillCard: NextPage<Props> = ({
   bg,
 }) => {
   return (
-    <div className="relative rounded-md shadow-md border border-[#262B42] bg-[#12172A] p-5">
+    <div className="relative rounded-md shadow-md border dark:border-[#262B42] dark:bg-[#12172A] bg-white p-5">
       <div className="top-0 left-0 z-50">
         <div className="flex flex-row justify-center">
           <div
@@ -52,12 +52,12 @@ const SkillCard: NextPage<Props> = ({
           >
             {company}
           </h5>
-          <ul className="list-disc list-inside text-zinc-400 text-sm">
+          <ul className="list-disc list-inside text-zinc-500 dark:text-zinc-400 text-sm">
             <li>{duration}</li>
           </ul>
           <div className="mt-5 flex flex-col gap-2">
             {details.map((option, i) => (
-              <p key={i} className="text-[#d3d8e8] leading-6 flex gap-2">
+              <p key={i} className="text-slate-600 dark:text-[#d3d8e8] leading-6 flex gap-2">
                 <BsPatchCheckFill
                   className="text-green-500 mt-[4px] shrink-0"
                   size={16}

@@ -32,8 +32,6 @@
 
 body {
   font-family: "Poppins", sans-serif !important;
-  /* background-color: #0d1224 !important;
-  background-color: #faf2ff !important; */
 }
 
 html {
@@ -76,7 +74,7 @@ html {
   display: inline-block;
   height: 12px;
   width: 12px;
-  background-color: #554792;
+  background-color: #846dec5e;
   position: absolute;
   top: 0;
   left: 0;

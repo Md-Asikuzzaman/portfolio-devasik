@@ -60,12 +60,12 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="container relative py-14 dark:bg-[#0d1224]">
+    <div className="container relative py-14">
       <div className="my-12 text-center">
         <p className="font-medium my-4 text-violet-500 text-sm tracking-widest uppercase">
           Testimonials
         </p>
-        <h2 className="text-2xl md:text-3xl text-center font-bold text-white mb-10">
+        <h2 className="text-2xl md:text-3xl text-center font-bold text-slate-900 mb-10 dark:text-white">
           What my clients say
         </h2>
       </div>
