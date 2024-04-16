@@ -24,7 +24,7 @@ const Project: NextPage<Props> = ({
   website,
 }) => {
   return (
-    <div className="relative bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-[#262B42] hover:border-[#434865] transition-colors duration-200 ease-in-out">
+    <div className="relative bg-white dark:bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-slate-300 dark:border-[#262B42] hover:border-slate-400 dark:hover:border-[#434865] transition-colors duration-200 ease-in-out">
       <div className="relative h-48 w-full">
         <Image
           className="shadow-md rounded-t-lg h-full bg-contain"
@@ -34,10 +34,10 @@ const Project: NextPage<Props> = ({
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl text-white text-center font-semibold pb-4">
+        <h3 className="text-xl text-slate-900 dark:text-white text-center font-semibold pb-4">
           {title}
         </h3>
-        <p className="text-[#d3d8e8] text-sm leading-6 text-center">
+        <p className="text-slate-600 dark:text-[#d3d8e8] text-sm leading-6 text-center">
           {description}
         </p>
         <div className="flex items-center justify-center gap-3 mt-4 mb-2">

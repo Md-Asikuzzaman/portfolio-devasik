@@ -55,16 +55,16 @@ const Projects: NextPage = () => {
     <section
       ref={ref}
       id="works"
-      className="relative overflow-hidden pb-16 dark:bg-[#0d1224]"
+      className="relative overflow-hidden pb-16 bg-[#fafafa] dark:dark:bg-[#0d1224]"
     >
       <div className="relative z-0 pt-14">
         <div className="flex flex-row justify-center">
-          <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#262B42] to-transparent"></div>
+          <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-300 dark:via-[#262B42] to-transparent"></div>
           <div className="w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20"></div>
         </div>
       </div>
       <div className="container">
-        <h2 className="text-2xl md:text-3xl text-center font-bold text-white mb-10">
+        <h2 className="text-2xl md:text-3xl text-center font-bold text-slate-900 dark:text-white mb-10">
           Recent Works
         </h2>
 
