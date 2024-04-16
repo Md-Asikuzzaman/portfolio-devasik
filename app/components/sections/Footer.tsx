@@ -4,7 +4,7 @@ import GoToTop from "@/app/components/shared/GoToTop";
 
 const Footer = () => {
   return (
-    <footer className="overflow-hidden pb-5 lg:pb-10 bg-[#fafafa] dark:bg-[#0d1224]">
+    <footer className="overflow-hidden pb-5 lg:pb-10">
       <div className="relative z-0 pt-5 lg:pt-10">
         <div className="flex flex-row justify-center">
           <div className="absolute top-0 h-[1px] w-full bg-violet-300 dark:bg-[#262B42]"></div>

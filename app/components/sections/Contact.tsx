@@ -27,7 +27,7 @@ const Contact = () => {
     <section
       ref={ref}
       id="contact"
-      className="pb-14 overflow-hidden bg-[#fafafa] dark:bg-[#0d1224]"
+      className="pb-14 overflow-hidden"
     >
       <div className="relative z-0 pt-14">
         <div className="flex flex-row justify-center">

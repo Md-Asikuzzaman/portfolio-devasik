@@ -25,7 +25,7 @@ const About = () => {
     <section
       ref={ref}
       id="about"
-      className="relative overflow-hidden lg:pb-10 bg-[#fafafa] dark:bg-[#0d1224]"
+      className="relative overflow-hidden lg:pb-10"
     >
       <div className="relative z-0 pt-12">
         <div className="flex flex-row justify-center">

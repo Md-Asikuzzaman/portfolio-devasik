@@ -55,7 +55,7 @@ const Projects: NextPage = () => {
     <section
       ref={ref}
       id="works"
-      className="relative overflow-hidden pb-16 bg-[#fafafa] dark:dark:bg-[#0d1224]"
+      className="relative overflow-hidden pb-16"
     >
       <div className="relative z-0 pt-14">
         <div className="flex flex-row justify-center">

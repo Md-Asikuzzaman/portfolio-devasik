@@ -27,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html className="scroll-pt-10 md:scroll-pt-8 scroll-smooth dark" lang="en">
-      <body suppressHydrationWarning={true}>
+      <body
+        className="dark:bg-[#0d1224] bg-[#fafafa]"
+        suppressHydrationWarning={true}
+      >
         <ReactQueryProvider>
           <SessionProviders>{children}</SessionProviders>
         </ReactQueryProvider>

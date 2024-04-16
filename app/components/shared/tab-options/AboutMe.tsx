@@ -4,7 +4,7 @@ import Image from "next/image";
 const AboutMe = () => {
   return (
     <div className="px-3">
-      <p className="text-white text-2xl font-semibold mb-5">
+      <p className="text-slate-900 dark:text-white text-2xl font-semibold mb-5">
         Hi, I'm Md Asikuzzaman.
       </p>
       <p className="mb-4 text-md lg:text-md lg:leading-8 text-slate-900 dark:text-[#d3d8e8]">
