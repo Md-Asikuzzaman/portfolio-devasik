@@ -1,29 +1,27 @@
-'use client';
+"use client";
 
-import { NextPage } from 'next';
-interface Props {
-  handleMobileMenu: () => void;
-  menuActive: boolean;
-}
+import { useMenuActive } from "@/lib/store";
 
-const MobileMenu: NextPage<Props> = ({ menuActive, handleMobileMenu }) => {
+const MobileMenu = () => {
+  const { menuActive, setMenuActive } = useMenuActive();
+
   return (
     <div
-      onClick={handleMobileMenu}
-      className='text-white flex items-center justify-center md:hidden relative h-[40px] w-[40px]  cursor-pointer'
+      onClick={() => setMenuActive()}
+      className="text-white flex items-center justify-center md:hidden relative h-[40px] w-[40px]  cursor-pointer"
     >
       <span
         className={`h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition ${
           menuActive
-            ? 'translate-y-[0px] rotate-45'
-            : 'translate-y-[-6px] rotate-0'
+            ? "translate-y-[0px] rotate-45"
+            : "translate-y-[-6px] rotate-0"
         }`}
       ></span>
       <span
         className={`h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition ${
           menuActive
-            ? 'translate-y-[0px] -rotate-45'
-            : 'translate-y-[6px] rotate-0'
+            ? "translate-y-[0px] -rotate-45"
+            : "translate-y-[6px] rotate-0"
         }`}
       ></span>
     </div>

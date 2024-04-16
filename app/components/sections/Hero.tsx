@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import { useActiveSection } from "@/hooks/useActiveSection";
-import { useInView } from "react-intersection-observer";
 
+import { useInView } from "react-intersection-observer";
 import Typewriter from "typewriter-effect";
 
 import Particle from "@/app/components/shared/Particle";
 import HeroButton from "@/app/components/shared/HeroButton";
 import SocialLink from "@/app/components/shared/SocialLink";
 
+import { useActiveSection } from "@/lib/store";
+
 const Hero = () => {
   const { ref, inView } = useInView({
     threshold: 0.01,
   });
+
   const { setActiveSection } = useActiveSection();
 
   useEffect(() => {
@@ -50,7 +52,9 @@ const Hero = () => {
             }}
           />
         </h2>
-        <SocialLink variant="hero" />
+        <div className="py-12">
+          <SocialLink variant="hero" />
+        </div>
         <HeroButton />
       </div>
       <Particle />

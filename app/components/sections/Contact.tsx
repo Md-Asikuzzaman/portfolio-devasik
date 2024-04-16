@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useActiveSection } from "@/hooks/useActiveSection";
 import { useInView } from "react-intersection-observer";
 
 import { HiPhoneArrowDownLeft } from "react-icons/hi2";
@@ -9,6 +8,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { SiMinutemailer } from "react-icons/si";
 import { socialInfo } from "@/lib";
 import ContactForm from "../shared/ContactForm";
+
+import { useActiveSection } from "@/lib/store";
 
 const Contact = () => {
   const { ref, inView } = useInView({

@@ -1,32 +1,24 @@
 "use client";
 
-import { NextPage } from "next";
-
 import ModeToggleButton from "./ModeToggleButton";
 import GithubButton from "./GithubButton";
+import { useActiveSection } from "@/lib/store";
 
-interface Props {
-  navOptionActive: string;
-  setNavOptionActive: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const NavOption: NextPage<Props> = ({
-  navOptionActive,
-  setNavOptionActive,
-}) => {
+const NavOption = () => {
+  const { activeSection, setActiveSection } = useActiveSection();
   const navOptions = ["home", "about", "works", "contact"];
 
   return (
     <ul className="hidden md:flex items-center gap-8">
       {navOptions.map((option, i) => (
-        <li key={i} onClick={() => setNavOptionActive(option)}>
+        <li key={i} onClick={() => setActiveSection(option)}>
           <a
             className={`capitalize ${
-              option == navOptionActive
+              option == activeSection
                 ? "text-violet-600 dark:text-white"
                 : "text-pink-600/80 dark:text-gray-400"
             } text-base transition-colors duration-200 hover:text-violet-600 dark:hover:text-white`}
-            href={option == navOptionActive ? `#${option}` : "#"}
+            href={option == activeSection ? `#${option}` : "#"}
           >
             {option}
           </a>

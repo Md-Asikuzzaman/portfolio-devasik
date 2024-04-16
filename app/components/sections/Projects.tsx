@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import { useEffect } from "react";
 
 import { useInView } from "react-intersection-observer";
-import { useActiveSection } from "@/hooks/useActiveSection";
 
 import Project from "@/app/components/shared/Project";
 import { LuLoader2 } from "react-icons/lu";
@@ -12,6 +11,7 @@ import { LuLoader2 } from "react-icons/lu";
 import axios from "axios";
 import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useActiveSection } from "@/lib/store";
 
 const Projects: NextPage = () => {
   const {
