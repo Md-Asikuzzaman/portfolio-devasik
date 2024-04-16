@@ -31,11 +31,11 @@ const Hero = () => {
       <div className="overlay z-10"></div>
       <div className="flex items-center justify-center flex-col z-10">
         <h1 className="font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center">
-          <span className="hero-text-stroke">I'm</span>{" "}
-          <span className="gradient__text">Dev Asik</span>
+          <span className="gradient__text">I'm Dev </span>
+          <span className="hero-text-stroke">Asik.</span>
         </h1>
 
-        <h2 className="text-zinc-400 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white">
+        <h2 className="text-slate-600 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white">
           <Typewriter
             options={{
               strings: [

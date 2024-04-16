@@ -41,7 +41,8 @@ html {
 }
 
 .hero-text-stroke {
-  -webkit-text-stroke: 2px #faf2ff;
+  -webkit-text-stroke: 2px #ec4899;
+  -webkit-text-fill-color: transparent;
 }
 
 .filter--active {
