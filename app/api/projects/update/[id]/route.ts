@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/db';
+import prisma from '@/lib/db';
 import { NextResponse } from 'next/server';
 
 export async function PUT(req: Request, context: { params: { id: string } }) {

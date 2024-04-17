@@ -1,5 +1,5 @@
-import { prisma } from '@/lib/db';
-import { NextResponse, NextRequest } from 'next/server';
+import prisma from "@/lib/db";
+import { NextResponse, NextRequest } from "next/server";
 
 export async function GET() {
   try {
@@ -8,7 +8,7 @@ export async function GET() {
     return NextResponse.json(projects, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { message: 'Something went wrong!' },
+      { message: "Something went wrong!" },
       { status: 500 }
     );
   }
