@@ -22,7 +22,6 @@
     "framer-motion": "^10.12.18",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
-    "nextjs-toploader": "^1.6.11",
     "nodemailer": "^6.9.9",
     "postcss": "^8.4.38",
     "prisma": "^5.2.0",

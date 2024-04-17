@@ -1,13 +1,14 @@
 "use client";
 
 import { NextPage } from "next";
+import { IconType } from "react-icons";
 import { BsPatchCheckFill } from "react-icons/bs";
 interface Props {
   title: string;
   company: string;
   duration: string;
   details: string[];
-  Icon: any;
+  Icon: IconType;
   border?: string;
   color?: string;
   bg?: string;
@@ -57,7 +58,10 @@ const SkillCard: NextPage<Props> = ({
           </ul>
           <div className="mt-5 flex flex-col gap-2">
             {details.map((option, i) => (
-              <p key={i} className="text-slate-600 dark:text-[#d3d8e8] leading-6 flex gap-2">
+              <p
+                key={i}
+                className="text-slate-600 dark:text-[#d3d8e8] leading-6 flex gap-2"
+              >
                 <BsPatchCheckFill
                   className="text-green-500 mt-[4px] shrink-0"
                   size={16}
