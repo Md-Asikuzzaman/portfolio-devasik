@@ -1,9 +1,8 @@
-import { NextPage } from "next";
-import SocialLink from "@/app/components/shared/SocialLink";
-
-import { appVersion, navOptions } from "@/lib";
+import { appVersion, navOptions, socialInfo } from "@/lib";
 import ModeToggleButton from "../shared/ModeToggleButton";
 import { useActiveSection, useMenuActive } from "@/lib/store";
+import SocialIcon from "../shared/SocialIcon";
+import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const MobileMenuSlider = () => {
   const { menuActive, setMenuActive } = useMenuActive();
@@ -37,7 +36,24 @@ const MobileMenuSlider = () => {
       </ul>
 
       <div className="flex items-center gap-4 justify-start py-12">
-        <SocialLink variant="mobile" />
+        <div className="py-12 flex items-center gap-3">
+          <SocialIcon
+            variant="mobile"
+            link={socialInfo.github}
+            Icon={BsGithub}
+          />
+          <SocialIcon
+            variant="mobile"
+            link={socialInfo.linkedin}
+            Icon={BsLinkedin}
+          />
+          <SocialIcon
+            variant="mobile"
+            link={socialInfo.facebook}
+            Icon={BsFacebook}
+          />
+        </div>
+
         <div className="w-[1px] h-5 bg-gray-400 dark:bg-gray-600" />
         <ModeToggleButton />
       </div>

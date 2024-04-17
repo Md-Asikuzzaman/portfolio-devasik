@@ -7,9 +7,11 @@ import Typewriter from "typewriter-effect";
 
 import Particle from "@/app/components/shared/Particle";
 import HeroButton from "@/app/components/shared/HeroButton";
-import SocialLink from "@/app/components/shared/SocialLink";
 
 import { useActiveSection } from "@/lib/store";
+import SocialIcon from "../shared/SocialIcon";
+import { socialInfo } from "@/lib";
+import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
 
 const Hero = () => {
   const { ref, inView } = useInView({
@@ -52,8 +54,18 @@ const Hero = () => {
             }}
           />
         </h2>
-        <div className="py-12">
-          <SocialLink variant="hero" />
+        <div className="py-12 flex items-center gap-4">
+          <SocialIcon variant="hero" link={socialInfo.github} Icon={BsGithub} />
+          <SocialIcon
+            variant="hero"
+            link={socialInfo.linkedin}
+            Icon={BsLinkedin}
+          />
+          <SocialIcon
+            variant="hero"
+            link={socialInfo.facebook}
+            Icon={BsFacebook}
+          />
         </div>
         <HeroButton />
       </div>
