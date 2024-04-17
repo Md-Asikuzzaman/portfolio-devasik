@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 
 import ReactQueryProvider from "./components/providers/ReactQueryProvider";
 import SessionProviders from "@/app/components/providers/SessionProviders";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title:
@@ -31,6 +32,7 @@ export default function RootLayout({
         className="dark:bg-[#0d1224] bg-[#fafafa]"
         suppressHydrationWarning={true}
       >
+        <NextTopLoader color="#7c3aed" showSpinner={false} />
         <ReactQueryProvider>
           <SessionProviders>{children}</SessionProviders>
         </ReactQueryProvider>
