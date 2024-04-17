@@ -36,7 +36,7 @@ const MobileMenuSlider = () => {
       </ul>
 
       <div className="flex items-center gap-4 justify-start py-12">
-        <div className="py-12 flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <SocialIcon
             variant="mobile"
             link={socialInfo.github}
