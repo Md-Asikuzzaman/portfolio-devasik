@@ -1,36 +1,46 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-import { z } from 'zod';
-import nodemailer from 'nodemailer';
+import { z } from "zod";
+import nodemailer from "nodemailer";
+
+interface ApiResponse {
+  message?: string;
+}
 
 const mailSchema = z.object({
   email: z
     .string({
-      required_error: 'Email is required',
+      required_error: "Email is required",
     })
-    .min(1, { message: 'Email is required' })
-    .max(255, { message: 'Email Address too long' })
-    .email({ message: 'Invalid email address' })
+    .min(1, { message: "Email is required" })
+    .max(255, { message: "Email Address too long" })
+    .email({ message: "Invalid email address" })
     .trim(),
   message: z
     .string()
-    .min(1, { message: 'Message is required' })
-    .max(255, { message: 'Should be at most 20 char' })
+    .min(1, { message: "Message is required" })
+    .max(255, { message: "Should be at most 20 char" })
     .trim(),
 });
 
-export async function POST(req: Request, res: Response) {
+export async function POST(
+  req: Request,
+  res: Response
+): Promise<NextResponse<ApiResponse>> {
   try {
     const mailInfo: { email: string; message: string } = await req.json();
     const validation = mailSchema.safeParse(mailInfo);
 
     if (!validation.success) {
-      return NextResponse.json(validation.error.errors, { status: 400 });
+      return NextResponse.json(
+        { message: "Validation errors!!!" },
+        { status: 400 }
+      );
     }
 
     // mail function here...
-    const to = 'mdasikuzzaman.en@gmail.com';
-    const subject = 'Mail From Portfolio Site.';
+    const to = "mdasikuzzaman.en@gmail.com";
+    const subject = "Mail From Portfolio Site.";
     const message = mailInfo.message;
     const from = mailInfo.email;
 
@@ -174,9 +184,9 @@ export async function POST(req: Request, res: Response) {
 
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
-        user: 'mdasikuzzaman.en@gmail.com',
+        user: "mdasikuzzaman.en@gmail.com",
         pass: process.env.APP_PASSWORD,
       },
     });
@@ -192,12 +202,17 @@ export async function POST(req: Request, res: Response) {
     // Send the email
     try {
       await transporter.sendMail(mailOptions);
-      return NextResponse.json({ message: 'Email sent successfully!!!' });
+      return NextResponse.json(
+        { message: "Email sent successfully!!!" },
+        { status: 200 }
+      );
     } catch (error) {
-      console.error(error);
-      return NextResponse.json({ message: 'Email not sent.' });
+      return NextResponse.json({ message: "Email not sent." });
     }
   } catch (error) {
-    return NextResponse.json({ msg: error }, { status: 500 });
+    return NextResponse.json(
+      { message: "Something Went wrong!!!" },
+      { status: 500 }
+    );
   }
 }
