@@ -13,6 +13,10 @@ import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useActiveSection } from "@/lib/store";
 
+interface QueryResponse {
+  projects: ProjectType[];
+}
+
 const Projects: NextPage = () => {
   const {
     data: projects,
@@ -20,7 +24,7 @@ const Projects: NextPage = () => {
     hasNextPage,
     isPending,
     isFetchingNextPage,
-  } = useInfiniteQuery<ProjectType[]>({
+  } = useInfiniteQuery<QueryResponse>({
     queryKey: ["projects"],
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await axios.get("/api/infinite-projects", {
@@ -35,7 +39,7 @@ const Projects: NextPage = () => {
 
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length > 0 ? allPages.length + 1 : undefined;
+      return lastPage.projects.length > 0 ? allPages.length + 1 : undefined;
     },
   });
 
@@ -52,11 +56,7 @@ const Projects: NextPage = () => {
   }, [inView, setActiveSection]);
 
   return (
-    <section
-      ref={ref}
-      id="works"
-      className="relative overflow-hidden pb-16"
-    >
+    <section ref={ref} id="works" className="relative overflow-hidden pb-16">
       <div className="relative z-0 pt-14">
         <div className="flex flex-row justify-center">
           <div className="absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-300 dark:via-[#262B42] to-transparent"></div>
@@ -72,7 +72,7 @@ const Projects: NextPage = () => {
           {isPending
             ? [0, 1, 2].map((_i, i) => <ProjectSkeleton key={i} />)
             : projects?.pages.map((page) =>
-                page.map((project) => (
+                page.projects.map((project) => (
                   <Project
                     key={project.id}
                     id={project.id}

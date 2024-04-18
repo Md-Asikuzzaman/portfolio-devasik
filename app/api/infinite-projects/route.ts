@@ -1,7 +1,14 @@
 import prisma from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+interface ApiResponse {
+  message?: string;
+  projects?: ProjectType[];
+}
+
+export async function GET(
+  req: NextRequest
+): Promise<NextResponse<ApiResponse>> {
   const url = new URL(req.url);
   const _page = url.searchParams.get("_page");
   const _limit = url.searchParams.get("_limit");
@@ -15,7 +22,7 @@ export async function GET(req: NextRequest) {
       skip: (currentPage - 1) * PER_PAGE,
     });
 
-    return NextResponse.json(projects, { status: 200 });
+    return NextResponse.json({ projects }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Something went wrong!" },
