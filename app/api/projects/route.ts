@@ -1,11 +1,16 @@
 import prisma from "@/lib/db";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET() {
+interface ApiResponse {
+  message?: string;
+  projects?: ProjectType[];
+  newProject?: ProjectType;
+}
+
+export async function GET(): Promise<NextResponse<ApiResponse>> {
   try {
     const projects = await prisma.project.findMany();
-
-    return NextResponse.json(projects, { status: 200 });
+    return NextResponse.json({ projects }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Something went wrong!" },
@@ -14,13 +19,13 @@ export async function GET() {
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse<ApiResponse>> {
   const { title, description, image, website, github, variant } =
     await req.json();
 
-  const newData = await prisma.project.create({
+  const newProject = await prisma.project.create({
     data: { title, description, image, website, github, variant },
   });
 
-  return NextResponse.json(newData, { status: 201 });
+  return NextResponse.json({ newProject }, { status: 201 });
 }
