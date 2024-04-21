@@ -1,26 +1,14 @@
 import { IoBriefcase } from "react-icons/io5";
 import SkillCard from "../SkillCard";
+import { simJob, tfmJob } from "@/lib/experienceCalculator";
 
 const Experience = () => {
   return (
     <div className="flex flex-col gap-5">
       <SkillCard
-        title="Senior Front-End Developer"
-        company="TFM tools (Contract)"
-        duration="Feb 2021 - Running"
-        details={[
-          "Responsive Web Design & Development",
-          "State Management & Data Fetching",
-          "UI Bug Fixing",
-          "SEO and more.",
-        ]}
-        Icon={IoBriefcase}
-      />
-
-      <SkillCard
-        title="Web Designer"
-        company="City It Park (Intern)"
-        duration="Oct 2022 - Jan 2023"
+        title="Next.js Developer (Frontend)"
+        company="SIM Solutions Limited"
+        duration={simJob}
         details={[
           "Responsive Website Design",
           "UI Bug Fixing",
@@ -31,6 +19,19 @@ const Experience = () => {
         border="via-pink-500"
         color="text-pink-500"
         bg="bg-pink-500/30"
+      />
+
+      <SkillCard
+        title="Frontend Developer"
+        company="TFM tools (Contract)"
+        duration={tfmJob}
+        details={[
+          "Responsive Web Design & Development",
+          "State Management & Data Fetching",
+          "UI Bug Fixing",
+          "SEO and more.",
+        ]}
+        Icon={IoBriefcase}
       />
     </div>
   );
