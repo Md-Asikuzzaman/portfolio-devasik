@@ -4,22 +4,16 @@ import { IoBriefcase } from "react-icons/io5";
 import SkillCard from "../SkillCard";
 
 import { useExperience } from "@/hooks/useExperience";
+import { simCalculate, tfmCalculate } from "@/lib/expCalculator";
 
 const Experience = () => {
-  const sim = useExperience("2024-02-01", false);
-  const tfm = useExperience("2022-10-11", "2024-02-12");
-
   // For Present Job
-  const simJob = `${sim.startMonth} ${sim.startYear} - Present (${
-    sim.years > 0 ? sim.years + " Years - " : ""
-  }${sim.months} month${sim.years > 0 ? "" : " - " + sim.days + " days"})`;
+  const sim = useExperience("2024-02-01", false);
+  const simJob = simCalculate(sim);
 
   // For End Jobs
-  const tfmJob = `${tfm.startMonth} ${tfm.startYear} - ${tfm.endMonth} ${
-    tfm.endYear
-  } (${tfm.years > 0 ? tfm.years + " Years - " : ""}${tfm.months} month${
-    tfm.years > 0 ? "" : " - " + tfm.days + " days"
-  })`;
+  const tfm = useExperience("2022-10-11", "2024-02-12");
+  const tfmJob = tfmCalculate(tfm);
 
   return (
     <div className="flex flex-col gap-5">
