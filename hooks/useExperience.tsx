@@ -1,3 +1,5 @@
+"use client";
+
 export const useExperience = (startDate: string, endDate: any) => {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date();

@@ -28,7 +28,7 @@ const Header: NextPage = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [setShowBackground]);
 
   return (
     <header
