@@ -10,16 +10,16 @@ export async function GET(
   req: NextRequest
 ): Promise<NextResponse<ApiResponse>> {
   const url = new URL(req.url);
-  const _page = url.searchParams.get("_page");
-  const _limit = url.searchParams.get("_limit");
 
-  const PER_PAGE = 3;
-  const currentPage = Math.max(Number(_page) || 1, 1);
+  const initialPage: any = url.searchParams.get("_initialPage");
+  const limitPerPage: any = url.searchParams.get("_limitPerPage");
+
+  const currentPage = Math.max(Number(parseInt(initialPage)) || 1, 1);
 
   try {
     const projects = await prisma.project.findMany({
-      take: PER_PAGE,
-      skip: (currentPage - 1) * PER_PAGE,
+      take: parseInt(limitPerPage),
+      skip: (currentPage - 1) * parseInt(limitPerPage),
     });
 
     return NextResponse.json({ projects }, { status: 200 });

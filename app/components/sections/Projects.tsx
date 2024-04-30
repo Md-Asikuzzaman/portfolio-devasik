@@ -26,11 +26,11 @@ const Projects: NextPage = () => {
     isFetchingNextPage,
   } = useInfiniteQuery<QueryResponse>({
     queryKey: ["projects"],
-    queryFn: async ({ pageParam = 1 }) => {
+    queryFn: async ({ pageParam }) => {
       const { data } = await axios.get("/api/infinite-projects", {
         params: {
-          _page: pageParam,
-          _limit: 3,
+          _initialPage: pageParam,
+          _limitPerPage: 3,
         },
       });
 
