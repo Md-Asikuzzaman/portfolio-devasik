@@ -4,7 +4,7 @@ import { IoBriefcase } from "react-icons/io5";
 import SkillCard from "../SkillCard";
 
 import { useExperience } from "@/hooks/useExperience";
-import { simCalculate, tfmCalculate } from "@/lib/expCalculator";
+import { simCalculate, tfmCalculate } from "@/utils/expCalculator";
 
 const Experience = () => {
   // For Present Job
