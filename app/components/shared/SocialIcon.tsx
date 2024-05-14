@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { NextPage } from "next";
 import { IconType } from "react-icons";
 
@@ -13,9 +14,11 @@ const SocialIcon: NextPage<Props> = ({ variant, Icon, link }) => {
   return (
     <a target="_blank" href={link}>
       <Icon
-        className={`${variant == "hero" && "w-8 h-8"} ${
-          variant == "mobile" && "w-5 h-5"
-        } text-gray-400 dark:text-zinc-400 hover:text-gray-500 dark:hover:text-zinc-200 hover:scale-110 transition transform duration-200`}
+        className={clsx(
+          "text-gray-400 dark:text-zinc-400 hover:text-gray-500 dark:hover:text-zinc-200 hover:scale-110 transition transform duration-200",
+          variant === "hero" && "w-8 h-8",
+          variant === "mobile" && "w-5 h-5"
+        )}
       />
     </a>
   );
