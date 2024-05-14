@@ -1,12 +1,13 @@
-import { appVersion, navOptions, socialInfo } from "@/lib";
-import ModeToggleButton from "../shared/ModeToggleButton";
-import { useActiveSection, useMenuActive } from "@/lib/store";
-import SocialIcon from "../shared/SocialIcon";
 import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import clsx from "clsx";
+
+import ModeToggleButton from "../shared/ModeToggleButton";
+import SocialIcon from "../shared/SocialIcon";
+import { appVersion, navOptions, socialInfo } from "@/lib";
+import { useActiveSection, useMenuActive } from "@/lib/store";
 
 const MobileMenuSlider = () => {
   const { menuActive, setMenuActive } = useMenuActive();
-
   const { setActiveSection, activeSection } = useActiveSection();
 
   const handleClick = (option: string) => {
@@ -16,17 +17,19 @@ const MobileMenuSlider = () => {
 
   return (
     <div
-      className={`fixed md:hidden top-[64px] bg-[#fafafa]/90 dark:bg-[#0D1224]/90 backdrop-blur-xl h-screen w-full left-0 px-8 py-5 transform duration-500 ${
+      className={clsx(
+        "fixed md:hidden top-[64px] bg-[#fafafa]/90 dark:bg-[#0D1224]/90 backdrop-blur-xl h-screen w-full left-0 px-8 py-5 transform duration-500",
         menuActive ? "translate-x-0" : "translate-x-full"
-      }`}
+      )}
     >
       <ul className="flex flex-col gap-5">
         {navOptions.map((option, i) => (
           <li key={i} onClick={() => handleClick(option)}>
             <a
-              className={`capitalize ${
+              className={clsx(
+                "text-base font-semibold hover:text-pink-500 capitalize",
                 option == activeSection ? "text-pink-500" : "text-gray-400"
-              } text-base font-semibold hover:text-pink-500`}
+              )}
               href={option == activeSection ? `#${option}` : "#"}
             >
               {option}
