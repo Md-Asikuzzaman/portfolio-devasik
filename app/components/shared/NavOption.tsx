@@ -3,6 +3,7 @@
 import ModeToggleButton from "./ModeToggleButton";
 import GithubButton from "./GithubButton";
 import { useActiveSection } from "@/lib/store";
+import clsx from "clsx";
 
 const NavOption = () => {
   const { activeSection, setActiveSection } = useActiveSection();
@@ -13,11 +14,12 @@ const NavOption = () => {
       {navOptions.map((option, i) => (
         <li key={i} onClick={() => setActiveSection(option)}>
           <a
-            className={`capitalize ${
+            className={clsx(
+              "capitalize text-base transition-colors duration-200 hover:text-violet-600 dark:hover:text-white",
               option == activeSection
                 ? "text-violet-600 dark:text-white"
                 : "text-pink-600/80 dark:text-gray-400"
-            } text-base transition-colors duration-200 hover:text-violet-600 dark:hover:text-white`}
+            )}
             href={option == activeSection ? `#${option}` : "#"}
           >
             {option}
