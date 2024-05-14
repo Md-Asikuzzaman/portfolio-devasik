@@ -9,22 +9,22 @@ const MobileMenu = () => {
   return (
     <div
       onClick={() => setMenuActive()}
-      className="text-white flex items-center justify-center md:hidden relative h-[40px] w-[40px]  cursor-pointer"
+      className="relative flex h-[40px] w-[40px] cursor-pointer items-center justify-center text-white  md:hidden"
     >
       <span
         className={clsx(
-          "h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition",
+          "absolute inline-flex h-[1.5px] w-[28px] transform bg-white transition",
           menuActive
             ? "translate-y-[0px] rotate-45"
-            : "translate-y-[-6px] rotate-0"
+            : "translate-y-[-6px] rotate-0",
         )}
       ></span>
       <span
         className={clsx(
-          "h-[1.5px] w-[28px] bg-white inline-flex absolute transform transition",
+          "absolute inline-flex h-[1.5px] w-[28px] transform bg-white transition",
           menuActive
             ? "translate-y-[0px] -rotate-45"
-            : "translate-y-[6px] rotate-0"
+            : "translate-y-[6px] rotate-0",
         )}
       ></span>
     </div>

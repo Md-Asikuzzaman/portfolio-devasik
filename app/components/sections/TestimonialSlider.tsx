@@ -11,7 +11,7 @@ const TestimonialSlider = () => {
 
     return (
       <div
-        className="absolute translate-y-0 lg:translate-x-14 mx-0 bottom-0 right-0 top-0 my-auto h-8 w-8 gradient-btn opacity-80 hover:opacity-100 transition inline-flex items-center justify-center text-sm p-2 rounded-full text-white cursor-pointer"
+        className="gradient-btn absolute bottom-0 right-0 top-0 mx-0 my-auto inline-flex h-8 w-8 translate-y-0 cursor-pointer items-center justify-center rounded-full p-2 text-sm text-white opacity-80 transition hover:opacity-100 lg:translate-x-14"
         onClick={onClick}
       >
         <PiCaretRightLight />
@@ -24,7 +24,7 @@ const TestimonialSlider = () => {
 
     return (
       <div
-        className="absolute translate-y-0 lg:-translate-x-14 z-20 mx-0 bottom-0 left-0 top-0 my-auto h-8 w-8 gradient-btn opacity-80 hover:opacity-100 inline-flex items-center justify-center text-sm p-2 rounded-full text-white cursor-pointer"
+        className="gradient-btn absolute bottom-0 left-0 top-0 z-20 mx-0 my-auto inline-flex h-8 w-8 translate-y-0 cursor-pointer items-center justify-center rounded-full p-2 text-sm text-white opacity-80 hover:opacity-100 lg:-translate-x-14"
         onClick={onClick}
       >
         <PiCaretLeftLight />
@@ -62,10 +62,10 @@ const TestimonialSlider = () => {
   return (
     <div className="container relative py-14">
       <div className="my-12 text-center">
-        <p className="font-medium my-4 text-violet-500 text-sm tracking-widest uppercase">
+        <p className="my-4 text-sm font-medium uppercase tracking-widest text-violet-500">
           Testimonials
         </p>
-        <h2 className="text-2xl md:text-3xl text-center font-bold text-slate-900 mb-10 dark:text-white">
+        <h2 className="mb-10 text-center text-2xl font-bold text-slate-900 dark:text-white md:text-3xl">
           What my clients say
         </h2>
       </div>

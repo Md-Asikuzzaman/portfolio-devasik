@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { NextPage } from 'next';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { NextPage } from "next";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 interface Props {
   children: React.ReactNode;

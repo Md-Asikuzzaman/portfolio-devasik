@@ -25,7 +25,7 @@ const mailSchema = z.object({
 
 export async function POST(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<NextResponse<ApiResponse>> {
   try {
     const mailInfo: { email: string; message: string } = await req.json();
@@ -34,7 +34,7 @@ export async function POST(
     if (!validation.success) {
       return NextResponse.json(
         { message: "Validation errors!!!" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -204,7 +204,7 @@ export async function POST(
       await transporter.sendMail(mailOptions);
       return NextResponse.json(
         { message: "Email sent successfully!!!" },
-        { status: 200 }
+        { status: 200 },
       );
     } catch (error) {
       return NextResponse.json({ message: "Email not sent." });
@@ -212,7 +212,7 @@ export async function POST(
   } catch (error) {
     return NextResponse.json(
       { message: "Something Went wrong!!!" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

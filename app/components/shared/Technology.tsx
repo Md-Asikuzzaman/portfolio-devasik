@@ -14,9 +14,9 @@ const Technology: NextPage<Props> = ({ title, Icon, color, ringColor }) => {
   return (
     <span
       className={clsx(
-        "inline-flex items-center gap-1 h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 ring-1 md:ring-2",
+        "inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-full px-3 text-sm font-semibold ring-1 md:ring-2",
         color,
-        ringColor
+        ringColor,
       )}
     >
       <Icon className="h-5 w-5" />

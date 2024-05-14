@@ -31,8 +31,8 @@ const GoToTop = () => {
     <div
       onClick={handleTop}
       className={clsx(
-        "fixed bottom-4 right-5 flex items-center justify-center h-12 w-12 cursor-pointer bg-violet-600 rounded-full transition ease-in-out hover:bg-violet-500 transform",
-        showTopBtn ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+        "fixed bottom-4 right-5 flex h-12 w-12 transform cursor-pointer items-center justify-center rounded-full bg-violet-600 transition ease-in-out hover:bg-violet-500",
+        showTopBtn ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0",
       )}
     >
       <MdOutlineKeyboardArrowUp className="text-white" size={22} />

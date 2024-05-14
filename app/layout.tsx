@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="scroll-pt-10 md:scroll-pt-8 scroll-smooth dark" lang="en">
+    <html className="dark scroll-pt-10 scroll-smooth md:scroll-pt-8" lang="en">
       <body
-        className="dark:bg-[#0d1224] bg-[#fafafa]"
+        className="bg-[#fafafa] dark:bg-[#0d1224]"
         suppressHydrationWarning={true}
       >
         <ReactQueryProvider>

@@ -38,26 +38,26 @@ const Project: NextPage<Props> = ({
         ease: "anticipate",
         duration: 0.7,
       }}
-      className="relative bg-white dark:bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-slate-300 dark:border-[#262B42] hover:border-slate-400 dark:hover:border-[#434865] transition-colors duration-200 ease-in-out"
+      className="relative overflow-hidden rounded-lg border border-slate-300 bg-white text-center shadow-md transition-colors duration-200 ease-in-out hover:border-slate-400 dark:border-[#262B42] dark:bg-[#12172a] dark:hover:border-[#434865]"
     >
       <div className="relative h-48 w-full">
         <Image
-          className="shadow-md rounded-t-lg h-full bg-contain"
+          className="h-full rounded-t-lg bg-contain shadow-md"
           src={image}
           alt={"project-cover"}
           fill={true}
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl text-slate-900 dark:text-white text-center font-semibold pb-4">
+        <h3 className="pb-4 text-center text-xl font-semibold text-slate-900 dark:text-white">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-[#d3d8e8] text-sm leading-6 text-center">
+        <p className="text-center text-sm leading-6 text-slate-600 dark:text-[#d3d8e8]">
           {description}
         </p>
-        <div className="flex items-center justify-center gap-3 mt-4 mb-2">
+        <div className="mb-2 mt-4 flex items-center justify-center gap-3">
           <a
-            className="h-10 w-10 rounded-full bg-violet-500/20 hover:bg-violet-500/30 transition-colors inline-flex items-center justify-center text-violet-500"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-violet-500/20 text-violet-500 transition-colors hover:bg-violet-500/30"
             href={website}
             target="_blank"
           >
@@ -65,7 +65,7 @@ const Project: NextPage<Props> = ({
           </a>
 
           <a
-            className="h-10 w-10 rounded-full bg-pink-500/20 hover:bg-pink-500/30 transition-colors inline-flex items-center justify-center text-pink-500"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-pink-500/20 text-pink-500 transition-colors hover:bg-pink-500/30"
             href={github}
             target="_blank"
           >
