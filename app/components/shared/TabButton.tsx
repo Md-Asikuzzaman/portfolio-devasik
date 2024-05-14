@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { NextPage } from "next";
 
 interface Props {
@@ -18,11 +19,12 @@ const TabButton: NextPage<Props> = ({
       onClick={() => {
         setCurrentTab(tabValue);
       }}
-      className={`inline-block p-2 lg:p-3 border-b-2 rounded-t-lg text-md md:text-lg ${
-        currentTab == tabValue
-          ? "text-pink-500 bg-pink-500/10 border-b-2 border-pink-500 rounded-t-lg active"
-          : "hover:text-gray-600 hover:border-gray-600 dark:hover:text-gray-300 dark:hover:border-gray-300 border-transparent"
-      } `}
+      className={clsx(
+        "text-md inline-block rounded-t-lg border-b-2 p-2 md:text-lg lg:p-3",
+        currentTab === tabValue
+          ? "active rounded-t-lg border-b-2 border-pink-500 bg-pink-500/10 text-pink-500"
+          : "border-transparent hover:border-gray-600 hover:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300",
+      )}
     >
       {title}
     </button>

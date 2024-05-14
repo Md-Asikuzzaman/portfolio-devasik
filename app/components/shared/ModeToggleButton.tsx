@@ -40,18 +40,18 @@ const ModeToggleButton = () => {
 
   return (
     <div
-      className="h-[35px] w-[35px] grid place-content-center rounded-full cursor-pointer group hover:bg-black/10 dark:hover:bg-white/20 transition"
+      className="group grid h-[35px] w-[35px] cursor-pointer place-content-center rounded-full transition hover:bg-black/10 dark:hover:bg-white/20"
       onClick={handleSwitch}
     >
       {theme === "light" ? (
         <GoMoon
           size={20}
-          className="text-gray-500 group-hover:text-violet-600 dark:text-gray-400 dark:group-hover:text-white transition group-hover:rotate-90"
+          className="text-gray-500 transition group-hover:rotate-90 group-hover:text-violet-600 dark:text-gray-400 dark:group-hover:text-white"
         />
       ) : (
         <FiSun
           size={20}
-          className="text-gray-500 group-hover:text-violet-600 dark:text-gray-400 dark:group-hover:text-white transition group-hover:rotate-180"
+          className="text-gray-500 transition group-hover:rotate-180 group-hover:text-violet-600 dark:text-gray-400 dark:group-hover:text-white"
         />
       )}
     </div>

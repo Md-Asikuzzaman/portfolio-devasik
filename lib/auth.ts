@@ -1,21 +1,21 @@
-import { NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      id: 'credentials',
-      name: 'Credentials',
+      id: "credentials",
+      name: "Credentials",
       credentials: {
         email: {
-          label: 'Email',
-          type: 'text',
-          placeholder: 'Email Address',
+          label: "Email",
+          type: "text",
+          placeholder: "Email Address",
         },
         password: {
-          label: 'Password',
-          type: 'password',
-          placeholder: 'Password',
+          label: "Password",
+          type: "password",
+          placeholder: "Password",
         },
       },
 
@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
           credentials?.password == process.env.PASSWORD
         ) {
           const user = {
-            id: '1sjk84sj023.as',
+            id: "1sjk84sj023.as",
             email: process.env.EMAIL,
           };
 
@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
   ],
 
   pages: {
-    signIn: '/signin',
+    signIn: "/signin",
   },
 
   secret: process.env.NEXTAUTH_SECRET,

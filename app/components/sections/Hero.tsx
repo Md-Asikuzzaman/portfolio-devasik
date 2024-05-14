@@ -30,16 +30,16 @@ const Hero = () => {
     <section
       id="home"
       ref={ref}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex h-screen items-center justify-center overflow-hidden"
     >
       <div className="overlay z-10"></div>
-      <div className="flex items-center justify-center flex-col z-10">
-        <h1 className="font-extrabold mb-5 md:mb-8 text-5xl md:text-5xl lg:text-6xl tracking-tight text-center">
+      <div className="z-10 flex flex-col items-center justify-center">
+        <h1 className="mb-5 text-center text-5xl font-extrabold tracking-tight md:mb-8 md:text-5xl lg:text-6xl">
           <span className="gradient__text">I'm Dev </span>
           <span className="hero-text-stroke">Asik.</span>
         </h1>
 
-        <h2 className="text-slate-600 font-extrabold text-2xl lg:text-3xl tracking-tight text-center dark:text-white">
+        <h2 className="text-center text-2xl font-extrabold tracking-tight text-slate-600 dark:text-white lg:text-3xl">
           <Typewriter
             options={{
               strings: [
@@ -54,7 +54,7 @@ const Hero = () => {
             }}
           />
         </h2>
-        <div className="py-12 flex items-center gap-4">
+        <div className="flex items-center gap-4 py-12">
           <SocialIcon variant="hero" link={socialInfo.github} Icon={BsGithub} />
           <SocialIcon
             variant="hero"

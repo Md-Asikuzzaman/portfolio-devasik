@@ -6,11 +6,11 @@
 
 @layer components {
   .header__container {
-    @apply 2xl:max-w-7xl mx-auto px-3 lg:px-6 py-3;
+    @apply mx-auto px-3 py-3 lg:px-6 2xl:max-w-7xl;
   }
 
   .container {
-    @apply 2xl:max-w-6xl mx-auto px-3 lg:px-6 py-3;
+    @apply mx-auto px-3 py-3 lg:px-6 2xl:max-w-6xl;
   }
 
   .gradient__text {
@@ -19,14 +19,14 @@
   }
 
   .overlay {
-    @apply bg-[url('/images/bg-grid.svg')] h-screen w-full absolute -top-10 left-0 right-0 -z-[1] bg-contain bg-no-repeat;
+    @apply absolute -top-10 left-0 right-0 -z-[1] h-screen w-full bg-[url('/images/bg-grid.svg')] bg-contain bg-no-repeat;
   }
 
   .gradient-btn {
-    @apply inline-block px-6 py-3 text-sm no-underline uppercase text-center text-white tracking-wider font-medium md:font-semibold rounded-full bg-gradient-to-r from-pink-500 to-violet-600 transition-all duration-200 ease-out hover:text-white hover:no-underline;
+    @apply inline-block rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 text-center text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold;
   }
   .form__control {
-    @apply dark:bg-[#121629] border border-zinc-300 dark:border-[#262B42] text-slate-900 dark:text-white text-base rounded-lg focus:outline-none focus:border-violet-500/70 dark:focus:border-violet-500/70 block w-full p-2.5;
+    @apply block w-full rounded-lg border border-zinc-300 p-2.5 text-base text-slate-900 focus:border-violet-500/70 focus:outline-none dark:border-[#262B42] dark:bg-[#121629] dark:text-white dark:focus:border-violet-500/70;
   }
 }
 

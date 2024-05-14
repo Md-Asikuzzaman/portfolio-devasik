@@ -1,6 +1,7 @@
-import { NextPage } from 'next';
+import clsx from "clsx";
+import { NextPage } from "next";
 
-import { IconType } from 'react-icons';
+import { IconType } from "react-icons";
 
 interface Props {
   title: string;
@@ -12,9 +13,13 @@ interface Props {
 const Technology: NextPage<Props> = ({ title, Icon, color, ringColor }) => {
   return (
     <span
-      className={`inline-flex items-center gap-1 h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 ring-1 md:ring-2 ${color} ${ringColor} `}
+      className={clsx(
+        "inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-full px-3 text-sm font-semibold ring-1 md:ring-2",
+        color,
+        ringColor,
+      )}
     >
-      <Icon className='h-5 w-5' />
+      <Icon className="h-5 w-5" />
       {title}
     </span>
   );

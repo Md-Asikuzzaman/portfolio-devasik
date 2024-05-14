@@ -13,10 +13,10 @@ const Particle = () => {
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {},
-    []
+    [],
   );
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0">
+    <div className="absolute bottom-0 left-0 right-0 top-0">
       <Particles
         className="h-screen"
         init={particlesInit}

@@ -4,10 +4,10 @@ import Image from "next/image";
 const AboutMe = () => {
   return (
     <div className="px-3">
-      <p className="text-slate-900 dark:text-white text-2xl font-semibold mb-5">
+      <p className="mb-5 text-2xl font-semibold text-slate-900 dark:text-white">
         Hi, I'm Md Asikuzzaman.
       </p>
-      <p className="mb-4 text-md lg:text-md lg:leading-8 text-slate-900 dark:text-[#d3d8e8]">
+      <p className="text-md lg:text-md mb-4 text-slate-900 dark:text-[#d3d8e8] lg:leading-8">
         I'm a passionate Software Developer with 4+ years of expertise in{" "}
         <span className="border-b-[1px] border-b-violet-500">
           Next.js, React.js, Prisma, MongoDB, Zod, and TypeScript 💪.{" "}
@@ -22,18 +22,18 @@ const AboutMe = () => {
         that make an impact 🔥.
       </p>
 
-      <p className="text-md lg:text-md lg:leading-8 text-slate-900 dark:text-[#d3d8e8]">
+      <p className="text-md lg:text-md text-slate-900 dark:text-[#d3d8e8] lg:leading-8">
         I love challenges and I know there is always a solution ✅. At my age,
         my unwavering focus is to be recognized as one of the best coders in
         tech 🌟. I love my clients ❤️, I enjoy my projects 🎨, and respect my
         teammates 👥.
       </p>
 
-      <div className="flex gap-3 mt-6">
+      <div className="mt-6 flex gap-3">
         <a
           target="_blank"
           href={socialInfo.whatsApp}
-          className="text-white bg-[#17766a] duration-200 hover:bg-[#17766a]/70 focus:ring-4 focus:outline-none focus:ring-[#17766a]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center"
+          className="inline-flex items-center rounded-full bg-[#17766a] px-5 py-2.5 text-center text-sm font-medium text-white duration-200 hover:bg-[#17766a]/70 focus:outline-none focus:ring-4 focus:ring-[#17766a]/70"
         >
           <Image
             className="mr-2"
@@ -49,7 +49,7 @@ const AboutMe = () => {
           target="_blank"
           href="/files/Md_Asikuzzaman_CV.pdf"
           download="Md_Asikuzzaman_CV.pdf"
-          className="text-white bg-[#815b19] duration-200 hover:bg-[#815b19]/70 focus:ring-4 focus:outline-none focus:ring-[#815b19]/70 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center"
+          className="inline-flex items-center rounded-full bg-[#815b19] px-5 py-2.5 text-center text-sm font-medium text-white duration-200 hover:bg-[#815b19]/70 focus:outline-none focus:ring-4 focus:ring-[#815b19]/70"
         >
           <Image
             className="mr-2"

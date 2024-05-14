@@ -7,7 +7,7 @@ interface ApiResponse {
 }
 
 export async function GET(
-  req: NextRequest
+  req: NextRequest,
 ): Promise<NextResponse<ApiResponse>> {
   const url = new URL(req.url);
 
@@ -26,7 +26,7 @@ export async function GET(
   } catch (error) {
     return NextResponse.json(
       { message: "Something went wrong!" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

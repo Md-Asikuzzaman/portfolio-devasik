@@ -1,42 +1,42 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import AboutMe from './tab-options/AboutMe';
-import Skill from './tab-options/Skill';
-import Experience from './tab-options/Experience';
-import Education from './tab-options/Education';
-import TabButton from './TabButton';
+import AboutMe from "./tab-options/AboutMe";
+import Skill from "./tab-options/Skill";
+import Experience from "./tab-options/Experience";
+import Education from "./tab-options/Education";
+import TabButton from "./TabButton";
 
 const Tab = () => {
   const [currentTab, setCurrentTab] = useState(1);
 
   return (
-    <div className='flex-1'>
-      <div className='text-sm font-medium text-center text-zinc-400'>
-        <div className='flex flex-wrap gap-2 mb-8 lg:mb-12'>
+    <div className="flex-1">
+      <div className="text-center text-sm font-medium text-zinc-400">
+        <div className="mb-8 flex flex-wrap gap-2 lg:mb-12">
           <TabButton
-            title='About Me'
+            title="About Me"
             tabValue={1}
             currentTab={currentTab}
             setCurrentTab={setCurrentTab}
           />
 
           <TabButton
-            title='Skill Set'
+            title="Skill Set"
             tabValue={2}
             currentTab={currentTab}
             setCurrentTab={setCurrentTab}
           />
           <TabButton
-            title='Experience'
+            title="Experience"
             tabValue={3}
             currentTab={currentTab}
             setCurrentTab={setCurrentTab}
           />
 
           <TabButton
-            title='Education'
+            title="Education"
             tabValue={4}
             currentTab={currentTab}
             setCurrentTab={setCurrentTab}

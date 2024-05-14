@@ -8,12 +8,12 @@ const Footer = () => {
       <div className="relative z-0 pt-5 lg:pt-10">
         <div className="flex flex-row justify-center">
           <div className="absolute top-0 h-[1px] w-full bg-violet-300 dark:bg-[#262B42]"></div>
-          <div className="w-[300px] h-[300px] bg-violet-500/80 rounded-full absolute -top-[150px] filter blur-3xl  opacity-20"></div>
+          <div className="absolute -top-[150px] h-[300px] w-[300px] rounded-full bg-violet-500/80 opacity-20 blur-3xl filter"></div>
         </div>
       </div>
 
       <div className="container z-10">
-        <p className="text-base text-slate-900 dark:text-white text-center">
+        <p className="text-center text-base text-slate-900 dark:text-white">
           &copy; {new Date().getFullYear()} Dev Asik.
         </p>
       </div>

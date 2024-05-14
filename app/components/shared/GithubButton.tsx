@@ -8,7 +8,7 @@ const GithubButton = () => {
   return (
     <div className="flex items-center gap-5">
       <a
-        className="h-[35px] w-[35px] grid place-content-center rounded-full cursor-pointer group hover:bg-black/10 dark:hover:bg-white/20 transition"
+        className="group grid h-[35px] w-[35px] cursor-pointer place-content-center rounded-full transition hover:bg-black/10 dark:hover:bg-white/20"
         target="_blank"
         href={socialInfo.github}
       >
