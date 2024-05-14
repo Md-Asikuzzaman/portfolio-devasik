@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "2.6.3",
+  "name": "dev-portfolio",
+  "version": "2.6.4",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
