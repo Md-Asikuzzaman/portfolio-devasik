@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { NextPage } from "next";
 import { IconType } from "react-icons";
 import { BsPatchCheckFill } from "react-icons/bs";
@@ -29,27 +30,34 @@ const SkillCard: NextPage<Props> = ({
       <div className="top-0 left-0 z-50">
         <div className="flex flex-row justify-center">
           <div
-            className={`absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent to-transparent ${
+            className={clsx(
+              "absolute top-0 h-[1px] w-full bg-gradient-to-r from-transparent to-transparent",
               border ? border : "via-violet-500"
-            }`}
+            )}
           ></div>
         </div>
       </div>
       <div className="flex h-[inherit] gap-6">
         <div className="shrink-0 flex flex-col justify-center items-center gap-2">
           <Icon
-            className={`shrink-0 text-3xl ${color ? color : "text-violet-500"}`}
+            className={clsx(
+              "shrink-0 text-3xl",
+              color ? color : "text-violet-500"
+            )}
           />
-          <div className={`w-[2px] h-full ${bg ? bg : "bg-violet-500/30"}`} />
+          <div
+            className={clsx("w-[2px] h-full", bg ? bg : "bg-violet-500/30")}
+          />
         </div>
         <div>
           <h3 className="text-xl font-bold tracking-tight text-white">
             {title}
           </h3>
           <h5
-            className={`text-md mt-2 font-bold ${
+            className={clsx(
+              "text-md mt-2 font-bold",
               color ? color : "text-violet-500"
-            }`}
+            )}
           >
             {company}
           </h5>
