@@ -13,6 +13,8 @@ import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useActiveSection } from "@/lib/store";
 
+import { AnimatePresence } from "framer-motion";
+
 interface QueryResponse {
   projects: ProjectType[];
 }
@@ -72,16 +74,10 @@ const Projects: NextPage = () => {
           {isPending
             ? [0, 1, 2].map((_i, i) => <ProjectSkeleton key={i} />)
             : projects?.pages.map((page) =>
-                page.projects.map((project) => (
-                  <Project
-                    key={project.id}
-                    id={project.id}
-                    image={project.image}
-                    title={project.title}
-                    description={project.description}
-                    website={project.website}
-                    github={project.github}
-                  />
+                page.projects.map((project: ProjectType) => (
+                  <AnimatePresence mode="popLayout">
+                    <Project key={project.id} {...project} />
+                  </AnimatePresence>
                 ))
               )}
         </div>

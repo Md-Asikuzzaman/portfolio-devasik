@@ -2,6 +2,7 @@
 
 import { NextPage } from "next";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { PiLinkDuotone } from "react-icons/pi";
 import { FiGithub } from "react-icons/fi";
@@ -24,7 +25,21 @@ const Project: NextPage<Props> = ({
   website,
 }) => {
   return (
-    <div className="relative bg-white dark:bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-slate-300 dark:border-[#262B42] hover:border-slate-400 dark:hover:border-[#434865] transition-colors duration-200 ease-in-out">
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      transition={{
+        ease: "anticipate",
+        duration: 0.7,
+      }}
+      className="relative bg-white dark:bg-[#12172a] shadow-md text-center rounded-lg overflow-hidden border border-slate-300 dark:border-[#262B42] hover:border-slate-400 dark:hover:border-[#434865] transition-colors duration-200 ease-in-out"
+    >
       <div className="relative h-48 w-full">
         <Image
           className="shadow-md rounded-t-lg h-full bg-contain"
@@ -58,7 +73,7 @@ const Project: NextPage<Props> = ({
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
