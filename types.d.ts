@@ -8,3 +8,11 @@ interface ProjectType {
   createdAt: Date;
   updatedAt: Date;
 }
+
+interface AddProjectType {
+  title: string;
+  features: string[];
+  image: File | string;
+  site_url: string;
+  repo_url: string;
+}

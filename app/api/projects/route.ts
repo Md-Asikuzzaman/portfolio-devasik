@@ -2,9 +2,9 @@ import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
 interface ApiResponse {
-  message?: string;
   projects?: ProjectType[];
   newProject?: ProjectType;
+  message?: string;
 }
 
 // [FETCH] all project

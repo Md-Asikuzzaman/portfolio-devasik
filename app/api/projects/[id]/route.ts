@@ -61,13 +61,20 @@ export async function PATCH(
   req: Request,
   context: ParamsType,
 ): Promise<NextResponse<ApiResponse>> {
-  const { id } = context.params;
-  const body = await req.json();
+  try {
+    const { id } = context.params;
+    const body = await req.json();
 
-  const updatedProject = await prisma.project.update({
-    where: { id },
-    data: body,
-  });
+    const updatedProject = await prisma.project.update({
+      where: { id },
+      data: body,
+    });
 
-  return NextResponse.json({ updatedProject }, { status: 200 });
+    return NextResponse.json({ updatedProject }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Failed to update project." },
+      { status: 500 },
+    );
+  }
 }
