@@ -7,6 +7,7 @@ interface ApiResponse {
   newProject?: ProjectType;
 }
 
+// [FETCH] all project
 export async function GET(): Promise<NextResponse<ApiResponse>> {
   try {
     const projects = await prisma.project.findMany({
@@ -23,6 +24,7 @@ export async function GET(): Promise<NextResponse<ApiResponse>> {
   }
 }
 
+// [CREATE] a new project
 export async function POST(req: Request): Promise<NextResponse<ApiResponse>> {
   try {
     const body = await req.json();
