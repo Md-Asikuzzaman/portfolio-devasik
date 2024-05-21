@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 interface ApiResponse {
   project?: ProjectType | null;
   deletedProject?: ProjectType;
+  updatedProject?: ProjectType;
   message?: string;
 }
 
@@ -53,4 +54,20 @@ export async function DELETE(
       { status: 500 },
     );
   }
+}
+
+// [UPDATE] project by ID
+export async function PATCH(
+  req: Request,
+  context: ParamsType,
+): Promise<NextResponse<ApiResponse>> {
+  const { id } = context.params;
+  const body = await req.json();
+
+  const updatedProject = await prisma.project.update({
+    where: { id },
+    data: body,
+  });
+
+  return NextResponse.json({ updatedProject }, { status: 200 });
 }
