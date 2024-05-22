@@ -55,7 +55,7 @@ const Page: NextPage<Props> = ({}) => {
         router.refresh();
         setIsLoading(false);
       } else {
-        toast.error(error);
+        toast.error("Invalid credentials");
         setIsLoading(false);
       }
     });
