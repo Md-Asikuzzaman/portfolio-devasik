@@ -48,7 +48,7 @@ const Page: NextPage<Props> = ({ params }) => {
     },
   });
 
-  const conevrtfeatures = data?.project.features.toString();
+  const conevrtfeatures = data?.project.features.join("**");
   // Add specific file types here...
   const allowedTypes = ["image/jpeg", "image/png"];
 
@@ -103,7 +103,7 @@ const Page: NextPage<Props> = ({ params }) => {
 
     mutate({
       title,
-      features: features.split(","),
+      features: features.split("**"),
       image,
       site_url,
       repo_url,

@@ -1,33 +1,33 @@
 import { NextPage } from "next";
 import clsx from "clsx";
+import { FieldErrors } from "react-hook-form";
 
 interface Props {
   id: string;
   label: string;
   type?: string;
-  data?: any;
-  value: string;
   variant?: string;
+  register: object;
+
 }
 
 const MyInput: NextPage<Props> = ({
   id,
   label,
   type,
-  data,
-  value,
   variant,
+  register,
+
 }) => {
   return (
     <div className="relative">
       <input
         type={type}
         id={id}
-        onChange={(e) => data(e.target.value)}
-        value={value}
+        {...register}
         placeholder=" "
         className={clsx(
-          "text-md peer mb-4 block w-full appearance-none rounded-md px-6 pb-1 pt-6 focus:outline-none focus:ring-0",
+          "text-md peer block w-full appearance-none rounded-md px-6 pb-1 pt-6 focus:outline-none focus:ring-0",
           variant
             ? "bg-neutral-700 text-white"
             : "bg-neutral-700 text-orange-500",
@@ -46,6 +46,7 @@ const MyInput: NextPage<Props> = ({
       >
         {label}
       </label>
+
     </div>
   );
 };

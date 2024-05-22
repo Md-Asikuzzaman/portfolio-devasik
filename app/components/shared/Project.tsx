@@ -8,21 +8,11 @@ import { FiGithub } from "react-icons/fi";
 import UsedTech from "./UsedTech";
 
 interface Props {
-  id?: string;
-  image: string;
-  title: string;
-  description: string;
-  github: string;
-  website: string;
-  category?: string;
+  project: ProjectType;
 }
 
 const Project: NextPage<Props> = ({
-  image,
-  title,
-  description,
-  github,
-  website,
+  project: { title, features, image, site_url, repo_url },
 }) => {
   return (
     <div className="relative overflow-hidden rounded-lg border border-slate-300 bg-white shadow-md transition-colors duration-200 ease-in-out hover:border-slate-400 dark:border-[#262B42] dark:bg-[#12172a] dark:hover:border-[#434865]">
@@ -38,18 +28,14 @@ const Project: NextPage<Props> = ({
         <h3 className="pb-4 text-center text-xl font-semibold text-slate-900 dark:text-white">
           {title}
         </h3>
-        {/* <p className="text-center text-sm leading-6 text-slate-600 dark:text-[#d3d8e8]">
-          {description}
-        </p> */}
 
         <ul className="flex flex-col gap-[2px] text-sm text-white">
-          <li>🚀 Lorem ipsum dolor sit amet.</li>
-          <li>🚀 Lorem ipsum dolor sit amet.rtyrtyrt</li>
-          <li>🚀 Lorem ipsum dolor sit amet.rtrtyryrt</li>
+          {features.map((feature) => (
+            <li>🚀 {feature}</li>
+          ))}
         </ul>
 
         <div className="my-4 flex flex-wrap items-end justify-center gap-2">
-          
           <UsedTech tech="/tech/reactjs.webp" />
           <UsedTech tech="/tech/nextjs.png" />
           <UsedTech tech="/tech/prisma.png" />
@@ -67,7 +53,7 @@ const Project: NextPage<Props> = ({
         <div className="flex items-center justify-center gap-3">
           <a
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-violet-500/20 text-violet-500 transition-colors hover:bg-violet-500/30"
-            href={website}
+            href={site_url}
             target="_blank"
           >
             <PiLinkDuotone className="h-5 w-5" />
@@ -75,7 +61,7 @@ const Project: NextPage<Props> = ({
 
           <a
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-pink-500/20 text-pink-500 transition-colors hover:bg-pink-500/30"
-            href={github}
+            href={repo_url}
             target="_blank"
           >
             <FiGithub className="h-5 w-5" />

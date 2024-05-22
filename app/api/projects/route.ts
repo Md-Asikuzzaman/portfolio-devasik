@@ -12,7 +12,7 @@ export async function GET(): Promise<NextResponse<ApiResponse>> {
   try {
     const projects = await prisma.project.findMany({
       orderBy: {
-        createdAt: "desc",
+        updatedAt: "desc",
       },
     });
     return NextResponse.json({ projects }, { status: 200 });
