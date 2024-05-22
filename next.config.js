@@ -11,7 +11,7 @@ module.exports = async (phase, { defaultConfig }) => {
         },
 
         {
-          protocol: "http",
+          protocol: "https",
           hostname: "devasik.vercel.app",
         },
       ],

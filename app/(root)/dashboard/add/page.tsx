@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, ChangeEvent } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { _64ify } from "next-file-64ify";
-import MyInput from "@/app/components/shared/Input";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { projectSchema } from "@/schema/zodSchema";
 import { defaultImgURL } from "@/lib";
+import MyInput from "@/app/components/shared/Input";
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
@@ -33,6 +33,27 @@ const Page = () => {
     resolver: zodResolver(projectSchema),
   });
 
+  // [ADD] project query
+  const { mutate, isPending } = useMutation({
+    mutationKey: ["add_project"],
+    mutationFn: async (data: AddProjectType) => {
+      await axios.post("/api/projects", data);
+    },
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["fetch_projects"],
+      });
+
+      reset();
+      setImage("");
+
+      toast.success("Project created!!!");
+      router.replace("/dashboard");
+    },
+  });
+
+  // Form change handler
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const selectedFile = e.target.files && e.target.files[0];
@@ -52,25 +73,6 @@ const Page = () => {
       }
     }
   };
-
-  const { mutate, isPending } = useMutation({
-    mutationKey: ["add_project"],
-    mutationFn: async (data: AddProjectType) => {
-      await axios.post("/api/projects", data);
-    },
-
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["fetch_projects"],
-      });
-
-      reset();
-      setImage("");
-
-      toast.success("Project created!!!");
-      router.replace("/dashboard");
-    },
-  });
 
   // Form submit handler
   const onSubmit: SubmitHandler<ValidationSchemaType> = (formData) => {
