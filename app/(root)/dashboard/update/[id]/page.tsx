@@ -143,7 +143,7 @@ const Page: NextPage<Props> = ({ params }) => {
     mutate({
       title,
       features: features.split("**"),
-      image: image ? image : defaultImgURL,
+      image: image ? image : storeData?.image ?? defaultImgURL,
       site_url,
       repo_url,
     });

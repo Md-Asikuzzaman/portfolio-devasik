@@ -7,13 +7,14 @@ import Link from "next/link";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
   const queryClient = useQueryClient();
 
   // [FETCH] projects
-  const { data, isLoading } = useQuery<ProjectType[]>({
+  const { data, isLoading, isFetching } = useQuery<ProjectType[]>({
     queryKey: ["fetch_projects"],
     queryFn: async () => {
       const { data } = await axios.get("/api/projects");
@@ -122,7 +123,12 @@ const Page = () => {
                     <td className="flex items-center gap-4 px-6 py-4">
                       <Link
                         href={`/dashboard/update/${project.id}`}
-                        className="flex items-center gap-1 font-medium text-blue-600 hover:underline"
+                        className={clsx(
+                          "flex items-center gap-1 font-medium text-blue-600",
+                          isLoading || isFetching
+                            ? "pointer-events-none cursor-not-allowed hover:no-underline"
+                            : "pointer-events-auto cursor-pointer hover:underline",
+                        )}
                       >
                         Edit
                         <AiFillEdit size={18} />
