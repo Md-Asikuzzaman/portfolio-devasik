@@ -9,6 +9,14 @@ interface ProjectType {
   updatedAt: Date;
 }
 
+interface ProjectTypeFormUpdate {
+  title: string;
+  features: string[];
+  site_url: string;
+  repo_url: string;
+  image?: string;
+}
+
 interface AddProjectType {
   title: string;
   features: string[];
