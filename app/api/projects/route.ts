@@ -2,30 +2,42 @@ import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
 interface ApiResponse {
-  message?: string;
   projects?: ProjectType[];
   newProject?: ProjectType;
+  message?: string;
 }
 
+// [FETCH] all project
 export async function GET(): Promise<NextResponse<ApiResponse>> {
   try {
-    const projects = await prisma.project.findMany();
+    const projects = await prisma.project.findMany({
+      orderBy: {
+        updatedAt: "desc",
+      },
+    });
     return NextResponse.json({ projects }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { message: "Something went wrong!" },
-      { status: 500 }
+      { message: "Failed to fetch projects." },
+      { status: 500 },
     );
   }
 }
 
+// [CREATE] a new project
 export async function POST(req: Request): Promise<NextResponse<ApiResponse>> {
-  const { title, description, image, website, github, variant } =
-    await req.json();
+  try {
+    const body = await req.json();
 
-  const newProject = await prisma.project.create({
-    data: { title, description, image, website, github, variant },
-  });
+    const newProject = await prisma.project.create({
+      data: body,
+    });
 
-  return NextResponse.json({ newProject }, { status: 201 });
+    return NextResponse.json({ newProject }, { status: 201 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Failed to create project." },
+      { status: 500 },
+    );
+  }
 }

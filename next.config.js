@@ -6,8 +6,13 @@ module.exports = async (phase, { defaultConfig }) => {
     images: {
       remotePatterns: [
         {
-          protocol: 'https',
-          hostname: 'raw.githubusercontent.com',
+          protocol: "https",
+          hostname: "raw.githubusercontent.com",
+        },
+
+        {
+          protocol: "https",
+          hostname: "devasik.vercel.app",
         },
       ],
     },

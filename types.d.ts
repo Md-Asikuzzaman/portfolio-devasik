@@ -1,9 +1,26 @@
 interface ProjectType {
-  id?: string;
+  id: string;
   title: string;
-  description: string;
+  features: string[];
   image: string;
-  website: string;
-  github: string;
-  variant: string;
+  site_url: string;
+  repo_url: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+interface ProjectTypeFormUpdate {
+  title: string;
+  features: string[];
+  site_url: string;
+  repo_url: string;
+  image?: string;
+}
+
+interface AddProjectType {
+  title: string;
+  features: string[];
+  image: File | string;
+  site_url: string;
+  repo_url: string;
 }

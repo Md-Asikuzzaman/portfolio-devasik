@@ -20,6 +20,9 @@ export async function GET(
     const projects = await prisma.project.findMany({
       take: parseInt(limitPerPage),
       skip: (currentPage - 1) * parseInt(limitPerPage),
+      orderBy: {
+        updatedAt: "desc",
+      },
     });
 
     return NextResponse.json({ projects }, { status: 200 });

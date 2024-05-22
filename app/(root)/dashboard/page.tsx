@@ -8,21 +8,17 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import toast from "react-hot-toast";
 
-interface QueryResponse {
-  projects: ProjectType[];
-}
-
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
   const queryClient = useQueryClient();
 
-  // FETCH PROJECTS
-  const { data, isLoading } = useQuery<QueryResponse>({
+  // [FETCH] projects
+  const { data, isLoading } = useQuery<ProjectType[]>({
     queryKey: ["fetch_projects"],
     queryFn: async () => {
-      const res = await axios.get("/api/projects");
+      const { data } = await axios.get("/api/projects");
 
-      return res.data;
+      return data.projects;
     },
   });
 
@@ -39,24 +35,45 @@ const Page = () => {
         queryKey: ["fetch_projects"],
       });
     },
+
+    onMutate: async (id: string) => {
+      // Cancel any outgoing refetches
+      await queryClient.cancelQueries({ queryKey: ["fetch_projects"] });
+
+      // Snapshot the previous value
+      const previousMessages = queryClient.getQueryData(["fetch_projects"]);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(["fetch_projects"], (old: ProjectType[]) =>
+        old.filter((item) => item.id !== id),
+      );
+
+      // Return a context object with the snapshotted value
+      return { previousMessages };
+    },
+
+    onError: (err, newMessage, context) => {
+      queryClient.setQueryData(["fetch_projects"], context?.previousMessages);
+    },
+    // Always refetch after error or success:
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["fetch_projects"] });
+    },
   });
 
   return (
     <div>
-      <h2 className="text-xl md:text-2xl font-semibold mb-4">All Projects</h2>
+      <h2 className="mb-4 text-xl font-semibold md:text-2xl">All Projects</h2>
       <div className="flex flex-col gap-3">
         <div className="relative overflow-x-scroll shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+          <table className="w-full text-left text-sm text-gray-500">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Title
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Description
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  variant
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Image
@@ -68,38 +85,41 @@ const Page = () => {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr className="bg-white border-b  hover:bg-gray-50">
+                <tr className="border-b bg-white  hover:bg-gray-50">
                   <td className="px-6 py-4 text-center" colSpan={5}>
                     Loading...
                   </td>
                 </tr>
               ) : (
-                data?.projects?.map((project) => (
+                data?.map((project) => (
                   <tr
                     key={project.id}
-                    className="bg-white border-b  hover:bg-gray-50"
+                    className="border-b bg-white  hover:bg-gray-50"
                   >
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                     >
                       {project.title}
                     </th>
                     <td className="px-6 py-4">
-                      {project.description.slice(0, 20)}
+                      <ul>
+                        {project.features.map((feature, _i) => (
+                          <li key={_i}>⚡ {feature}</li>
+                        ))}
+                      </ul>
                     </td>
-                    <td className="px-6 py-4">{project.variant}</td>
-
                     <td className="p-2">
-                      <Image
-                        height={20}
-                        width={80}
-                        className="bg-cover bg-center"
-                        src={project.image}
-                        alt="cover"
-                      />
+                      <div className="relative h-12 w-20">
+                        <Image
+                          src={project.image}
+                          alt="cover"
+                          fill
+                          sizes="100px"
+                        />
+                      </div>
                     </td>
-                    <td className="px-6 py-4 flex items-center gap-4">
+                    <td className="flex items-center gap-4 px-6 py-4">
                       <Link
                         href={`/dashboard/update/${project.id}`}
                         className="flex items-center gap-1 font-medium text-blue-600 hover:underline"

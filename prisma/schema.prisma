@@ -11,11 +11,13 @@ datasource db {
 }
 
 model Project {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  description String
-  image       String
-  website     String
-  github      String
-  variant     String
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  features String[]
+  image    String
+  site_url String
+  repo_url String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
