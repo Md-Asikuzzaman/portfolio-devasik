@@ -35,6 +35,30 @@ const Page = () => {
         queryKey: ["fetch_projects"],
       });
     },
+
+    onMutate: async (id: string) => {
+      // Cancel any outgoing refetches
+      await queryClient.cancelQueries({ queryKey: ["fetch_projects"] });
+
+      // Snapshot the previous value
+      const previousMessages = queryClient.getQueryData(["fetch_projects"]);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(["fetch_projects"], (old: ProjectType[]) =>
+        old.filter((item) => item.id !== id),
+      );
+
+      // Return a context object with the snapshotted value
+      return { previousMessages };
+    },
+
+    onError: (err, newMessage, context) => {
+      queryClient.setQueryData(["fetch_projects"], context?.previousMessages);
+    },
+    // Always refetch after error or success:
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["fetch_projects"] });
+    },
   });
 
   return (

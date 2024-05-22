@@ -27,7 +27,7 @@ const Page: NextPage<Props> = ({ params }) => {
   const queryClient = useQueryClient();
 
   const [image, setImage] = useState<File | any>();
-  const [formData, setFormData] = useState<ProjectTypeFormUpdate>();
+  const [storeData, setStoreData] = useState<ProjectTypeFormUpdate>();
 
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof projectSchema>;
@@ -56,17 +56,17 @@ const Page: NextPage<Props> = ({ params }) => {
       site_url: "",
     },
     values: {
-      title: formData?.title ?? "",
-      features: formData?.features.join("**") ?? "",
-      repo_url: formData?.repo_url ?? "",
-      site_url: formData?.site_url ?? "",
+      title: storeData?.title ?? "",
+      features: storeData?.features.join("**") ?? "",
+      repo_url: storeData?.repo_url ?? "",
+      site_url: storeData?.site_url ?? "",
     },
   });
 
   // Auto-fill form data
   useEffect(() => {
     if (data) {
-      setFormData(data);
+      setStoreData(data);
     }
   }, [id, data]);
 
@@ -85,6 +85,31 @@ const Page: NextPage<Props> = ({ params }) => {
       setImage("");
       toast.success("Project updated!!!");
       router.replace("/dashboard");
+    },
+
+    onMutate: async (newProject: object) => {
+      // Cancel any outgoing refetches
+      await queryClient.cancelQueries({ queryKey: ["fetch_projects"] });
+
+      // Snapshot the previous value
+      const previousMessages = queryClient.getQueryData(["fetch_projects"]);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(["fetch_projects"], (old: ProjectType[]) => [
+        newProject,
+        ...old.filter((item) => item.id !== id),
+      ]);
+
+      // Return a context object with the snapshotted value
+      return { previousMessages };
+    },
+
+    onError: (err, newMessage, context) => {
+      queryClient.setQueryData(["fetch_projects"], context?.previousMessages);
+    },
+    // Always refetch after error or success:
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["fetch_projects"] });
     },
   });
 
@@ -170,10 +195,10 @@ const Page: NextPage<Props> = ({ params }) => {
             width={200}
           />
         ) : (
-          formData?.image && (
+          storeData?.image && (
             <Image
               className="mb-4"
-              src={formData?.image}
+              src={storeData?.image}
               alt="img"
               height={200}
               width={200}

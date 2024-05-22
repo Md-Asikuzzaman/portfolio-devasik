@@ -51,6 +51,31 @@ const Page = () => {
       toast.success("Project created!!!");
       router.replace("/dashboard");
     },
+
+    onMutate: async (newProject: AddProjectType) => {
+      // Cancel any outgoing refetches
+      await queryClient.cancelQueries({ queryKey: ["fetch_projects"] });
+
+      // Snapshot the previous value
+      const previousMessages = queryClient.getQueryData(["fetch_projects"]);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(["fetch_projects"], (old: ProjectType[]) => [
+        newProject,
+        ...old,
+      ]);
+
+      // Return a context object with the snapshotted value
+      return { previousMessages };
+    },
+
+    onError: (err, newMessage, context) => {
+      queryClient.setQueryData(["fetch_projects"], context?.previousMessages);
+    },
+    // Always refetch after error or success:
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["fetch_projects"] });
+    },
   });
 
   // Form change handler

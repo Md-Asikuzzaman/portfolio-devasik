@@ -5,8 +5,8 @@ interface ProjectType {
   image: string;
   site_url: string;
   repo_url: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 interface ProjectTypeFormUpdate {
