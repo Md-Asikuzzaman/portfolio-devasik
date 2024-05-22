@@ -21,7 +21,6 @@ const Page = () => {
 
       return data.projects;
     },
-    refetchOnMount: false,
   });
 
   // DELETE PROJECT
