@@ -30,8 +30,8 @@ const Project: NextPage<Props> = ({
         </h3>
 
         <ul className="flex flex-col gap-[2px] text-sm text-white">
-          {features.map((feature) => (
-            <li>🚀 {feature}</li>
+          {features.map((feature, _i) => (
+            <li key={_i}>🚀 {feature}</li>
           ))}
         </ul>
 

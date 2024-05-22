@@ -104,8 +104,8 @@ const Page = () => {
                     </th>
                     <td className="px-6 py-4">
                       <ul>
-                        {project.features.map((feature) => (
-                          <li>⚡ {feature}</li>
+                        {project.features.map((feature, _i) => (
+                          <li key={_i}>⚡ {feature}</li>
                         ))}
                       </ul>
                     </td>

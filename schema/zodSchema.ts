@@ -20,3 +20,17 @@ export const projectSchema = z.object({
   site_url: z.string().url().min(1, { message: "Live demo URL is required" }),
   repo_url: z.string().url().min(1, { message: "Github repo URL is required" }),
 });
+
+export const authSchema = z.object({
+  email: z
+    .string()
+    .trim()
+    .min(1, { message: "Email is required" })
+    .email("Invalid email address"),
+
+  password: z
+    .string()
+    .trim()
+    .min(6, { message: "Password at list 6 char." })
+    .max(30, { message: "Password at most 30 char." }),
+});

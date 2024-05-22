@@ -1,83 +1,111 @@
-'use client';
+"use client";
 
-import { NextPage } from 'next';
-import { useCallback, useEffect, useState } from 'react';
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import MyInput from '@/app/components/shared/Input';
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import MyInput from "@/app/components/shared/Input";
+import { z } from "zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { authSchema } from "@/schema/zodSchema";
+import toast from "react-hot-toast";
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const router = useRouter();
   const { data: session } = useSession();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   useEffect(() => {
     if (session) {
-      router.replace('/dashboard');
+      router.replace("/dashboard");
       return;
     }
   }, [session, router]);
 
-  const handleSubmit = useCallback(
-    (e: any) => {
-      e.preventDefault();
+  //extract the inferred type from schema
+  type ValidationSchemaType = z.infer<typeof authSchema>;
 
-      if (email !== '' && password !== '') {
-        signIn('credentials', {
-          email,
-          password,
-          callbackUrl: '/dashboard',
-        });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ValidationSchemaType>({
+    resolver: zodResolver(authSchema),
+  });
 
-        setEmail('');
-        setPassword('');
+  const onSubmit: SubmitHandler<ValidationSchemaType> = async (formData) => {
+    const { email, password } = formData;
+
+    setIsLoading(true);
+    await signIn("credentials", {
+      email: email,
+      password: password,
+      redirect: false,
+    }).then(({ ok, error }: any) => {
+      if (ok) {
+        toast.success("Login successful");
+        router.push("/dashboard");
+        router.refresh();
+        setIsLoading(false);
       } else {
-        return null;
+        toast.error(error);
+        setIsLoading(false);
       }
-    },
-    [email, password, setEmail, setPassword]
-  );
+    });
+
+    reset();
+  };
 
   return (
-    <div className="relative h-screen flex items-center justify-center bg-[url('/images/cover.png')] bg-cover bg-no-repeat bg-center px-5">
-      <div className='h-screen w-full bg-[rgba(0,0,0,.4)] absolute top-0 left-0 -z-0' />
-      <div className='max-w-lg w-full bg-black bg-opacity-40 backdrop-blur-md rounded-lg shrink-0 p-12 z-10'>
-        <h3 className='text-2xl md:text-3xl text-white font-semibold'>
+    <div className="relative flex h-screen items-center justify-center bg-[url('/images/cover.png')] bg-cover bg-center bg-no-repeat px-5">
+      <div className="absolute left-0 top-0 -z-0 h-screen w-full bg-[rgba(0,0,0,.4)]" />
+      <div className="z-10 w-full max-w-lg shrink-0 rounded-lg bg-black bg-opacity-40 p-12 backdrop-blur-md">
+        <h3 className="text-2xl font-semibold text-white md:text-3xl">
           Sign in
         </h3>
-        <p className='text-sm md:text-md text-white mt-2 mb-5'>
+        <p className="md:text-md mb-5 mt-2 text-sm text-white">
           Only for admin.
         </p>
-        <form onSubmit={handleSubmit}>
-          <MyInput
-            data={setEmail}
-            value={email}
-            id='email'
-            label='Email Address'
-          />
-          <MyInput
-            data={setPassword}
-            value={password}
-            type='password'
-            id='password'
-            label='Password'
-          />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-4 flex flex-col gap-1">
+            <MyInput
+              id="email"
+              label="Email Address"
+              register={{ ...register("email") }}
+            />
+            <p className="text-sm text-orange-500">
+              {errors && errors.email?.message}
+            </p>
+          </div>
+
+          <div className="mb-4 flex flex-col gap-1">
+            <MyInput
+              type="password"
+              id="password"
+              label="Password"
+              register={{ ...register("password") }}
+            />
+            <p className="text-sm text-orange-500">
+              {errors && errors.password?.message}
+            </p>
+          </div>
           <button
-            className='w-full py-3 rounded-md bg-orange-600 text-white hover:bg-orange-700 mt-4 transition'
-            type='submit'
+            className="mt-4 w-full rounded-md bg-orange-600 py-3 text-white transition hover:bg-orange-700"
+            type="submit"
           >
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </button>
-          <p className='text-white mt-4'>
-            Goto main{' '}
+          <p className="mt-4 text-white">
+            Goto main{" "}
             <Link
-              className='text-orange-400 hover:text-orange-500 transition'
-              href={'/'}
+              className="text-orange-400 transition hover:text-orange-500"
+              href={"/"}
             >
               site?
             </Link>

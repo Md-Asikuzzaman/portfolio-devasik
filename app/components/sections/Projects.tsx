@@ -73,7 +73,7 @@ const Projects: NextPage = () => {
             ? [0, 1, 2].map((_i, i) => <ProjectSkeleton key={i} />)
             : projects?.pages.map((page) =>
                 page.projects.map((project: ProjectType) => (
-                  <Project project={project} />
+                  <Project key={project.id} project={project} />
                 )),
               )}
         </div>
