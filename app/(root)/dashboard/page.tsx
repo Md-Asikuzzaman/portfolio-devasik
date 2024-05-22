@@ -3,7 +3,6 @@
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import toast from "react-hot-toast";
