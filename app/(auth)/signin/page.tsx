@@ -11,6 +11,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { authSchema } from "@/schema/zodSchema";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 interface Props {}
 
@@ -96,7 +97,11 @@ const Page: NextPage<Props> = ({}) => {
             </p>
           </div>
           <button
-            className="mt-4 w-full rounded-md bg-orange-600 py-3 text-white transition hover:bg-orange-700"
+            disabled={isLoading ? true : false}
+            className={clsx(
+              "mt-4 w-full rounded-md bg-orange-600 py-3 text-white transition hover:bg-orange-700",
+              isLoading ? "cursor-not-allowed" : "cursor-pointer",
+            )}
             type="submit"
           >
             {isLoading ? "Logging in..." : "Login"}

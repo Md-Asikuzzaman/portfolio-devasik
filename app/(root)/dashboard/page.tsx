@@ -7,19 +7,21 @@ import Link from "next/link";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
   const queryClient = useQueryClient();
 
   // [FETCH] projects
-  const { data, isLoading } = useQuery<ProjectType[]>({
+  const { data, isLoading, isFetching } = useQuery<ProjectType[]>({
     queryKey: ["fetch_projects"],
     queryFn: async () => {
       const { data } = await axios.get("/api/projects");
 
       return data.projects;
     },
+    refetchOnMount: false,
   });
 
   // DELETE PROJECT
@@ -120,12 +122,19 @@ const Page = () => {
                       </div>
                     </td>
                     <td className="flex items-center gap-4 px-6 py-4">
-                      <Link
-                        href={`/dashboard/update/${project.id}`}
-                        className="flex items-center gap-1 font-medium text-blue-600 hover:underline"
-                      >
-                        Edit
-                        <AiFillEdit size={18} />
+                      <Link href={`/dashboard/update/${project.id}`}>
+                        <button
+                          disabled={isLoading || isFetching ? true : false}
+                          className={clsx(
+                            "flex items-center gap-1 font-medium text-blue-600",
+                            isLoading || isFetching
+                              ? "cursor-not-allowed"
+                              : "cursor-pointer",
+                          )}
+                        >
+                          Edit
+                          <AiFillEdit size={18} />
+                        </button>
                       </Link>
 
                       <button
