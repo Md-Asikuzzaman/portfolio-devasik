@@ -9,6 +9,11 @@ module.exports = async (phase, { defaultConfig }) => {
           protocol: "https",
           hostname: "raw.githubusercontent.com",
         },
+
+        {
+          protocol: "http",
+          hostname: "devasik.vercel.app",
+        },
       ],
     },
   };
