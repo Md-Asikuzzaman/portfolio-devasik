@@ -29,7 +29,7 @@ const Project: NextPage<Props> = ({
           {title}
         </h3>
 
-        <ul className="flex flex-col gap-[2px] text-sm text-white">
+        <ul className="flex flex-col gap-[2px] text-sm text-slate-900 dark:text-white">
           {features.map((feature, _i) => (
             <li key={_i}>🚀 {feature}</li>
           ))}

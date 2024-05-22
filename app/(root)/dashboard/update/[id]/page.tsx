@@ -14,6 +14,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultImgURL } from "@/lib";
 import { z } from "zod";
+import clsx from "clsx";
 
 interface Props {
   params: { id: string };
@@ -32,7 +33,7 @@ const Page: NextPage<Props> = ({ params }) => {
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof projectSchema>;
 
-  const { data, isLoading } = useQuery<ProjectType>({
+  const { data, isLoading, isFetching } = useQuery<ProjectType>({
     queryKey: ["fetch_project_byId", id],
     queryFn: async () => {
       const { data } = await axios.get(`/api/projects/${id}`);
@@ -238,7 +239,13 @@ const Page: NextPage<Props> = ({ params }) => {
         </div>
 
         <button
-          className="mt-4 w-full rounded-md bg-neutral-900 py-3 text-white transition hover:bg-neutral-800"
+          disabled={isLoading || isFetching || isPending ? true : false}
+          className={clsx(
+            "mt-4 w-full rounded-md bg-neutral-900 py-3 text-white transition hover:bg-neutral-800",
+            isLoading || isFetching || isPending
+              ? "cursor-not-allowed"
+              : "cursor-pointer",
+          )}
           type="submit"
         >
           {isPending ? "Modifying..." : "Let's Modify"}

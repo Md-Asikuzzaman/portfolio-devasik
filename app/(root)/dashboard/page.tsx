@@ -21,6 +21,7 @@ const Page = () => {
 
       return data.projects;
     },
+    refetchOnMount: false,
   });
 
   // DELETE PROJECT
@@ -121,17 +122,19 @@ const Page = () => {
                       </div>
                     </td>
                     <td className="flex items-center gap-4 px-6 py-4">
-                      <Link
-                        href={`/dashboard/update/${project.id}`}
-                        className={clsx(
-                          "flex items-center gap-1 font-medium text-blue-600",
-                          isLoading || isFetching
-                            ? "pointer-events-none cursor-not-allowed hover:no-underline"
-                            : "pointer-events-auto cursor-pointer hover:underline",
-                        )}
-                      >
-                        Edit
-                        <AiFillEdit size={18} />
+                      <Link href={`/dashboard/update/${project.id}`}>
+                        <button
+                          disabled={isLoading || isFetching ? true : false}
+                          className={clsx(
+                            "flex items-center gap-1 font-medium text-blue-600",
+                            isLoading || isFetching
+                              ? "cursor-not-allowed"
+                              : "cursor-pointer",
+                          )}
+                        >
+                          Edit
+                          <AiFillEdit size={18} />
+                        </button>
                       </Link>
 
                       <button
