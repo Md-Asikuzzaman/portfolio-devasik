@@ -39,6 +39,7 @@ const Project: NextPage<Props> = ({
           {technologys?.react && <UsedTech tech="/tech/reactjs.webp" />}
           {technologys?.next && <UsedTech tech="/tech/nextjs.png" />}
           {technologys?.ts && <UsedTech tech="/tech/typescript.png" />}
+          {technologys?.js && <UsedTech tech="/tech/javascript.png" />}
           {technologys?.prisma && <UsedTech tech="/tech/prisma.png" />}
           {technologys?.mongodb && <UsedTech tech="/tech/mongodb.png" />}
           {technologys?.nextauth && <UsedTech tech="/tech/next-auth.png" />}

@@ -4,35 +4,34 @@ interface Props {
   label: string;
   placeholder: string;
   register: object;
-  type?: "text" | "textarea";
+  type: "text" | "textarea" | "password";
 }
 
 const MyInput: NextPage<Props> = ({ label, placeholder, register, type }) => {
   return (
     <>
-      {type === "text" ? (
+      {type === "textarea" ? (
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text">{label}</span>
           </div>
-          <input
-            type="text"
-            placeholder={placeholder}
-            className="input input-bordered input-md w-full"
+          <textarea
             {...register}
-          />
+            className="textarea textarea-bordered"
+            placeholder={placeholder}
+          ></textarea>
         </label>
       ) : (
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text">{label}</span>
           </div>
-
-          <textarea
-            {...register}
-            className="textarea textarea-bordered"
+          <input
+            type={type === "password" ? "password" : "text"}
             placeholder={placeholder}
-          ></textarea>
+            className="input input-bordered input-md w-full"
+            {...register}
+          />
         </label>
       )}
     </>
