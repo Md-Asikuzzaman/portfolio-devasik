@@ -122,10 +122,10 @@ const Page = () => {
                     <td className="flex items-center gap-4 px-6 py-4">
                       <Link href={`/dashboard/update/${project.id}`}>
                         <button
-                          disabled={isLoading || isFetching ? true : false}
+                          disabled={typeof project.id === "undefined" && true}
                           className={clsx(
                             "flex items-center gap-1 font-medium text-blue-600",
-                            isLoading || isFetching
+                            typeof project.id === "undefined"
                               ? "cursor-not-allowed"
                               : "cursor-pointer",
                           )}
@@ -136,12 +136,18 @@ const Page = () => {
                       </Link>
 
                       <button
+                        disabled={typeof project.id === "undefined" && true}
                         onClick={() => {
                           if (window.confirm("Do you really want to delete?")) {
-                            handleDelete(project.id ? project.id : "");
+                            handleDelete(project && project.id);
                           }
                         }}
-                        className="flex items-center gap-1 font-medium text-rose-600 hover:underline"
+                        className={clsx(
+                          "flex items-center gap-1 font-medium text-rose-600 hover:underline",
+                          typeof project.id === "undefined"
+                            ? "cursor-not-allowed"
+                            : "cursor-pointer",
+                        )}
                       >
                         Delete
                         <AiFillDelete size={18} />

@@ -19,6 +19,23 @@ export const projectSchema = z.object({
   features: z.string().min(1, { message: "Features is required" }),
   site_url: z.string().url().min(1, { message: "Live demo URL is required" }),
   repo_url: z.string().url().min(1, { message: "Github repo URL is required" }),
+  technologys: z.object({
+    react: z.optional(z.boolean()),
+    next: z.optional(z.boolean()),
+    ts: z.optional(z.boolean()),
+    js: z.optional(z.boolean()),
+    mongodb: z.optional(z.boolean()),
+    mysql: z.optional(z.boolean()),
+    prisma: z.optional(z.boolean()),
+    rquery: z.optional(z.boolean()),
+    zustand: z.optional(z.boolean()),
+    tailwind: z.optional(z.boolean()),
+    nextauth: z.optional(z.boolean()),
+    zod: z.optional(z.boolean()),
+    fmotion: z.optional(z.boolean()),
+    graphgl: z.optional(z.boolean()),
+    nmailer: z.optional(z.boolean()),
+  }),
 });
 
 export const authSchema = z.object({
