@@ -76,8 +76,9 @@ const Page: NextPage<Props> = ({}) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4 flex flex-col gap-1">
             <MyInput
-              id="email"
-              label="Email Address"
+              type="text"
+              label=""
+              placeholder="Email Address"
               register={{ ...register("email") }}
             />
             <p className="text-sm text-orange-500">
@@ -88,8 +89,8 @@ const Page: NextPage<Props> = ({}) => {
           <div className="mb-4 flex flex-col gap-1">
             <MyInput
               type="password"
-              id="password"
-              label="Password"
+              label=""
+              placeholder="Password"
               register={{ ...register("password") }}
             />
             <p className="text-sm text-orange-500">
@@ -106,6 +107,7 @@ const Page: NextPage<Props> = ({}) => {
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
+
           <p className="mt-4 text-white">
             Goto main{" "}
             <Link

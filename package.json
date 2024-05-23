@@ -48,6 +48,7 @@
     "@types/nodemailer": "^6.4.14",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-slick": "^0.23.13",
+    "daisyui": "^4.11.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14"
   }

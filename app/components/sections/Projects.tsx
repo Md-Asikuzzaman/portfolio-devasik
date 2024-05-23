@@ -36,7 +36,7 @@ const Projects: NextPage = () => {
 
       return data;
     },
-
+    refetchInterval: 5000,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.projects.length > 0 ? allPages.length + 1 : undefined;

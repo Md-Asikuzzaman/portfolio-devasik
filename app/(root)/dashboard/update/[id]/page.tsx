@@ -14,7 +14,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { defaultImgURL } from "@/lib";
 import { z } from "zod";
-import clsx from "clsx";
+import CheckBox from "@/app/components/shared/CheckBox";
 
 interface Props {
   params: { id: string };
@@ -33,7 +33,7 @@ const Page: NextPage<Props> = ({ params }) => {
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof projectSchema>;
 
-  const { data, isLoading, isFetching } = useQuery<ProjectType>({
+  const { data, isFetching } = useQuery<ProjectType>({
     queryKey: ["fetch_project_byId", id],
     queryFn: async () => {
       const { data } = await axios.get(`/api/projects/${id}`);
@@ -61,6 +61,7 @@ const Page: NextPage<Props> = ({ params }) => {
       features: storeData?.features.join("**") ?? "",
       repo_url: storeData?.repo_url ?? "",
       site_url: storeData?.site_url ?? "",
+      technologys: storeData?.technologys ?? {},
     },
   });
 
@@ -139,7 +140,7 @@ const Page: NextPage<Props> = ({ params }) => {
 
   // Form submit handler
   const onSubmit: SubmitHandler<ValidationSchemaType> = (formData) => {
-    const { title, features, site_url, repo_url } = formData;
+    const { title, features, site_url, repo_url, technologys } = formData;
 
     mutate({
       title,
@@ -147,6 +148,7 @@ const Page: NextPage<Props> = ({ params }) => {
       image: image ? image : storeData?.image ?? defaultImgURL,
       site_url,
       repo_url,
+      technologys,
     });
   };
 
@@ -156,17 +158,25 @@ const Page: NextPage<Props> = ({ params }) => {
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-2xl rounded-2xl bg-white p-12 shadow-lg"
       >
-        <h2 className="mb-4 text-xl font-semibold md:text-2xl">
-          Add a new Project
-        </h2>
+        {isFetching ? (
+          <div className="mb-4 flex items-center gap-2">
+            <span className="loading loading-spinner"></span>
+            <h2 className="text-xl font-semibold md:text-2xl">
+              Auto fill data...
+            </h2>
+          </div>
+        ) : (
+          <h2 className="mb-4 text-xl font-semibold md:text-2xl">
+            Update Project
+          </h2>
+        )}
 
-        {isLoading && "Loading..."}
-
+        {/* [Title] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Title"
-            id="title"
+            placeholder="Type title"
             register={{ ...register("title") }}
           />
           <p className="text-sm text-rose-500">
@@ -174,11 +184,12 @@ const Page: NextPage<Props> = ({ params }) => {
           </p>
         </div>
 
+        {/* [Features] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="textarea"
             label="Features"
-            id="features"
+            placeholder="Type features"
             register={{ ...register("features") }}
           />
 
@@ -214,11 +225,12 @@ const Page: NextPage<Props> = ({ params }) => {
           onChange={handleChange}
         />
 
+        {/* [Site-URL] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Site link"
-            id="site"
+            placeholder="Type site link"
             register={{ ...register("site_url") }}
           />
           <p className="text-sm text-rose-500">
@@ -226,11 +238,12 @@ const Page: NextPage<Props> = ({ params }) => {
           </p>
         </div>
 
+        {/* [Github-URL] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Github link"
-            id="github"
+            placeholder="Type GitHub repo link"
             register={{ ...register("repo_url") }}
           />
           <p className="text-sm text-rose-500">
@@ -238,16 +251,76 @@ const Page: NextPage<Props> = ({ params }) => {
           </p>
         </div>
 
+        {/* [Technology] input */}
+        <div className="mb-4 flex flex-wrap items-center gap-1">
+          <CheckBox
+            register={{ ...register("technologys.react") }}
+            placeholder="React"
+          />
+          <CheckBox
+            register={{ ...register("technologys.next") }}
+            placeholder="Next"
+          />
+          <CheckBox
+            register={{ ...register("technologys.ts") }}
+            placeholder="TS"
+          />
+          <CheckBox
+            register={{ ...register("technologys.js") }}
+            placeholder="JS"
+          />
+          <CheckBox
+            register={{ ...register("technologys.mongodb") }}
+            placeholder="MongoDB"
+          />
+          <CheckBox
+            register={{ ...register("technologys.mysql") }}
+            placeholder="MySQL"
+          />
+          <CheckBox
+            register={{ ...register("technologys.prisma") }}
+            placeholder="Prisma"
+          />
+          <CheckBox
+            register={{ ...register("technologys.rquery") }}
+            placeholder="R-Query"
+          />
+          <CheckBox
+            register={{ ...register("technologys.zustand") }}
+            placeholder="Zustand"
+          />
+          <CheckBox
+            register={{ ...register("technologys.tailwind") }}
+            placeholder="Tailwind"
+          />
+          <CheckBox
+            register={{ ...register("technologys.nextauth") }}
+            placeholder="Next-Auth"
+          />
+          <CheckBox
+            register={{ ...register("technologys.zod") }}
+            placeholder="Zod"
+          />
+          <CheckBox
+            register={{ ...register("technologys.fmotion") }}
+            placeholder="F-Motion"
+          />
+          <CheckBox
+            register={{ ...register("technologys.graphgl") }}
+            placeholder="GraphQL"
+          />
+          <CheckBox
+            register={{ ...register("technologys.nmailer") }}
+            placeholder="N-Mailer"
+          />
+        </div>
+
         <button
-          disabled={isLoading || isFetching || isPending ? true : false}
-          className={clsx(
-            "mt-4 w-full rounded-md bg-neutral-900 py-3 text-white transition hover:bg-neutral-800",
-            isLoading || isFetching || isPending
-              ? "cursor-not-allowed"
-              : "cursor-pointer",
-          )}
+          disabled={(isFetching || isPending) && true}
           type="submit"
+          className="btn btn-neutral"
         >
+          {isPending && <span className="loading loading-spinner"></span>}
           {isPending ? "Modifying..." : "Let's Modify"}
         </button>
       </form>

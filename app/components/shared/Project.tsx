@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Project: NextPage<Props> = ({
-  project: { title, features, image, site_url, repo_url },
+  project: { title, features, image, site_url, repo_url, technologys },
 }) => {
   return (
     <div className="relative overflow-hidden rounded-lg border border-slate-300 bg-white shadow-md transition-colors duration-200 ease-in-out hover:border-slate-400 dark:border-[#262B42] dark:bg-[#12172a] dark:hover:border-[#434865]">
@@ -36,16 +36,17 @@ const Project: NextPage<Props> = ({
         </ul>
 
         <div className="my-4 flex flex-wrap items-end justify-center gap-2">
-          <UsedTech tech="/tech/reactjs.webp" />
-          <UsedTech tech="/tech/nextjs.png" />
-          <UsedTech tech="/tech/prisma.png" />
-          <UsedTech tech="/tech/next-auth.png" />
-          <UsedTech tech="/tech/react-query.png" />
-          <UsedTech tech="/tech/zod.png" />
-          <UsedTech tech="/tech/mongodb.png" />
-          <UsedTech tech="/tech/typescript.png" />
-          <UsedTech tech="/tech/tailwindcss.png" />
-          <UsedTech tech="/tech/zustand.png" />
+          {technologys?.react && <UsedTech tech="/tech/reactjs.webp" />}
+          {technologys?.next && <UsedTech tech="/tech/nextjs.png" />}
+          {technologys?.ts && <UsedTech tech="/tech/typescript.png" />}
+          {technologys?.js && <UsedTech tech="/tech/javascript.png" />}
+          {technologys?.prisma && <UsedTech tech="/tech/prisma.png" />}
+          {technologys?.mongodb && <UsedTech tech="/tech/mongodb.png" />}
+          {technologys?.nextauth && <UsedTech tech="/tech/next-auth.png" />}
+          {technologys?.rquery && <UsedTech tech="/tech/react-query.png" />}
+          {technologys?.zustand && <UsedTech tech="/tech/zustand.png" />}
+          {technologys?.zod && <UsedTech tech="/tech/zod.png" />}
+          {technologys?.tailwind && <UsedTech tech="/tech/tailwindcss.png" />}
         </div>
 
         <hr className="my-4 h-px border-0 bg-gray-200 dark:bg-[#262B42]" />

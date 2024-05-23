@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { projectSchema } from "@/schema/zodSchema";
 import { defaultImgURL } from "@/lib";
 import MyInput from "@/app/components/shared/Input";
+import CheckBox from "@/app/components/shared/CheckBox";
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
@@ -101,14 +102,17 @@ const Page = () => {
 
   // Form submit handler
   const onSubmit: SubmitHandler<ValidationSchemaType> = (formData) => {
-    const { title, features, site_url, repo_url } = formData;
+    const { title, features, site_url, repo_url, technologys } = formData;
     mutate({
       title,
       features: features.split("**"),
       image: image ? image : defaultImgURL,
       site_url,
       repo_url,
+      technologys,
     });
+
+    console.log(formData);
   };
 
   return (
@@ -121,11 +125,12 @@ const Page = () => {
           Add a new Project
         </h2>
 
+        {/* [Title] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Title"
-            id="title"
+            placeholder="Type title"
             register={{ ...register("title") }}
           />
           <p className="text-sm text-rose-500">
@@ -133,11 +138,12 @@ const Page = () => {
           </p>
         </div>
 
+        {/* [Features] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="textarea"
             label="Features"
-            id="features"
+            placeholder="Type features"
             register={{ ...register("features") }}
           />
 
@@ -163,11 +169,12 @@ const Page = () => {
           onChange={handleChange}
         />
 
+        {/* [Site-URL] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Site link"
-            id="site"
+            placeholder="Type site link"
             register={{ ...register("site_url") }}
           />
           <p className="text-sm text-rose-500">
@@ -175,11 +182,12 @@ const Page = () => {
           </p>
         </div>
 
+        {/* [Github-URL] input field */}
         <div className="mb-4 flex flex-col gap-1">
           <MyInput
-            variant="bw"
+            type="text"
             label="Github link"
-            id="github"
+            placeholder="Type GitHub repo link"
             register={{ ...register("repo_url") }}
           />
           <p className="text-sm text-rose-500">
@@ -187,10 +195,76 @@ const Page = () => {
           </p>
         </div>
 
+        {/* [Technology] input */}
+        <div className="mb-4 flex flex-wrap items-center gap-1">
+          <CheckBox
+            register={{ ...register("technologys.react") }}
+            placeholder="React"
+          />
+          <CheckBox
+            register={{ ...register("technologys.next") }}
+            placeholder="Next"
+          />
+          <CheckBox
+            register={{ ...register("technologys.ts") }}
+            placeholder="TS"
+          />
+          <CheckBox
+            register={{ ...register("technologys.js") }}
+            placeholder="JS"
+          />
+          <CheckBox
+            register={{ ...register("technologys.mongodb") }}
+            placeholder="MongoDB"
+          />
+          <CheckBox
+            register={{ ...register("technologys.mysql") }}
+            placeholder="MySQL"
+          />
+          <CheckBox
+            register={{ ...register("technologys.prisma") }}
+            placeholder="Prisma"
+          />
+          <CheckBox
+            register={{ ...register("technologys.rquery") }}
+            placeholder="R-Query"
+          />
+          <CheckBox
+            register={{ ...register("technologys.zustand") }}
+            placeholder="Zustand"
+          />
+          <CheckBox
+            register={{ ...register("technologys.tailwind") }}
+            placeholder="Tailwind"
+          />
+          <CheckBox
+            register={{ ...register("technologys.nextauth") }}
+            placeholder="Next-Auth"
+          />
+          <CheckBox
+            register={{ ...register("technologys.zod") }}
+            placeholder="Zod"
+          />
+          <CheckBox
+            register={{ ...register("technologys.fmotion") }}
+            placeholder="F-Motion"
+          />
+          <CheckBox
+            register={{ ...register("technologys.graphgl") }}
+            placeholder="GraphQL"
+          />
+          <CheckBox
+            register={{ ...register("technologys.nmailer") }}
+            placeholder="N-Mailer"
+          />
+        </div>
+
         <button
-          className="mt-4 w-full rounded-md bg-neutral-900 py-3 text-white transition hover:bg-neutral-800"
+          disabled={isPending && true}
           type="submit"
+          className="btn btn-neutral"
         >
+          {isPending && <span className="loading loading-spinner"></span>}
           {isPending ? "Adding..." : "Let's Add"}
         </button>
       </form>

@@ -7,6 +7,7 @@ interface ProjectType {
   repo_url: string;
   createdAt?: Date;
   updatedAt?: Date;
+  technologys?: any;
 }
 
 interface ProjectTypeFormUpdate {
@@ -15,6 +16,7 @@ interface ProjectTypeFormUpdate {
   site_url: string;
   repo_url: string;
   image?: string;
+  technologys?: object;
 }
 
 interface AddProjectType {
@@ -23,4 +25,5 @@ interface AddProjectType {
   image: File | string;
   site_url: string;
   repo_url: string;
+  technologys?: object;
 }
