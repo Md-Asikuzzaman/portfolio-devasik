@@ -7,6 +7,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import toast from "react-hot-toast";
 import clsx from "clsx";
+import { getToken } from "@/lib";
 
 const Page = () => {
   axios.defaults.baseURL = process.env.NEXTAUTH_URL;
@@ -16,7 +17,11 @@ const Page = () => {
   const { data, isLoading, isFetching } = useQuery<ProjectType[]>({
     queryKey: ["fetch_projects"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/projects");
+      const { data } = await axios.get("/api/projects", {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
 
       return data.projects;
     },

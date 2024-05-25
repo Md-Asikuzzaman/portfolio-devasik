@@ -21,3 +21,7 @@ export const socialInfo: SocialInfoType = {
 export const defaultImgURL: string = `https://devasik.vercel.app/_next/image?url=%2Fimages%2Fdev.jpg&w=1920&q=75`;
 
 export const appVersion: string = "v2.7.4";
+
+export const getToken = () => {
+  return process.env.DEV_API_KEY || "123456";
+};

@@ -1,5 +1,7 @@
+import { getToken } from "@/lib";
 import prisma from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
+import { headers } from "next/headers";
 
 interface ApiResponse {
   message?: string;
@@ -17,6 +19,12 @@ export async function GET(
   const currentPage = Math.max(Number(parseInt(initialPage)) || 1, 1);
 
   try {
+    const token = headers().get("authorization");
+
+    if (!token || getToken() !== token?.split(" ")?.[1]) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
+
     const projects = await prisma.project.findMany({
       take: parseInt(limitPerPage),
       skip: (currentPage - 1) * parseInt(limitPerPage),
