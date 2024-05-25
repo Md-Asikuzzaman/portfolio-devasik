@@ -12,6 +12,7 @@ import axios from "axios";
 import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useActiveSection } from "@/lib/store";
+import { getToken } from "@/lib";
 
 interface QueryResponse {
   projects: ProjectType[];
@@ -31,6 +32,10 @@ const Projects: NextPage = () => {
         params: {
           _initialPage: pageParam,
           _limitPerPage: 3,
+        },
+        
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
         },
       });
 

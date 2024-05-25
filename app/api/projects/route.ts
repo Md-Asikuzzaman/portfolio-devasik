@@ -1,6 +1,9 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
+import { headers } from "next/headers";
+import { getToken } from "@/lib";
+
 interface ApiResponse {
   projects?: ProjectType[];
   newProject?: ProjectType;
@@ -10,6 +13,12 @@ interface ApiResponse {
 // [FETCH] all project
 export async function GET(): Promise<NextResponse<ApiResponse>> {
   try {
+    const token = headers().get("authorization");
+
+    if (!token || getToken() !== token?.split(" ")?.[1]) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
+
     const projects = await prisma.project.findMany({
       orderBy: {
         updatedAt: "desc",
