@@ -69,7 +69,10 @@ const Hero = () => {
         </div>
         <HeroButton />
       </div>
-      <Particle />
+
+      <div className="absolute left-0 top-0 h-screen w-full">
+        <Particle />
+      </div>
     </section>
   );
 };
