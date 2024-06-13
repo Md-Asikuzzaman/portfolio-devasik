@@ -13,6 +13,8 @@ import ProjectSkeleton from "../shared/skeleton/ProjectSkeleton";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useActiveSection } from "@/lib/store";
 import { getToken } from "@/lib";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface QueryResponse {
   projects: ProjectType[];
@@ -33,7 +35,7 @@ const Projects: NextPage = () => {
           _initialPage: pageParam,
           _limitPerPage: 3,
         },
-        
+
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
@@ -60,6 +62,37 @@ const Projects: NextPage = () => {
     }
   }, [inView, setActiveSection]);
 
+  // text animation
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".recent",
+      scroller: "body",
+      // markers: true,
+      start: "top 95%",
+      end: "top 10%",
+      toggleActions: "play reset play reset",
+    },
+  });
+
+  useGSAP(() => {
+    tl.to(".recent", {
+      transform: "translateY(0)",
+      stagger: 0.1,
+      duration: 0.2,
+      opacity: 1,
+      ease: "bounce.inOut",
+      delay: 0.5,
+    });
+
+    tl.to(".works", {
+      transform: "translateX(0)",
+      stagger: 0.2,
+      duration: 0.6,
+      opacity: 1,
+      ease: "elastic.inOut",
+    });
+  }, []);
+
   return (
     <section ref={ref} id="works" className="relative overflow-hidden pb-16">
       <div className="relative z-0 pt-14">
@@ -70,7 +103,27 @@ const Projects: NextPage = () => {
       </div>
       <div className="container">
         <h2 className="mb-10 text-center text-2xl font-bold text-slate-900 dark:text-white md:text-3xl">
-          Recent Works
+          <span className="recent inline-block translate-y-12 opacity-0">
+            R
+          </span>
+          <span className="recent inline-block translate-y-12 opacity-0">
+            e
+          </span>
+          <span className="recent inline-block translate-y-12 opacity-0">
+            c
+          </span>
+          <span className="recent inline-block translate-y-12 opacity-0">
+            e
+          </span>
+          <span className="recent inline-block translate-y-12 opacity-0">
+            n
+          </span>
+          <span className="recent inline-block translate-y-12 opacity-0">
+            t
+          </span>
+          <span className="works ms-3 inline-block translate-x-12 opacity-0">
+            Works
+          </span>
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
