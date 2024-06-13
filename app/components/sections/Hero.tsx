@@ -34,7 +34,7 @@ const Hero = () => {
     >
       <div className="overlay z-10"></div>
       <div className="z-10 flex flex-col items-center justify-center">
-        <h1 className="mb-5 text-center text-5xl font-extrabold tracking-tight md:mb-8 md:text-5xl lg:text-6xl">
+        <h1 className="mb-5 text-center text-5xl font-extrabold tracking-tight md:mb-8 md:text-5xl lg:text-7xl">
           <span className="gradient__text">I'm Dev </span>
           <span className="hero-text-stroke">Asik.</span>
         </h1>

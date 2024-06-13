@@ -1,7 +1,7 @@
 "use client";
 
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -20,13 +20,6 @@ const Page: NextPage<Props> = ({}) => {
   const { data: session } = useSession();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (session) {
-      router.replace("/dashboard");
-      return;
-    }
-  }, [session, router]);
 
   //extract the inferred type from schema
   type ValidationSchemaType = z.infer<typeof authSchema>;
@@ -62,6 +55,12 @@ const Page: NextPage<Props> = ({}) => {
 
     reset();
   };
+
+  useLayoutEffect(() => {
+    if (session) {
+      router.replace("/dashboard");
+    }
+  }, [session, router]);
 
   return (
     <div className="relative flex h-screen items-center justify-center bg-[url('/images/cover.png')] bg-cover bg-center bg-no-repeat px-5">
