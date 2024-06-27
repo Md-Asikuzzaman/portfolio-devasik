@@ -10,8 +10,7 @@ import { useInView } from "react-intersection-observer";
 import { useActiveSection } from "@/lib/store";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
-
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
@@ -45,7 +44,7 @@ const About = () => {
       duration: 0.2,
       opacity: 1,
       ease: "bounce.inOut",
-      delay: .5,
+      delay: 0.5,
     });
 
     tl.to(".me", {
